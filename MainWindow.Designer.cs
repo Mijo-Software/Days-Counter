@@ -38,6 +38,8 @@
 			this.labelDays = new System.Windows.Forms.Label();
 			this.labelDateEnd = new System.Windows.Forms.Label();
 			this.labelDateBegin = new System.Windows.Forms.Label();
+			this.buttonSwitchDateEnd = new System.Windows.Forms.Button();
+			this.buttonSwitchDateBegin = new System.Windows.Forms.Button();
 			this.tabPageDaySpan = new System.Windows.Forms.TabPage();
 			this.labelDateOut = new System.Windows.Forms.Label();
 			this.labelDateIn = new System.Windows.Forms.Label();
@@ -45,39 +47,41 @@
 			this.labelDaysPlusMinus = new System.Windows.Forms.Label();
 			this.numericUpDownDays = new System.Windows.Forms.NumericUpDown();
 			this.dateTimePickerDateIn = new System.Windows.Forms.DateTimePicker();
+			this.buttonSwitchDateIn = new System.Windows.Forms.Button();
 			this.tabPageAbout = new System.Windows.Forms.TabPage();
 			this.labelCopyright = new System.Windows.Forms.Label();
 			this.labelDescription = new System.Windows.Forms.Label();
 			this.labelTitle = new System.Windows.Forms.Label();
+			this.pictureBox = new System.Windows.Forms.PictureBox();
+			this.imageList = new System.Windows.Forms.ImageList(this.components);
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-			this.buttonSwitchDateEnd = new System.Windows.Forms.Button();
-			this.buttonSwitchDateBegin = new System.Windows.Forms.Button();
-			this.buttonSwitchDateIn = new System.Windows.Forms.Button();
-			this.pictureBox = new System.Windows.Forms.PictureBox();
-			this.imageList = new System.Windows.Forms.ImageList(this.components);
 			this.tabControl.SuspendLayout();
 			this.tabPageDateToDate.SuspendLayout();
 			this.tabPageDaySpan.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownDays)).BeginInit();
 			this.tabPageAbout.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.statusStrip.SuspendLayout();
 			this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer1.ContentPanel.SuspendLayout();
 			this.toolStripContainer1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dateTimePickerBegin
 			// 
+			this.dateTimePickerBegin.AccessibleDescription = "Show the beginning date";
+			this.dateTimePickerBegin.AccessibleName = "Beginning date";
+			this.dateTimePickerBegin.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
 			this.dateTimePickerBegin.Location = new System.Drawing.Point(49, 6);
 			this.dateTimePickerBegin.Name = "dateTimePickerBegin";
 			this.dateTimePickerBegin.Size = new System.Drawing.Size(200, 20);
 			this.dateTimePickerBegin.TabIndex = 1;
+			this.toolTip.SetToolTip(this.dateTimePickerBegin, "Beginning");
 			this.dateTimePickerBegin.ValueChanged += new System.EventHandler(this.DateTimePickerBegin_ValueChanged);
 			this.dateTimePickerBegin.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.dateTimePickerBegin.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -86,10 +90,14 @@
 			// 
 			// dateTimePickerEnd
 			// 
+			this.dateTimePickerEnd.AccessibleDescription = "Show the ending date";
+			this.dateTimePickerEnd.AccessibleName = "Ending date";
+			this.dateTimePickerEnd.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
 			this.dateTimePickerEnd.Location = new System.Drawing.Point(49, 32);
 			this.dateTimePickerEnd.Name = "dateTimePickerEnd";
 			this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 20);
 			this.dateTimePickerEnd.TabIndex = 4;
+			this.toolTip.SetToolTip(this.dateTimePickerEnd, "Ending date");
 			this.dateTimePickerEnd.ValueChanged += new System.EventHandler(this.DateTimePickerEnd_ValueChanged);
 			this.dateTimePickerEnd.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.dateTimePickerEnd.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -98,10 +106,14 @@
 			// 
 			// tabControl
 			// 
+			this.tabControl.AccessibleDescription = "Show the tabs";
+			this.tabControl.AccessibleName = "Show the tabs";
+			this.tabControl.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
 			this.tabControl.Controls.Add(this.tabPageDateToDate);
 			this.tabControl.Controls.Add(this.tabPageDaySpan);
 			this.tabControl.Controls.Add(this.tabPageAbout);
 			this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControl.HotTrack = true;
 			this.tabControl.ImageList = this.imageList;
 			this.tabControl.Location = new System.Drawing.Point(0, 0);
 			this.tabControl.Name = "tabControl";
@@ -111,6 +123,9 @@
 			// 
 			// tabPageDateToDate
 			// 
+			this.tabPageDateToDate.AccessibleDescription = "Show the tab \"From date to date\"";
+			this.tabPageDateToDate.AccessibleName = "Tab \"From date to date\"";
+			this.tabPageDateToDate.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
 			this.tabPageDateToDate.Controls.Add(this.labelDaysCounted);
 			this.tabPageDateToDate.Controls.Add(this.labelDays);
 			this.tabPageDateToDate.Controls.Add(this.labelDateEnd);
@@ -130,12 +145,16 @@
 			// 
 			// labelDaysCounted
 			// 
+			this.labelDaysCounted.AccessibleDescription = "Show the the counted days";
+			this.labelDaysCounted.AccessibleName = "Counted days";
+			this.labelDaysCounted.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDaysCounted.AutoSize = true;
 			this.labelDaysCounted.Location = new System.Drawing.Point(51, 59);
 			this.labelDaysCounted.Name = "labelDaysCounted";
 			this.labelDaysCounted.Size = new System.Drawing.Size(22, 13);
 			this.labelDaysCounted.TabIndex = 7;
 			this.labelDaysCounted.Text = "xxx";
+			this.toolTip.SetToolTip(this.labelDaysCounted, "Counted days");
 			this.labelDaysCounted.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDaysCounted.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelDaysCounted.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -143,12 +162,16 @@
 			// 
 			// labelDays
 			// 
+			this.labelDays.AccessibleDescription = "Show the description of the counted days";
+			this.labelDays.AccessibleName = "Description of the counted days";
+			this.labelDays.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDays.AutoSize = true;
 			this.labelDays.Location = new System.Drawing.Point(8, 59);
 			this.labelDays.Name = "labelDays";
 			this.labelDays.Size = new System.Drawing.Size(34, 13);
 			this.labelDays.TabIndex = 6;
 			this.labelDays.Text = "&Days:";
+			this.toolTip.SetToolTip(this.labelDays, "Description of the counted days");
 			this.labelDays.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDays.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelDays.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -156,12 +179,16 @@
 			// 
 			// labelDateEnd
 			// 
+			this.labelDateEnd.AccessibleDescription = "Show the description of the ending date";
+			this.labelDateEnd.AccessibleName = "Description of the ending date";
+			this.labelDateEnd.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDateEnd.AutoSize = true;
 			this.labelDateEnd.Location = new System.Drawing.Point(8, 36);
 			this.labelDateEnd.Name = "labelDateEnd";
 			this.labelDateEnd.Size = new System.Drawing.Size(23, 13);
 			this.labelDateEnd.TabIndex = 3;
 			this.labelDateEnd.Text = "&To:";
+			this.toolTip.SetToolTip(this.labelDateEnd, "Description of the second date");
 			this.labelDateEnd.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDateEnd.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelDateEnd.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -169,19 +196,62 @@
 			// 
 			// labelDateBegin
 			// 
+			this.labelDateBegin.AccessibleDescription = "Show the description of the beginning date";
+			this.labelDateBegin.AccessibleName = "Description of the beginning date";
+			this.labelDateBegin.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDateBegin.AutoSize = true;
 			this.labelDateBegin.Location = new System.Drawing.Point(8, 10);
 			this.labelDateBegin.Name = "labelDateBegin";
 			this.labelDateBegin.Size = new System.Drawing.Size(33, 13);
 			this.labelDateBegin.TabIndex = 0;
 			this.labelDateBegin.Text = "&From:";
+			this.toolTip.SetToolTip(this.labelDateBegin, "Description of the first date");
 			this.labelDateBegin.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDateBegin.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelDateBegin.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDateBegin.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
+			// buttonSwitchDateEnd
+			// 
+			this.buttonSwitchDateEnd.AccessibleDescription = "Switch the input method of the ending date";
+			this.buttonSwitchDateEnd.AccessibleName = "Change the input method of the ending date";
+			this.buttonSwitchDateEnd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonSwitchDateEnd.Image = global::Days_Counter.Properties.Resources.switch_small;
+			this.buttonSwitchDateEnd.Location = new System.Drawing.Point(255, 32);
+			this.buttonSwitchDateEnd.Name = "buttonSwitchDateEnd";
+			this.buttonSwitchDateEnd.Size = new System.Drawing.Size(20, 20);
+			this.buttonSwitchDateEnd.TabIndex = 5;
+			this.toolTip.SetToolTip(this.buttonSwitchDateEnd, "Change the input method of the ending date");
+			this.buttonSwitchDateEnd.UseVisualStyleBackColor = true;
+			this.buttonSwitchDateEnd.Click += new System.EventHandler(this.ButtonSwitchDateEnd_Click);
+			this.buttonSwitchDateEnd.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSwitchDateEnd.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonSwitchDateEnd.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSwitchDateEnd.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// buttonSwitchDateBegin
+			// 
+			this.buttonSwitchDateBegin.AccessibleDescription = "Switch the input method of the beginning date";
+			this.buttonSwitchDateBegin.AccessibleName = "Change the input method of the beginning date";
+			this.buttonSwitchDateBegin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonSwitchDateBegin.Image = global::Days_Counter.Properties.Resources.switch_small;
+			this.buttonSwitchDateBegin.Location = new System.Drawing.Point(255, 6);
+			this.buttonSwitchDateBegin.Name = "buttonSwitchDateBegin";
+			this.buttonSwitchDateBegin.Size = new System.Drawing.Size(20, 20);
+			this.buttonSwitchDateBegin.TabIndex = 2;
+			this.toolTip.SetToolTip(this.buttonSwitchDateBegin, "Change the input method of the beginning date");
+			this.buttonSwitchDateBegin.UseVisualStyleBackColor = true;
+			this.buttonSwitchDateBegin.Click += new System.EventHandler(this.ButtonSwitchDateBegin_Click);
+			this.buttonSwitchDateBegin.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSwitchDateBegin.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonSwitchDateBegin.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSwitchDateBegin.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
 			// tabPageDaySpan
 			// 
+			this.tabPageDaySpan.AccessibleDescription = "Show the tab \"Days more/less\"";
+			this.tabPageDaySpan.AccessibleName = "Tab \"Days more/less\"";
+			this.tabPageDaySpan.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
 			this.tabPageDaySpan.Controls.Add(this.labelDateOut);
 			this.tabPageDaySpan.Controls.Add(this.labelDateIn);
 			this.tabPageDaySpan.Controls.Add(this.dateTimePickerDateOut);
@@ -200,12 +270,16 @@
 			// 
 			// labelDateOut
 			// 
+			this.labelDateOut.AccessibleDescription = "Show the description of the ending date";
+			this.labelDateOut.AccessibleName = "Description of the ending date";
+			this.labelDateOut.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDateOut.AutoSize = true;
 			this.labelDateOut.Location = new System.Drawing.Point(8, 62);
 			this.labelDateOut.Name = "labelDateOut";
 			this.labelDateOut.Size = new System.Drawing.Size(51, 13);
 			this.labelDateOut.TabIndex = 5;
 			this.labelDateOut.Text = "Date &out:";
+			this.toolTip.SetToolTip(this.labelDateOut, "Description of the ending date");
 			this.labelDateOut.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDateOut.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelDateOut.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -213,12 +287,16 @@
 			// 
 			// labelDateIn
 			// 
+			this.labelDateIn.AccessibleDescription = "Show the description of the beginning date";
+			this.labelDateIn.AccessibleName = "Description of the beginning date";
+			this.labelDateIn.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDateIn.AutoSize = true;
 			this.labelDateIn.Location = new System.Drawing.Point(8, 10);
 			this.labelDateIn.Name = "labelDateIn";
 			this.labelDateIn.Size = new System.Drawing.Size(44, 13);
 			this.labelDateIn.TabIndex = 0;
 			this.labelDateIn.Text = "Date &in:";
+			this.toolTip.SetToolTip(this.labelDateIn, "Description of the beginning date");
 			this.labelDateIn.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDateIn.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelDateIn.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -226,11 +304,15 @@
 			// 
 			// dateTimePickerDateOut
 			// 
+			this.dateTimePickerDateOut.AccessibleDescription = "Show the ending date";
+			this.dateTimePickerDateOut.AccessibleName = "Ending date";
+			this.dateTimePickerDateOut.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
 			this.dateTimePickerDateOut.Enabled = false;
 			this.dateTimePickerDateOut.Location = new System.Drawing.Point(66, 58);
 			this.dateTimePickerDateOut.Name = "dateTimePickerDateOut";
 			this.dateTimePickerDateOut.Size = new System.Drawing.Size(183, 20);
 			this.dateTimePickerDateOut.TabIndex = 6;
+			this.toolTip.SetToolTip(this.dateTimePickerDateOut, "Ending date");
 			this.dateTimePickerDateOut.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.dateTimePickerDateOut.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.dateTimePickerDateOut.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -238,6 +320,9 @@
 			// 
 			// labelDaysPlusMinus
 			// 
+			this.labelDaysPlusMinus.AccessibleDescription = "Show the description of the ending date";
+			this.labelDaysPlusMinus.AccessibleName = "Description of the day span";
+			this.labelDaysPlusMinus.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDaysPlusMinus.AutoSize = true;
 			this.labelDaysPlusMinus.Location = new System.Drawing.Point(8, 34);
 			this.labelDaysPlusMinus.Name = "labelDaysPlusMinus";
@@ -251,6 +336,9 @@
 			// 
 			// numericUpDownDays
 			// 
+			this.numericUpDownDays.AccessibleDescription = "Change the day span";
+			this.numericUpDownDays.AccessibleName = "Day span";
+			this.numericUpDownDays.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
 			this.numericUpDownDays.Location = new System.Drawing.Point(66, 32);
 			this.numericUpDownDays.Maximum = new decimal(new int[] {
             99999,
@@ -266,24 +354,50 @@
 			this.numericUpDownDays.Size = new System.Drawing.Size(75, 20);
 			this.numericUpDownDays.TabIndex = 4;
 			this.numericUpDownDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.toolTip.SetToolTip(this.numericUpDownDays, "Day span");
 			this.numericUpDownDays.ValueChanged += new System.EventHandler(this.NumericUpDownDays_ValueChanged);
 			this.numericUpDownDays.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.numericUpDownDays.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// dateTimePickerDateIn
 			// 
+			this.dateTimePickerDateIn.AccessibleDescription = "Show the beginning date";
+			this.dateTimePickerDateIn.AccessibleName = "Beginning date";
+			this.dateTimePickerDateIn.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
 			this.dateTimePickerDateIn.Location = new System.Drawing.Point(66, 6);
 			this.dateTimePickerDateIn.Name = "dateTimePickerDateIn";
 			this.dateTimePickerDateIn.Size = new System.Drawing.Size(183, 20);
 			this.dateTimePickerDateIn.TabIndex = 1;
+			this.toolTip.SetToolTip(this.dateTimePickerDateIn, "Beginning date");
 			this.dateTimePickerDateIn.ValueChanged += new System.EventHandler(this.DateTimePickerDateIn_ValueChanged);
 			this.dateTimePickerDateIn.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.dateTimePickerDateIn.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.dateTimePickerDateIn.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.dateTimePickerDateIn.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
+			// buttonSwitchDateIn
+			// 
+			this.buttonSwitchDateIn.AccessibleDescription = "Switch the input method of the beginning date";
+			this.buttonSwitchDateIn.AccessibleName = "Change the input method of the ending date";
+			this.buttonSwitchDateIn.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonSwitchDateIn.Image = global::Days_Counter.Properties.Resources.switch_small;
+			this.buttonSwitchDateIn.Location = new System.Drawing.Point(255, 6);
+			this.buttonSwitchDateIn.Name = "buttonSwitchDateIn";
+			this.buttonSwitchDateIn.Size = new System.Drawing.Size(20, 20);
+			this.buttonSwitchDateIn.TabIndex = 2;
+			this.toolTip.SetToolTip(this.buttonSwitchDateIn, "Change the input method of the ending date");
+			this.buttonSwitchDateIn.UseVisualStyleBackColor = true;
+			this.buttonSwitchDateIn.Click += new System.EventHandler(this.ButtonSwitchDateDays_Click);
+			this.buttonSwitchDateIn.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSwitchDateIn.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonSwitchDateIn.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSwitchDateIn.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
 			// tabPageAbout
 			// 
+			this.tabPageAbout.AccessibleDescription = "Show the tab \"About\"";
+			this.tabPageAbout.AccessibleName = "Tab \"About\"";
+			this.tabPageAbout.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
 			this.tabPageAbout.Controls.Add(this.labelCopyright);
 			this.tabPageAbout.Controls.Add(this.labelDescription);
 			this.tabPageAbout.Controls.Add(this.labelTitle);
@@ -299,12 +413,16 @@
 			// 
 			// labelCopyright
 			// 
+			this.labelCopyright.AccessibleDescription = "Show the copyright and the company name";
+			this.labelCopyright.AccessibleName = "Copyright/company";
+			this.labelCopyright.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelCopyright.AutoSize = true;
 			this.labelCopyright.Location = new System.Drawing.Point(9, 63);
 			this.labelCopyright.Name = "labelCopyright";
 			this.labelCopyright.Size = new System.Drawing.Size(120, 17);
 			this.labelCopyright.TabIndex = 2;
 			this.labelCopyright.Text = "[Copyright + Company]";
+			this.toolTip.SetToolTip(this.labelCopyright, "Copyright/company");
 			this.labelCopyright.UseCompatibleTextRendering = true;
 			this.labelCopyright.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelCopyright.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -313,12 +431,16 @@
 			// 
 			// labelDescription
 			// 
+			this.labelDescription.AccessibleDescription = "Show the description";
+			this.labelDescription.AccessibleName = "Description";
+			this.labelDescription.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDescription.AutoSize = true;
 			this.labelDescription.Location = new System.Drawing.Point(9, 46);
 			this.labelDescription.Name = "labelDescription";
 			this.labelDescription.Size = new System.Drawing.Size(67, 17);
 			this.labelDescription.TabIndex = 1;
 			this.labelDescription.Text = "[Description]";
+			this.toolTip.SetToolTip(this.labelDescription, "Description");
 			this.labelDescription.UseCompatibleTextRendering = true;
 			this.labelDescription.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDescription.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -327,6 +449,9 @@
 			// 
 			// labelTitle
 			// 
+			this.labelTitle.AccessibleDescription = "Show the title and the version";
+			this.labelTitle.AccessibleName = "Title/version";
+			this.labelTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelTitle.AutoSize = true;
 			this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelTitle.Location = new System.Drawing.Point(47, 9);
@@ -334,11 +459,34 @@
 			this.labelTitle.Size = new System.Drawing.Size(165, 30);
 			this.labelTitle.TabIndex = 0;
 			this.labelTitle.Text = "[Title + Version]";
+			this.toolTip.SetToolTip(this.labelTitle, "Title/version");
 			this.labelTitle.UseCompatibleTextRendering = true;
 			this.labelTitle.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelTitle.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelTitle.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelTitle.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// pictureBox
+			// 
+			this.pictureBox.AccessibleDescription = "Show the application logo";
+			this.pictureBox.AccessibleName = "Apllication logo";
+			this.pictureBox.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
+			this.pictureBox.Image = global::Days_Counter.Properties.Resources.calendar_day;
+			this.pictureBox.Location = new System.Drawing.Point(9, 7);
+			this.pictureBox.Name = "pictureBox";
+			this.pictureBox.Size = new System.Drawing.Size(32, 32);
+			this.pictureBox.TabIndex = 0;
+			this.pictureBox.TabStop = false;
+			this.pictureBox.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.pictureBox.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// imageList
+			// 
+			this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+			this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageList.Images.SetKeyName(0, "calendar-select-days.png");
+			this.imageList.Images.SetKeyName(1, "calendar-select-days-span.png");
+			this.imageList.Images.SetKeyName(2, "information-button.png");
 			// 
 			// errorProvider
 			// 
@@ -346,6 +494,9 @@
 			// 
 			// statusStrip
 			// 
+			this.statusStrip.AccessibleDescription = "Show the statusbar with some information";
+			this.statusStrip.AccessibleName = "Statusbar";
+			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
 			this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelInformation});
@@ -356,12 +507,23 @@
 			this.statusStrip.SizingGrip = false;
 			this.statusStrip.TabIndex = 0;
 			this.statusStrip.Text = "statusStrip";
+			this.toolTip.SetToolTip(this.statusStrip, "Statusbar with some information");
+			this.statusStrip.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.statusStrip.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.statusStrip.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.statusStrip.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelInformation
 			// 
+			this.labelInformation.AccessibleDescription = "Show some information";
+			this.labelInformation.AccessibleName = "Information";
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelInformation.AutoToolTip = true;
 			this.labelInformation.Name = "labelInformation";
 			this.labelInformation.Size = new System.Drawing.Size(70, 17);
 			this.labelInformation.Text = "information";
+			this.labelInformation.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelInformation.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripContainer1
 			// 
@@ -382,69 +544,11 @@
 			this.toolStripContainer1.TabIndex = 6;
 			this.toolStripContainer1.Text = "toolStripContainer1";
 			// 
-			// buttonSwitchDateEnd
-			// 
-			this.buttonSwitchDateEnd.Image = global::Days_Counter.Properties.Resources.switch_small;
-			this.buttonSwitchDateEnd.Location = new System.Drawing.Point(255, 32);
-			this.buttonSwitchDateEnd.Name = "buttonSwitchDateEnd";
-			this.buttonSwitchDateEnd.Size = new System.Drawing.Size(20, 20);
-			this.buttonSwitchDateEnd.TabIndex = 5;
-			this.buttonSwitchDateEnd.UseVisualStyleBackColor = true;
-			this.buttonSwitchDateEnd.Click += new System.EventHandler(this.ButtonSwitchDateEnd_Click);
-			this.buttonSwitchDateEnd.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonSwitchDateEnd.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.buttonSwitchDateEnd.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonSwitchDateEnd.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// buttonSwitchDateBegin
-			// 
-			this.buttonSwitchDateBegin.Image = global::Days_Counter.Properties.Resources.switch_small;
-			this.buttonSwitchDateBegin.Location = new System.Drawing.Point(255, 6);
-			this.buttonSwitchDateBegin.Name = "buttonSwitchDateBegin";
-			this.buttonSwitchDateBegin.Size = new System.Drawing.Size(20, 20);
-			this.buttonSwitchDateBegin.TabIndex = 2;
-			this.buttonSwitchDateBegin.UseVisualStyleBackColor = true;
-			this.buttonSwitchDateBegin.Click += new System.EventHandler(this.ButtonSwitchDateBegin_Click);
-			this.buttonSwitchDateBegin.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonSwitchDateBegin.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.buttonSwitchDateBegin.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonSwitchDateBegin.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// buttonSwitchDateIn
-			// 
-			this.buttonSwitchDateIn.Image = global::Days_Counter.Properties.Resources.switch_small;
-			this.buttonSwitchDateIn.Location = new System.Drawing.Point(255, 6);
-			this.buttonSwitchDateIn.Name = "buttonSwitchDateIn";
-			this.buttonSwitchDateIn.Size = new System.Drawing.Size(20, 20);
-			this.buttonSwitchDateIn.TabIndex = 2;
-			this.buttonSwitchDateIn.UseVisualStyleBackColor = true;
-			this.buttonSwitchDateIn.Click += new System.EventHandler(this.ButtonSwitchDateDays_Click);
-			this.buttonSwitchDateIn.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonSwitchDateIn.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.buttonSwitchDateIn.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonSwitchDateIn.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// pictureBox
-			// 
-			this.pictureBox.Image = global::Days_Counter.Properties.Resources.calendar_day;
-			this.pictureBox.Location = new System.Drawing.Point(9, 7);
-			this.pictureBox.Name = "pictureBox";
-			this.pictureBox.Size = new System.Drawing.Size(32, 32);
-			this.pictureBox.TabIndex = 0;
-			this.pictureBox.TabStop = false;
-			this.pictureBox.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.pictureBox.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// imageList
-			// 
-			this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-			this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-			this.imageList.Images.SetKeyName(0, "calendar-select-days.png");
-			this.imageList.Images.SetKeyName(1, "calendar-select-days-span.png");
-			this.imageList.Images.SetKeyName(2, "information-button.png");
-			// 
 			// MainWindow
 			// 
+			this.AccessibleDescription = "This ist the main window of the application";
+			this.AccessibleName = "Main window";
+			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(291, 133);
@@ -462,6 +566,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownDays)).EndInit();
 			this.tabPageAbout.ResumeLayout(false);
 			this.tabPageAbout.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
@@ -470,7 +575,6 @@
 			this.toolStripContainer1.ContentPanel.ResumeLayout(false);
 			this.toolStripContainer1.ResumeLayout(false);
 			this.toolStripContainer1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
