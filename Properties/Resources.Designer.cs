@@ -63,9 +63,9 @@ namespace Days_Counter.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _switch {
+        internal static System.Drawing.Bitmap calendar_day {
             get {
-                object obj = ResourceManager.GetObject("switch", resourceCulture);
+                object obj = ResourceManager.GetObject("calendar-day", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
