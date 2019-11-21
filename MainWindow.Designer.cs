@@ -59,6 +59,13 @@
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+			this.tabPageDaysOfLife = new System.Windows.Forms.TabPage();
+			this.labelDate = new System.Windows.Forms.Label();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.button1 = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
 			this.tabControl.SuspendLayout();
 			this.tabPageDateToDate.SuspendLayout();
 			this.tabPageDaySpan.SuspendLayout();
@@ -70,6 +77,7 @@
 			this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer1.ContentPanel.SuspendLayout();
 			this.toolStripContainer1.SuspendLayout();
+			this.tabPageDaysOfLife.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// dateTimePickerBegin
@@ -111,6 +119,7 @@
 			this.tabControl.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
 			this.tabControl.Controls.Add(this.tabPageDateToDate);
 			this.tabControl.Controls.Add(this.tabPageDaySpan);
+			this.tabControl.Controls.Add(this.tabPageDaysOfLife);
 			this.tabControl.Controls.Add(this.tabPageAbout);
 			this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl.HotTrack = true;
@@ -134,7 +143,7 @@
 			this.tabPageDateToDate.Controls.Add(this.buttonSwitchDateEnd);
 			this.tabPageDateToDate.Controls.Add(this.buttonSwitchDateBegin);
 			this.tabPageDateToDate.Controls.Add(this.dateTimePickerEnd);
-			this.tabPageDateToDate.ImageIndex = 0;
+			this.tabPageDateToDate.ImageKey = "calendar-select-days.png";
 			this.tabPageDateToDate.Location = new System.Drawing.Point(4, 23);
 			this.tabPageDateToDate.Name = "tabPageDateToDate";
 			this.tabPageDateToDate.Padding = new System.Windows.Forms.Padding(3);
@@ -259,7 +268,7 @@
 			this.tabPageDaySpan.Controls.Add(this.numericUpDownDays);
 			this.tabPageDaySpan.Controls.Add(this.dateTimePickerDateIn);
 			this.tabPageDaySpan.Controls.Add(this.buttonSwitchDateIn);
-			this.tabPageDaySpan.ImageIndex = 1;
+			this.tabPageDaySpan.ImageKey = "calendar-select-days-span.png";
 			this.tabPageDaySpan.Location = new System.Drawing.Point(4, 23);
 			this.tabPageDaySpan.Name = "tabPageDaySpan";
 			this.tabPageDaySpan.Padding = new System.Windows.Forms.Padding(3);
@@ -402,7 +411,7 @@
 			this.tabPageAbout.Controls.Add(this.labelDescription);
 			this.tabPageAbout.Controls.Add(this.labelTitle);
 			this.tabPageAbout.Controls.Add(this.pictureBox);
-			this.tabPageAbout.ImageIndex = 2;
+			this.tabPageAbout.ImageKey = "information-button.png";
 			this.tabPageAbout.Location = new System.Drawing.Point(4, 23);
 			this.tabPageAbout.Name = "tabPageAbout";
 			this.tabPageAbout.Padding = new System.Windows.Forms.Padding(3);
@@ -486,7 +495,8 @@
 			this.imageList.TransparentColor = System.Drawing.Color.Transparent;
 			this.imageList.Images.SetKeyName(0, "calendar-select-days.png");
 			this.imageList.Images.SetKeyName(1, "calendar-select-days-span.png");
-			this.imageList.Images.SetKeyName(2, "information-button.png");
+			this.imageList.Images.SetKeyName(2, "calendar-select.png");
+			this.imageList.Images.SetKeyName(3, "information-button.png");
 			// 
 			// errorProvider
 			// 
@@ -544,6 +554,90 @@
 			this.toolStripContainer1.TabIndex = 6;
 			this.toolStripContainer1.Text = "toolStripContainer1";
 			// 
+			// tabPageDaysOfLife
+			// 
+			this.tabPageDaysOfLife.AccessibleDescription = "Show the tab \"Days of life\"";
+			this.tabPageDaysOfLife.AccessibleName = "Tab \"Days of life\"";
+			this.tabPageDaysOfLife.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
+			this.tabPageDaysOfLife.Controls.Add(this.label3);
+			this.tabPageDaysOfLife.Controls.Add(this.label2);
+			this.tabPageDaysOfLife.Controls.Add(this.label1);
+			this.tabPageDaysOfLife.Controls.Add(this.labelDate);
+			this.tabPageDaysOfLife.Controls.Add(this.dateTimePicker1);
+			this.tabPageDaysOfLife.Controls.Add(this.button1);
+			this.tabPageDaysOfLife.ImageKey = "calendar-select.png";
+			this.tabPageDaysOfLife.Location = new System.Drawing.Point(4, 23);
+			this.tabPageDaysOfLife.Name = "tabPageDaysOfLife";
+			this.tabPageDaysOfLife.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageDaysOfLife.Size = new System.Drawing.Size(283, 84);
+			this.tabPageDaysOfLife.TabIndex = 3;
+			this.tabPageDaysOfLife.Text = "Days of life";
+			this.tabPageDaysOfLife.UseVisualStyleBackColor = true;
+			// 
+			// labelDate
+			// 
+			this.labelDate.AccessibleDescription = "Show the description of the beginning date";
+			this.labelDate.AccessibleName = "Description of the beginning date";
+			this.labelDate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelDate.AutoSize = true;
+			this.labelDate.Location = new System.Drawing.Point(8, 10);
+			this.labelDate.Name = "labelDate";
+			this.labelDate.Size = new System.Drawing.Size(33, 13);
+			this.labelDate.TabIndex = 3;
+			this.labelDate.Text = "&Date:";
+			this.toolTip.SetToolTip(this.labelDate, "Description of the first date");
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.AccessibleDescription = "Show the beginning date";
+			this.dateTimePicker1.AccessibleName = "Beginning date";
+			this.dateTimePicker1.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
+			this.dateTimePicker1.Location = new System.Drawing.Point(49, 6);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+			this.dateTimePicker1.TabIndex = 4;
+			this.toolTip.SetToolTip(this.dateTimePicker1, "Beginning");
+			// 
+			// button1
+			// 
+			this.button1.AccessibleDescription = "Switch the input method of the beginning date";
+			this.button1.AccessibleName = "Change the input method of the beginning date";
+			this.button1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.button1.Image = global::Days_Counter.Properties.Resources.switch_small;
+			this.button1.Location = new System.Drawing.Point(255, 6);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(20, 20);
+			this.button1.TabIndex = 5;
+			this.toolTip.SetToolTip(this.button1, "Change the input method of the beginning date");
+			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(46, 29);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(120, 13);
+			this.label1.TabIndex = 6;
+			this.label1.Text = "Your are xxxxx days old.";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(46, 42);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(236, 13);
+			this.label2.TabIndex = 7;
+			this.label2.Text = "There are xxxxx days left since your last birthday.";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(46, 55);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(194, 13);
+			this.label3.TabIndex = 8;
+			this.label3.Text = "There are xxxxx days until next birthday.";
+			// 
 			// MainWindow
 			// 
 			this.AccessibleDescription = "This ist the main window of the application";
@@ -575,6 +669,8 @@
 			this.toolStripContainer1.ContentPanel.ResumeLayout(false);
 			this.toolStripContainer1.ResumeLayout(false);
 			this.toolStripContainer1.PerformLayout();
+			this.tabPageDaysOfLife.ResumeLayout(false);
+			this.tabPageDaysOfLife.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -610,6 +706,13 @@
 		private System.Windows.Forms.Label labelCopyright;
 		private System.Windows.Forms.Label labelDateOut;
 		private System.Windows.Forms.ImageList imageList;
+		private System.Windows.Forms.TabPage tabPageDaysOfLife;
+		private System.Windows.Forms.Label labelDate;
+		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label1;
 	}
 }
 
