@@ -1,2 +1,2 @@
 # Days-Counter
-Counts days
+Counts days between two dates
