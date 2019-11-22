@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Days_Counter
+namespace DaysCounter
 {
-	static class Program
+	internal static class Program
 	{
 		/// <summary>
-		/// Der Haupteinstiegspunkt für die Anwendung.
+		/// The main entrance point of the application
 		/// </summary>
 		[STAThread]
-		static void Main()
+		private static void Main()
 		{
 			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainWindow());
+			Application.SetCompatibleTextRenderingDefault(defaultValue: false);
+			using (MainWindow mainWindow = new MainWindow())
+			{
+				Application.Run(mainForm: mainWindow);
+			}
 		}
 	}
 }

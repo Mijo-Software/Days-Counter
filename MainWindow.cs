@@ -1,16 +1,27 @@
 ﻿using System;
 using System.Windows.Forms;
+using AssemblyInformation;
 
-namespace Days_Counter
+namespace DaysCounter
 {
+	/// <summary>
+	/// Show the main window of the application
+	/// </summary>
 	public partial class MainWindow : Form
 	{
-		private void SetStatusbar(string text)
+		/// <summary>
+		/// Set a specific text to the status bar
+		/// </summary>
+		/// <param name="text">text with some information</param>
+		private void SetStatusbarText(string text)
 		{
-			labelInformation.Enabled = text == "" ? false : true;
+			labelInformation.Enabled = string.IsNullOrEmpty(value: text) ? false : true;
 			labelInformation.Text = text;
 		}
 
+		/// <summary>
+		/// Count the days from a date to another date
+		/// </summary>
 		private void CountDaysFromDateToDate()
 		{
 			double days = (dateTimePickerBegin.Value - dateTimePickerEnd.Value).TotalDays;
@@ -18,120 +29,210 @@ namespace Days_Counter
 			{
 				days *= -1;
 			}
-			labelDaysCounted.Text = Math.Truncate(d: days).ToString();
+			labelDaysCounted.Text = $" They are {Math.Truncate(d: days)} days.";
 		}
 
+		/// <summary>
+		/// Count the days from a date with a specific span in days
+		/// </summary>
 		private void CountDaysFromDaySpan() => dateTimePickerDateOut.Value = dateTimePickerDateIn.Value.AddDays(value: (double)numericUpDownDays.Value);
 
+		/// <summary>
+		/// Count the days from a date until now
+		/// </summary>
+		private void CountDaysOfLife()
+		{
+			double daysOld = (DateTime.Now - dateTimePickerDateOfTheBirth.Value).TotalDays;
+			if (daysOld < 0)
+			{
+				daysOld *= -1;
+			}
+			labelDaysOld.Text = $"You are {Math.Truncate(d: daysOld)} days old.";
+		}
+
+		/// <summary>
+		/// Constructor
+		/// </summary>
 		public MainWindow()
 		{
 			InitializeComponent();
 			ClearStatusbar_Leave(sender: null, e: null);
 			CountDaysFromDateToDate();
 			CountDaysFromDaySpan();
-			labelTitle.Text = new AssemblyInfo().GetAssemblyProduct() + " " + new AssemblyInfo().GetAssemblyVersion();
-			labelDescription.Text = new AssemblyInfo().GetAssemblyDescription();
-			labelCopyright.Text = new AssemblyInfo().GetAssemblyCopyright() + " " + new AssemblyInfo().GetAssemblyCompany();
+			CountDaysOfLife();
+			labelTitle.Text = AssemblyInfo.AssemblyProduct + " " + AssemblyInfo.AssemblyVersion;
+			labelDescription.Text = AssemblyInfo.AssemblyDescription;
+			labelCopyright.Text = AssemblyInfo.AssemblyCopyright + " " + AssemblyInfo.AssemblyCompany;
 		}
 
+		/// <summary>
+		/// Switch the input method of the beginning date
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void ButtonSwitchDateBegin_Click(object sender, EventArgs e) => dateTimePickerBegin.ShowUpDown = !dateTimePickerBegin.ShowUpDown;
 
+		/// <summary>
+		/// Switch the input method of the ending date
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void ButtonSwitchDateEnd_Click(object sender, EventArgs e) => dateTimePickerEnd.ShowUpDown = !dateTimePickerEnd.ShowUpDown;
 
+		/// <summary>
+		/// Switch the input method of the date with span
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void ButtonSwitchDateDays_Click(object sender, EventArgs e) => dateTimePickerDateIn.ShowUpDown = !dateTimePickerDateIn.ShowUpDown;
 
+		/// <summary>
+		/// Switch the input method of the date of the birth
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		private void ButtonDateOfTheBirth_Click(object sender, EventArgs e) => dateTimePickerDateOfTheBirth.ShowUpDown = !dateTimePickerDateOfTheBirth.ShowUpDown;
+
+		/// <summary>
+		/// Update the value of the beginning date
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void DateTimePickerBegin_ValueChanged(object sender, EventArgs e) => CountDaysFromDateToDate();
 
+		/// <summary>
+		/// Update the value of the ending date
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void DateTimePickerEnd_ValueChanged(object sender, EventArgs e) => CountDaysFromDateToDate();
 
+		/// <summary>
+		/// Update the value of the date with span
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void DateTimePickerDateIn_ValueChanged(object sender, EventArgs e) => CountDaysFromDaySpan();
 
+		/// <summary>
+		/// Update the value of the span in days
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void NumericUpDownDays_ValueChanged(object sender, EventArgs e) => CountDaysFromDaySpan();
 
+		/// <summary>
+		/// Update the value of the date of the birth
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		private void DateTimePickerDateOfTheBirth_ValueChanged(object sender, EventArgs e) => CountDaysOfLife();
+
+		/// <summary>
+		/// Detect the accessibility description to set as information text in the status bar
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameter <paramref name="e"/> is not needed, but must be indicated.</remarks>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
 			if (sender is TextBox)
 			{
-				SetStatusbar(text: ((TextBox)sender).AccessibleDescription);
+				SetStatusbarText(text: ((TextBox)sender).AccessibleDescription);
 			}
 			else if (sender is Button)
 			{
-				SetStatusbar(text: ((Button)sender).AccessibleDescription);
+				SetStatusbarText(text: ((Button)sender).AccessibleDescription);
 			}
 			else if (sender is RadioButton)
 			{
-				SetStatusbar(text: ((RadioButton)sender).AccessibleDescription);
+				SetStatusbarText(text: ((RadioButton)sender).AccessibleDescription);
 			}
 			else if (sender is CheckBox)
 			{
-				SetStatusbar(text: ((CheckBox)sender).AccessibleDescription);
+				SetStatusbarText(text: ((CheckBox)sender).AccessibleDescription);
 			}
 			else if (sender is DateTimePicker)
 			{
-				SetStatusbar(text: ((DateTimePicker)sender).AccessibleDescription);
+				SetStatusbarText(text: ((DateTimePicker)sender).AccessibleDescription);
 			}
 			else if (sender is Label)
 			{
-				SetStatusbar(text: ((Label)sender).AccessibleDescription);
+				SetStatusbarText(text: ((Label)sender).AccessibleDescription);
 			}
 			else if (sender is PictureBox)
 			{
-				SetStatusbar(text: ((PictureBox)sender).AccessibleDescription);
+				SetStatusbarText(text: ((PictureBox)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripButton)
 			{
-				SetStatusbar(text: ((ToolStripButton)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripButton)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripMenuItem)
 			{
-				SetStatusbar(text: ((ToolStripMenuItem)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripMenuItem)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripLabel)
 			{
-				SetStatusbar(text: ((ToolStripLabel)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripLabel)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripComboBox)
 			{
-				SetStatusbar(text: ((ToolStripComboBox)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripComboBox)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripDropDown)
 			{
-				SetStatusbar(text: ((ToolStripDropDown)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripDropDown)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripDropDownButton)
 			{
-				SetStatusbar(text: ((ToolStripDropDownButton)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripDropDownButton)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripDropDownItem)
 			{
-				SetStatusbar(text: ((ToolStripDropDownItem)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripDropDownItem)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripDropDownMenu)
 			{
-				SetStatusbar(text: ((ToolStripDropDownMenu)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripDropDownMenu)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripProgressBar)
 			{
-				SetStatusbar(text: ((ToolStripProgressBar)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripProgressBar)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripSplitButton)
 			{
-				SetStatusbar(text: ((ToolStripSplitButton)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripSplitButton)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripSeparator)
 			{
-				SetStatusbar(text: ((ToolStripSeparator)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripSeparator)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripStatusLabel)
 			{
-				SetStatusbar(text: ((ToolStripStatusLabel)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripStatusLabel)sender).AccessibleDescription);
 			}
 			else if (sender is ToolStripTextBox)
 			{
-				SetStatusbar(text: ((ToolStripTextBox)sender).AccessibleDescription);
+				SetStatusbarText(text: ((ToolStripTextBox)sender).AccessibleDescription);
 			}
 		}
 
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetStatusbar(text: "");
+		/// <summary>
+		/// Clear the information text of the status bar
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetStatusbarText(text: "");
 	}
 }
