@@ -31,7 +31,6 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
 			this.imageList = new System.Windows.Forms.ImageList(this.components);
-			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
@@ -70,7 +69,6 @@
 			this.tabPageDaysOfLife = new System.Windows.Forms.TabPage();
 			this.tabPageAbout = new System.Windows.Forms.TabPage();
 			this.pictureBox = new System.Windows.Forms.PictureBox();
-			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.statusStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownDays)).BeginInit();
 			this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
@@ -93,10 +91,6 @@
 			this.imageList.Images.SetKeyName(2, "calendar-select.png");
 			this.imageList.Images.SetKeyName(3, "information-button.png");
 			// 
-			// errorProvider
-			// 
-			this.errorProvider.ContainerControl = this;
-			// 
 			// statusStrip
 			// 
 			this.statusStrip.AccessibleDescription = "Show the statusbar with some information";
@@ -108,7 +102,7 @@
 			this.statusStrip.Location = new System.Drawing.Point(0, 0);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip.Size = new System.Drawing.Size(357, 22);
+			this.statusStrip.Size = new System.Drawing.Size(354, 22);
 			this.statusStrip.SizingGrip = false;
 			this.statusStrip.TabIndex = 0;
 			this.statusStrip.Text = "statusStrip";
@@ -127,8 +121,6 @@
 			this.labelInformation.Name = "labelInformation";
 			this.labelInformation.Size = new System.Drawing.Size(70, 17);
 			this.labelInformation.Text = "information";
-			this.labelInformation.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelInformation.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelTitle
 			// 
@@ -567,11 +559,11 @@
 			// 
 			this.toolStripContainer1.ContentPanel.AutoScroll = true;
 			this.toolStripContainer1.ContentPanel.Controls.Add(this.tabControl);
-			this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(357, 111);
+			this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(354, 110);
 			this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
 			this.toolStripContainer1.Name = "toolStripContainer1";
-			this.toolStripContainer1.Size = new System.Drawing.Size(357, 133);
+			this.toolStripContainer1.Size = new System.Drawing.Size(354, 132);
 			this.toolStripContainer1.TabIndex = 6;
 			this.toolStripContainer1.Text = "toolStripContainer1";
 			// 
@@ -591,7 +583,7 @@
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
 			this.tabControl.ShowToolTips = true;
-			this.tabControl.Size = new System.Drawing.Size(357, 111);
+			this.tabControl.Size = new System.Drawing.Size(354, 110);
 			this.tabControl.TabIndex = 0;
 			// 
 			// tabPageDateToDate
@@ -611,7 +603,7 @@
 			this.tabPageDateToDate.Location = new System.Drawing.Point(4, 23);
 			this.tabPageDateToDate.Name = "tabPageDateToDate";
 			this.tabPageDateToDate.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageDateToDate.Size = new System.Drawing.Size(349, 84);
+			this.tabPageDateToDate.Size = new System.Drawing.Size(346, 83);
 			this.tabPageDateToDate.TabIndex = 0;
 			this.tabPageDateToDate.Text = "From date to date";
 			this.tabPageDateToDate.UseVisualStyleBackColor = true;
@@ -632,7 +624,7 @@
 			this.tabPageDaySpan.Location = new System.Drawing.Point(4, 23);
 			this.tabPageDaySpan.Name = "tabPageDaySpan";
 			this.tabPageDaySpan.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageDaySpan.Size = new System.Drawing.Size(349, 59);
+			this.tabPageDaySpan.Size = new System.Drawing.Size(346, 83);
 			this.tabPageDaySpan.TabIndex = 1;
 			this.tabPageDaySpan.Text = "Days span";
 			this.tabPageDaySpan.UseVisualStyleBackColor = true;
@@ -645,9 +637,9 @@
 			this.labelDaysPlusMinus.AutoSize = true;
 			this.labelDaysPlusMinus.Location = new System.Drawing.Point(8, 34);
 			this.labelDaysPlusMinus.Name = "labelDaysPlusMinus";
-			this.labelDaysPlusMinus.Size = new System.Drawing.Size(54, 13);
+			this.labelDaysPlusMinus.Size = new System.Drawing.Size(57, 13);
 			this.labelDaysPlusMinus.TabIndex = 3;
-			this.labelDaysPlusMinus.Text = "Da&ys (-/+)";
+			this.labelDaysPlusMinus.Text = "Da&ys (-/+):";
 			this.labelDaysPlusMinus.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDaysPlusMinus.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelDaysPlusMinus.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -667,7 +659,7 @@
 			this.tabPageDaysOfLife.Location = new System.Drawing.Point(4, 23);
 			this.tabPageDaysOfLife.Name = "tabPageDaysOfLife";
 			this.tabPageDaysOfLife.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageDaysOfLife.Size = new System.Drawing.Size(349, 59);
+			this.tabPageDaysOfLife.Size = new System.Drawing.Size(349, 84);
 			this.tabPageDaysOfLife.TabIndex = 3;
 			this.tabPageDaysOfLife.Text = "Days of life";
 			this.tabPageDaysOfLife.UseVisualStyleBackColor = true;
@@ -685,7 +677,7 @@
 			this.tabPageAbout.Location = new System.Drawing.Point(4, 23);
 			this.tabPageAbout.Name = "tabPageAbout";
 			this.tabPageAbout.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageAbout.Size = new System.Drawing.Size(349, 59);
+			this.tabPageAbout.Size = new System.Drawing.Size(349, 84);
 			this.tabPageAbout.TabIndex = 2;
 			this.tabPageAbout.Text = "About";
 			this.tabPageAbout.UseVisualStyleBackColor = true;
@@ -711,14 +703,15 @@
 			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(357, 133);
+			this.ClientSize = new System.Drawing.Size(354, 132);
 			this.Controls.Add(this.toolStripContainer1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "MainWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Days Counter";
-			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownDays)).EndInit();
@@ -742,7 +735,6 @@
 		}
 
 		#endregion
-		private System.Windows.Forms.ErrorProvider errorProvider;
 		private System.Windows.Forms.StatusStrip statusStrip;
 		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
 		private System.Windows.Forms.ToolTip toolTip;

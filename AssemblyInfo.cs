@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace AssemblyInformation
+namespace MijoSoftware.AssemblyInformation
 {
 	/// <summary>
 	/// Provide some assembly information
