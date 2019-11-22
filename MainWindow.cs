@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using AssemblyInformation;
+using MijoSoftware.AssemblyInformation;
 
 namespace DaysCounter
 {
@@ -29,7 +29,7 @@ namespace DaysCounter
 			{
 				days *= -1;
 			}
-			labelDaysCounted.Text = $" They are {Math.Truncate(d: days)} days.";
+			labelDaysCounted.Text = $"They are {Math.Truncate(d: days)} days.";
 		}
 
 		/// <summary>
@@ -60,9 +60,9 @@ namespace DaysCounter
 			CountDaysFromDateToDate();
 			CountDaysFromDaySpan();
 			CountDaysOfLife();
-			labelTitle.Text = AssemblyInfo.AssemblyProduct + " " + AssemblyInfo.AssemblyVersion;
+			labelTitle.Text = $"{AssemblyInfo.AssemblyProduct} {AssemblyInfo.AssemblyVersion}";
 			labelDescription.Text = AssemblyInfo.AssemblyDescription;
-			labelCopyright.Text = AssemblyInfo.AssemblyCopyright + " " + AssemblyInfo.AssemblyCompany;
+			labelCopyright.Text = $"{AssemblyInfo.AssemblyCopyright} {AssemblyInfo.AssemblyCompany}";
 		}
 
 		/// <summary>
@@ -143,89 +143,7 @@ namespace DaysCounter
 		/// <param name="sender">object sender</param>
 		/// <param name="e">event arguments</param>
 		/// <remarks>The parameter <paramref name="e"/> is not needed, but must be indicated.</remarks>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
-		{
-			if (sender is TextBox)
-			{
-				SetStatusbarText(text: ((TextBox)sender).AccessibleDescription);
-			}
-			else if (sender is Button)
-			{
-				SetStatusbarText(text: ((Button)sender).AccessibleDescription);
-			}
-			else if (sender is RadioButton)
-			{
-				SetStatusbarText(text: ((RadioButton)sender).AccessibleDescription);
-			}
-			else if (sender is CheckBox)
-			{
-				SetStatusbarText(text: ((CheckBox)sender).AccessibleDescription);
-			}
-			else if (sender is DateTimePicker)
-			{
-				SetStatusbarText(text: ((DateTimePicker)sender).AccessibleDescription);
-			}
-			else if (sender is Label)
-			{
-				SetStatusbarText(text: ((Label)sender).AccessibleDescription);
-			}
-			else if (sender is PictureBox)
-			{
-				SetStatusbarText(text: ((PictureBox)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripButton)
-			{
-				SetStatusbarText(text: ((ToolStripButton)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripMenuItem)
-			{
-				SetStatusbarText(text: ((ToolStripMenuItem)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripLabel)
-			{
-				SetStatusbarText(text: ((ToolStripLabel)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripComboBox)
-			{
-				SetStatusbarText(text: ((ToolStripComboBox)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripDropDown)
-			{
-				SetStatusbarText(text: ((ToolStripDropDown)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripDropDownButton)
-			{
-				SetStatusbarText(text: ((ToolStripDropDownButton)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripDropDownItem)
-			{
-				SetStatusbarText(text: ((ToolStripDropDownItem)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripDropDownMenu)
-			{
-				SetStatusbarText(text: ((ToolStripDropDownMenu)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripProgressBar)
-			{
-				SetStatusbarText(text: ((ToolStripProgressBar)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripSplitButton)
-			{
-				SetStatusbarText(text: ((ToolStripSplitButton)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripSeparator)
-			{
-				SetStatusbarText(text: ((ToolStripSeparator)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripStatusLabel)
-			{
-				SetStatusbarText(text: ((ToolStripStatusLabel)sender).AccessibleDescription);
-			}
-			else if (sender is ToolStripTextBox)
-			{
-				SetStatusbarText(text: ((ToolStripTextBox)sender).AccessibleDescription);
-			}
-		}
+		private void SetStatusbar_Enter(object sender, EventArgs e) => SetStatusbarText(text: ((Control)sender).AccessibleDescription);
 
 		/// <summary>
 		/// Clear the information text of the status bar
