@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace DaysCounter
 {
+	/// <summary>
+	/// Program
+	/// </summary>
 	internal static class Program
 	{
 		/// <summary>

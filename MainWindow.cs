@@ -15,7 +15,7 @@ namespace DaysCounter
 		/// <param name="text">text with some information</param>
 		private void SetStatusbarText(string text)
 		{
-			labelInformation.Enabled = string.IsNullOrEmpty(value: text) ? false : true;
+			labelInformation.Enabled = !string.IsNullOrEmpty(value: text);
 			labelInformation.Text = text;
 		}
 
