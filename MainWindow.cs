@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MijoSoftware.AssemblyInformation;
+using DaysCounter.Properties;
 
 namespace DaysCounter
 {
@@ -143,7 +144,31 @@ namespace DaysCounter
 		/// <param name="sender">object sender</param>
 		/// <param name="e">event arguments</param>
 		/// <remarks>The parameter <paramref name="e"/> is not needed, but must be indicated.</remarks>
-		private void SetStatusbar_Enter(object sender, EventArgs e) => SetStatusbarText(text: ((Control)sender).AccessibleDescription);
+		private void SetStatusbar_Enter(object sender, EventArgs e)
+		{
+			string text = string.Empty;
+			if (sender is Control control)
+			{
+				text = control.AccessibleDescription;
+			}
+			else if (sender is ToolStripSplitButton toolStripSplitButton)
+			{
+				text = toolStripSplitButton.AccessibleDescription;
+			}
+			else if (sender is ToolStripButton toolStripButton)
+			{
+				text = toolStripButton.AccessibleDescription;
+			}
+			else if (sender is ToolStripLabel toolStripLabel)
+			{
+				text = toolStripLabel.AccessibleDescription;
+			}
+			else if (sender is ToolStripMenuItem toolStripMenuItem)
+			{
+				text = toolStripMenuItem.AccessibleDescription;
+			}
+			SetStatusbarText(text: text);
+		}
 
 		/// <summary>
 		/// Clear the information text of the status bar
@@ -151,6 +176,39 @@ namespace DaysCounter
 		/// <param name="sender">object sender</param>
 		/// <param name="e">event arguments</param>
 		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetStatusbarText(text: "");
+		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetStatusbarText(text: string.Empty);
+
+		private void ApplicationStayNotOnTop()
+		{
+			TopMost = false;
+			toolStripMenuItemStayNotOnTop.Checked = !TopMost;
+			toolStripMenuItemStayOnTop.Checked = TopMost;
+			toolStripSplitButtonStayOnTop.Image = Resources.application;
+			toolStripSplitButtonStayOnTop.Text = Resources.stayNotOnTop;
+		}
+
+		private void ApplicationStayOnTop()
+		{
+			TopMost = true;
+			toolStripMenuItemStayNotOnTop.Checked = !TopMost;
+			toolStripMenuItemStayOnTop.Checked = TopMost;
+			toolStripSplitButtonStayOnTop.Image = Resources.application_blue;
+			toolStripSplitButtonStayOnTop.Text = Resources.stayOnTop;
+		}
+
+		private void ToolStripMenuItemStayNotOnTop_Click(object sender, EventArgs e)
+		{
+			ApplicationStayNotOnTop();
+		}
+
+		private void ToolStripMenuItemStayOnTop_Click(object sender, EventArgs e)
+		{
+			ApplicationStayOnTop();
+		}
+
+		private void ToolStripSplitButtonStayOnTop_ButtonClick(object sender, EventArgs e)
+		{
+			if (TopMost) ApplicationStayNotOnTop(); else ApplicationStayOnTop();
+		}
 	}
 }

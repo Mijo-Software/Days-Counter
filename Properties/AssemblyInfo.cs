@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mijo Software")]
 [assembly: AssemblyProduct("Days Counter")]
-[assembly: AssemblyCopyright("Copyright © 2019")]
+[assembly: AssemblyCopyright("Copyright © 2019-2020")]
 [assembly: AssemblyTrademark("Days Counter")]
 [assembly: AssemblyCulture("")]
 
@@ -32,6 +32,6 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder Standardwerte für die Build- und Revisionsnummern verwenden,
 // indem Sie "*" wie unten gezeigt eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.2.5")]
-[assembly: AssemblyFileVersion("1.2.2.5")]
+[assembly: AssemblyVersion("1.3.0.6")]
+[assembly: AssemblyFileVersion("1.3.0.6")]
 [assembly: NeutralResourcesLanguage("en")]
