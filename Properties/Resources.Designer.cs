@@ -63,10 +63,48 @@ namespace DaysCounter.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap application {
+            get {
+                object obj = ResourceManager.GetObject("application", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap application_blue {
+            get {
+                object obj = ResourceManager.GetObject("application-blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calendar_day {
             get {
                 object obj = ResourceManager.GetObject("calendar-day", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Stay not on top ähnelt.
+        /// </summary>
+        internal static string stayNotOnTop {
+            get {
+                return ResourceManager.GetString("stayNotOnTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Stay on top ähnelt.
+        /// </summary>
+        internal static string stayOnTop {
+            get {
+                return ResourceManager.GetString("stayOnTop", resourceCulture);
             }
         }
         

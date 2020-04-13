@@ -161,6 +161,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\application-blue.png" />
+    <None Include="Resources\application.png" />
     <None Include="Resources\calendar-day.png" />
     <None Include="Resources\switch-small.png" />
   </ItemGroup>
