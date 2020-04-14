@@ -144,6 +144,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include=".editorconfig" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -161,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\document-small.png" />
+    <None Include="Resources\clipboard.png" />
+    <None Include="Resources\calendar-small.png" />
     <None Include="Resources\application-blue.png" />
     <None Include="Resources\application.png" />
     <None Include="Resources\calendar-day.png" />

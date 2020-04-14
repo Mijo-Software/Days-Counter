@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using MijoSoftware.AssemblyInformation;
 using DaysCounter.Properties;
+using MijoSoftware.AssemblyInformation;
 
 namespace DaysCounter
 {
@@ -10,6 +10,35 @@ namespace DaysCounter
 	/// </summary>
 	public partial class MainWindow : Form
 	{
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1300:SpecifyMessageBoxOptions")]
+		private void ShowCopiedToClipboardMessage()
+		{
+		MessageBox.Show(
+				text: Resources.copiedToClipboard,
+				caption: string.Empty,
+				buttons: MessageBoxButtons.OK,
+				icon: MessageBoxIcon.Information,
+				defaultButton: MessageBoxDefaultButton.Button1);
+		}
+
+		private void ApplicationStayNotOnTop()
+		{
+			TopMost = false;
+			toolStripMenuItemStayNotOnTop.Checked = !TopMost;
+			toolStripMenuItemStayOnTop.Checked = TopMost;
+			toolStripSplitButtonStayOnTop.Image = Resources.application;
+			toolStripSplitButtonStayOnTop.Text = Resources.stayNotOnTop;
+		}
+
+		private void ApplicationStayOnTop()
+		{
+			TopMost = true;
+			toolStripMenuItemStayNotOnTop.Checked = !TopMost;
+			toolStripMenuItemStayOnTop.Checked = TopMost;
+			toolStripSplitButtonStayOnTop.Image = Resources.application_blue;
+			toolStripSplitButtonStayOnTop.Text = Resources.stayOnTop;
+		}
+
 		/// <summary>
 		/// Set a specific text to the status bar
 		/// </summary>
@@ -96,7 +125,7 @@ namespace DaysCounter
 		/// <param name="sender">object sender</param>
 		/// <param name="e">event arguments</param>
 		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
-		private void ButtonDateOfTheBirth_Click(object sender, EventArgs e) => dateTimePickerDateOfTheBirth.ShowUpDown = !dateTimePickerDateOfTheBirth.ShowUpDown;
+		private void ButtonSwitchDateOfTheBirth_Click(object sender, EventArgs e) => dateTimePickerDateOfTheBirth.ShowUpDown = !dateTimePickerDateOfTheBirth.ShowUpDown;
 
 		/// <summary>
 		/// Update the value of the beginning date
@@ -178,37 +207,68 @@ namespace DaysCounter
 		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetStatusbarText(text: string.Empty);
 
-		private void ApplicationStayNotOnTop()
-		{
-			TopMost = false;
-			toolStripMenuItemStayNotOnTop.Checked = !TopMost;
-			toolStripMenuItemStayOnTop.Checked = TopMost;
-			toolStripSplitButtonStayOnTop.Image = Resources.application;
-			toolStripSplitButtonStayOnTop.Text = Resources.stayNotOnTop;
-		}
+		private void ToolStripMenuItemStayNotOnTop_Click(object sender, EventArgs e) => ApplicationStayNotOnTop();
 
-		private void ApplicationStayOnTop()
-		{
-			TopMost = true;
-			toolStripMenuItemStayNotOnTop.Checked = !TopMost;
-			toolStripMenuItemStayOnTop.Checked = TopMost;
-			toolStripSplitButtonStayOnTop.Image = Resources.application_blue;
-			toolStripSplitButtonStayOnTop.Text = Resources.stayOnTop;
-		}
-
-		private void ToolStripMenuItemStayNotOnTop_Click(object sender, EventArgs e)
-		{
-			ApplicationStayNotOnTop();
-		}
-
-		private void ToolStripMenuItemStayOnTop_Click(object sender, EventArgs e)
-		{
-			ApplicationStayOnTop();
-		}
+		private void ToolStripMenuItemStayOnTop_Click(object sender, EventArgs e) => ApplicationStayOnTop();
 
 		private void ToolStripSplitButtonStayOnTop_ButtonClick(object sender, EventArgs e)
 		{
-			if (TopMost) ApplicationStayNotOnTop(); else ApplicationStayOnTop();
+			if (TopMost)
+			{
+				ApplicationStayNotOnTop();
+			}
+			else
+			{
+				ApplicationStayOnTop();
+			}
+		}
+
+		private void ButtonInsertDateTodayBegin_Click(object sender, EventArgs e) => dateTimePickerBegin.Value = DateTime.Now;
+
+		private void ButtonInsertDateTodayEnd_Click(object sender, EventArgs e) => dateTimePickerEnd.Value = DateTime.Now;
+
+		private void ButtonInsertDateIn_Click(object sender, EventArgs e) => dateTimePickerDateIn.Value = DateTime.Now;
+
+		private void ButtonCopyDateBegin_Click(object sender, EventArgs e)
+		{
+			Clipboard.SetDataObject(data: dateTimePickerBegin.Value.ToLongDateString());
+			ShowCopiedToClipboardMessage();
+		}
+
+		private void ButtonCopyDateEnd_Click(object sender, EventArgs e)
+		{
+			Clipboard.SetDataObject(data: dateTimePickerEnd.Value.ToLongDateString());
+			ShowCopiedToClipboardMessage();
+		}
+
+		private void ButtonCopyDateIn_Click(object sender, EventArgs e)
+		{
+			Clipboard.SetDataObject(data: dateTimePickerDateIn.Value.ToLongDateString());
+			ShowCopiedToClipboardMessage();
+		}
+
+		private void ButtonCopyDateOut_Click(object sender, EventArgs e)
+		{
+			Clipboard.SetDataObject(data: dateTimePickerDateOut.Value.ToLongDateString());
+			ShowCopiedToClipboardMessage();
+		}
+
+		private void ButtonCopyDateOfTheBirth_Click(object sender, EventArgs e)
+		{
+			Clipboard.SetDataObject(data: dateTimePickerDateOfTheBirth.Value.ToLongDateString());
+			ShowCopiedToClipboardMessage();
+		}
+
+		private void ToolStripMenuItemSwitch_Click(object sender, EventArgs e)
+		{
+		}
+
+		private void ToolStripMenuItemCopyDateToClipboard_Click(object sender, EventArgs e)
+		{
+		}
+
+		private void ToolStripMenuItemInsertDateToday_Click(object sender, EventArgs e)
+		{
 		}
 	}
 }
