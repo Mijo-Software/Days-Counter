@@ -91,6 +91,35 @@ namespace DaysCounter.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendar_small {
+            get {
+                object obj = ResourceManager.GetObject("calendar-small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copied to clipboard! ähnelt.
+        /// </summary>
+        internal static string copiedToClipboard {
+            get {
+                return ResourceManager.GetString("copiedToClipboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap document_small {
+            get {
+                object obj = ResourceManager.GetObject("document-small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Stay not on top ähnelt.
         /// </summary>
         internal static string stayNotOnTop {
