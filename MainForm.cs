@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using DaysCounter.Properties;
-using MijoSoftware.AssemblyInformation;
+using NLog;
 
 namespace DaysCounter
 {
@@ -10,7 +10,30 @@ namespace DaysCounter
 	[DebuggerDisplay(value: $"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
 	public partial class MainForm : Form
 	{
+		/// <summary>
+		/// Logger instance for logging messages and exceptions
+		/// </summary>
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
 		#region Helpers
+
+		/// <summary>
+		/// Handles exceptions by logging the error and showing a message box
+		/// </summary>
+		/// <param name="ex">The exception that occurred</param>
+		/// <param name="message">The message to log and display</param>
+		/// <param name="sender">The source of the event that caused the exception</param>
+		/// <param name="e">The event data associated with the exception</param>
+		private static void HandleException(Exception ex, string message, object? sender = null, EventArgs? e = null)
+		{
+			// Implement logging logic here (e.g., log to a file or monitoring system)
+			string msg = $"Error: {ex}\nMessage: {ex.Message}\nStackTrace: {ex.StackTrace}\nSender: {sender}, EventArgs: {e}";
+			Debug.WriteLine(value: msg);
+			Console.WriteLine(value: msg);
+			Logger.Error(exception: ex, message: msg);
+			_ = MessageBox.Show(text: message, caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+		}
+
 		/// <summary>
 		/// Get the debugger display
 		/// </summary>
@@ -98,7 +121,7 @@ namespace DaysCounter
 			CountDaysOfLife();
 			labelTitle.Text = $"{AssemblyInfo.AssemblyProduct} {AssemblyInfo.AssemblyVersion}";
 			labelDescription.Text = AssemblyInfo.AssemblyDescription;
-			labelCopyright.Text = $"{AssemblyInfo.AssemblyCopyright} {AssemblyInfo.AssemblyCompany}";
+			labelCopyright.Text = $"{AssemblyInfo.AssemblyCopyright}";
 		}
 
 		#endregion
@@ -108,49 +131,43 @@ namespace DaysCounter
 		/// <summary>
 		/// Switch the input method of the beginning date
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ButtonSwitchDateBegin_Click(object sender, EventArgs e) => dateTimePickerBegin.ShowUpDown = !dateTimePickerBegin.ShowUpDown;
 
 		/// <summary>
 		/// Switch the input method of the ending date
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ButtonSwitchDateEnd_Click(object sender, EventArgs e) => dateTimePickerEnd.ShowUpDown = !dateTimePickerEnd.ShowUpDown;
 
 		/// <summary>
 		/// Switch the input method of the date with span
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ButtonSwitchDateDays_Click(object sender, EventArgs e) => dateTimePickerDateIn.ShowUpDown = !dateTimePickerDateIn.ShowUpDown;
 
 		/// <summary>
 		/// Switch the input method of the date of the birth
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ButtonDateOfTheBirth_Click(object sender, EventArgs e) => dateTimePickerDateOfTheBirth.ShowUpDown = !dateTimePickerDateOfTheBirth.ShowUpDown;
 
 		/// <summary>
 		/// Don't set the application on top
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ToolStripMenuItemStayNotOnTop_Click(object sender, EventArgs e) => ApplicationStayNotOnTop();
 
 		/// <summary>
 		/// Set the application on top
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ToolStripMenuItemStayOnTop_Click(object sender, EventArgs e) => ApplicationStayOnTop();
 
 		#endregion
@@ -160,9 +177,8 @@ namespace DaysCounter
 		/// <summary>
 		/// (Don't) set the application on top
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ToolStripSplitButtonStayOnTop_ButtonClick(object sender, EventArgs e)
 		{
 			if (TopMost)
@@ -182,41 +198,36 @@ namespace DaysCounter
 		/// <summary>
 		/// Update the value of the beginning date
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void DateTimePickerBegin_ValueChanged(object sender, EventArgs e) => CountDaysFromDateToDate();
 
 		/// <summary>
 		/// Update the value of the ending date
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void DateTimePickerEnd_ValueChanged(object sender, EventArgs e) => CountDaysFromDateToDate();
 
 		/// <summary>
 		/// Update the value of the date with span
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void DateTimePickerDateIn_ValueChanged(object sender, EventArgs e) => CountDaysFromDaySpan();
 
 		/// <summary>
 		/// Update the value of the span in days
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void NumericUpDownDays_ValueChanged(object sender, EventArgs e) => CountDaysFromDaySpan();
 
 		/// <summary>
 		/// Update the value of the date of the birth
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void DateTimePickerDateOfTheBirth_ValueChanged(object sender, EventArgs e) => CountDaysOfLife();
 
 		#endregion
@@ -226,46 +237,40 @@ namespace DaysCounter
 		/// <summary>
 		/// Detect the accessibility description to set as information text in the status bar
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameter <paramref name="e"/> is not needed, but must be indicated.</remarks>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
-			switch (sender)
+			try
 			{
-				case TextBox textBox: SetStatusbarText(text: textBox.AccessibleDescription); break;
-				case Button button: SetStatusbarText(text: button.AccessibleDescription); break;
-				case RadioButton radioButton: SetStatusbarText(text: radioButton.AccessibleDescription); break;
-				case CheckBox checkBox: SetStatusbarText(text: checkBox.AccessibleDescription); break;
-				case DateTimePicker dateTimePicker: SetStatusbarText(text: dateTimePicker.AccessibleDescription); break;
-				case Label label: SetStatusbarText(text: label.AccessibleDescription); break;
-				case PictureBox pictureBox: SetStatusbarText(text: pictureBox.AccessibleDescription); break;
-				case CheckedListBox checkedListBox: SetStatusbarText(text: checkedListBox.AccessibleDescription); break;
-				case ComboBox box: SetStatusbarText(text: box.AccessibleDescription); break;
-				case DataGridView view: SetStatusbarText(text: view.AccessibleDescription); break;
-				case GroupBox group: SetStatusbarText(text: group.AccessibleDescription); break;
-				case ListBox box: SetStatusbarText(text: box.AccessibleDescription); break;
-				case ListView view: SetStatusbarText(text: view.AccessibleDescription); break;
-				case MaskedTextBox box: SetStatusbarText(text: box.AccessibleDescription); break;
-				case NumericUpDown numericUpDown: SetStatusbarText(text: numericUpDown.AccessibleDescription); break;
-				case MonthCalendar monthCalendar: SetStatusbarText(text: monthCalendar.AccessibleDescription); break;
-				case PropertyGrid propertyGrid: SetStatusbarText(text: propertyGrid.AccessibleDescription); break;
-				case RichTextBox richTextBox: SetStatusbarText(text: richTextBox.AccessibleDescription); break;
-				case ScrollBar scrollBar: SetStatusbarText(text: scrollBar.AccessibleDescription); break;
-				case TrackBar trackBar: SetStatusbarText(text: trackBar.AccessibleDescription); break;
-				case WebBrowser webBrowser: SetStatusbarText(text: webBrowser.AccessibleDescription); break;
-				case DomainUpDown domainUpDown: SetStatusbarText(text: domainUpDown.AccessibleDescription); break;
-				case ToolStripButton toolStripButton: SetStatusbarText(text: toolStripButton.AccessibleDescription); break;
-				case ToolStripMenuItem toolStripMenuItem: SetStatusbarText(text: toolStripMenuItem.AccessibleDescription); break;
-				case ToolStripLabel toolStripLabel: SetStatusbarText(text: toolStripLabel.AccessibleDescription); break;
-				case ToolStripComboBox toolStripComboBox: SetStatusbarText(text: toolStripComboBox.AccessibleDescription); break;
-				case ToolStripDropDown toolStripDropDown: SetStatusbarText(text: toolStripDropDown.AccessibleDescription); break;
-				case ToolStripDropDownButton toolStripDropDownButton: SetStatusbarText(text: toolStripDropDownButton.AccessibleDescription); break;
-				case ToolStripDropDownItem toolStripDropDownItem: SetStatusbarText(text: toolStripDropDownItem.AccessibleDescription); break;
-				case ToolStripProgressBar progressBar: SetStatusbarText(text: progressBar.AccessibleDescription); break;
-				case ToolStripSeparator toolStripSeparator: SetStatusbarText(text: toolStripSeparator.AccessibleDescription); break;
-				case ToolStripTextBox toolStripTextBox: SetStatusbarText(text: toolStripTextBox.AccessibleDescription); break;
-				default: return;
+				if (sender is Control { AccessibleDescription: { } } control)
+				{
+					SetStatusbarText(text: control.AccessibleDescription);
+				}
+				else if (sender is ToolStripMenuItem { AccessibleDescription: { } } control2)
+				{
+					SetStatusbarText(text: control2.AccessibleDescription);
+				}
+				else if (sender is ToolStripStatusLabel { AccessibleDescription: { } } control3)
+				{
+					SetStatusbarText(text: control3.AccessibleDescription);
+				}
+				else if (sender is ToolStripButton { AccessibleDescription: { } } control4)
+				{
+					SetStatusbarText(text: control4.AccessibleDescription);
+				}
+				else if (sender is ToolStripDropDownButton { AccessibleDescription: { } } control5)
+				{
+					SetStatusbarText(text: control5.AccessibleDescription);
+				}
+				else if (sender is ToolStripSplitButton { AccessibleDescription: { } } control6)
+				{
+					SetStatusbarText(text: control6.AccessibleDescription);
+				}
+			}
+			catch (Exception ex)
+			{
+				HandleException(ex: ex, message: "An error occurred while setting the status bar text.", sender: sender, e: e);
 			}
 		}
 
@@ -276,10 +281,9 @@ namespace DaysCounter
 		/// <summary>
 		/// Clear the information text of the status bar
 		/// </summary>
-		/// <param name="sender">object sender</param>
-		/// <param name="e">event arguments</param>
-		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetStatusbarText(text: string.Empty);
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
+		private void ClearStatusbar_Leave(object? sender, EventArgs? e) => SetStatusbarText(text: string.Empty);
 
 		#endregion
 	}

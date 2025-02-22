@@ -60,25 +60,22 @@
 			buttonSwitchDateIn = new Button();
 			buttonDateOfTheBirth = new Button();
 			textBoxLicense = new TextBox();
+			labelDaysPlusMinus = new Label();
+			tabControl = new TabControl();
+			tabPageDateToDate = new TabPage();
+			tabPageDaySpan = new TabPage();
+			tabPageDaysOfLife = new TabPage();
+			tabPageAbout = new TabPage();
+			pictureBox = new PictureBox();
+			tabPageLicense = new TabPage();
 			BottomToolStripPanel = new ToolStripPanel();
 			TopToolStripPanel = new ToolStripPanel();
 			RightToolStripPanel = new ToolStripPanel();
 			LeftToolStripPanel = new ToolStripPanel();
 			ContentPanel = new ToolStripContentPanel();
 			toolStripContainer = new ToolStripContainer();
-			tabControl = new TabControl();
-			tabPageDateToDate = new TabPage();
-			tabPageDaySpan = new TabPage();
-			labelDaysPlusMinus = new Label();
-			tabPageDaysOfLife = new TabPage();
-			tabPageAbout = new TabPage();
-			pictureBox = new PictureBox();
-			tabPageLicense = new TabPage();
 			statusStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numericUpDownDays).BeginInit();
-			toolStripContainer.BottomToolStripPanel.SuspendLayout();
-			toolStripContainer.ContentPanel.SuspendLayout();
-			toolStripContainer.SuspendLayout();
 			tabControl.SuspendLayout();
 			tabPageDateToDate.SuspendLayout();
 			tabPageDaySpan.SuspendLayout();
@@ -86,6 +83,9 @@
 			tabPageAbout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
 			tabPageLicense.SuspendLayout();
+			toolStripContainer.BottomToolStripPanel.SuspendLayout();
+			toolStripContainer.ContentPanel.SuspendLayout();
+			toolStripContainer.SuspendLayout();
 			SuspendLayout();
 			// 
 			// imageList
@@ -96,12 +96,13 @@
 			imageList.Images.SetKeyName(0, "calendar-select-days.png");
 			imageList.Images.SetKeyName(1, "calendar-select-days-span.png");
 			imageList.Images.SetKeyName(2, "calendar-select.png");
-			imageList.Images.SetKeyName(3, "information-button.png");
-			imageList.Images.SetKeyName(4, "script-text.png");
+			imageList.Images.SetKeyName(3, "calendar-day.png");
+			imageList.Images.SetKeyName(4, "information-button.png");
+			imageList.Images.SetKeyName(5, "script-text.png");
 			// 
 			// statusStrip
 			// 
-			statusStrip.AccessibleDescription = "Show the statusbar with some information";
+			statusStrip.AccessibleDescription = "Shows the statusbar with some information";
 			statusStrip.AccessibleName = "Statusbar";
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
 			statusStrip.Dock = DockStyle.None;
@@ -121,7 +122,7 @@
 			// 
 			// labelInformation
 			// 
-			labelInformation.AccessibleDescription = "Show some information";
+			labelInformation.AccessibleDescription = "Shows some information";
 			labelInformation.AccessibleName = "Information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
@@ -133,7 +134,7 @@
 			// 
 			// toolStripSplitButtonStayOnTop
 			// 
-			toolStripSplitButtonStayOnTop.AccessibleDescription = "Set or unset the window to the top";
+			toolStripSplitButtonStayOnTop.AccessibleDescription = "Sets or unset the window to the top";
 			toolStripSplitButtonStayOnTop.AccessibleName = "Stay on top";
 			toolStripSplitButtonStayOnTop.AccessibleRole = AccessibleRole.SplitButton;
 			toolStripSplitButtonStayOnTop.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -149,7 +150,7 @@
 			// 
 			// toolStripMenuItemStayNotOnTop
 			// 
-			toolStripMenuItemStayNotOnTop.AccessibleDescription = "Unset the window from the top";
+			toolStripMenuItemStayNotOnTop.AccessibleDescription = "Unsets the window from the top";
 			toolStripMenuItemStayNotOnTop.AccessibleName = "Stay on top";
 			toolStripMenuItemStayNotOnTop.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemStayNotOnTop.AutoToolTip = true;
@@ -166,7 +167,7 @@
 			// 
 			// toolStripMenuItemStayOnTop
 			// 
-			toolStripMenuItemStayOnTop.AccessibleDescription = "Set the window to the top";
+			toolStripMenuItemStayOnTop.AccessibleDescription = "Sets the window to the top";
 			toolStripMenuItemStayOnTop.AccessibleName = "Stay on top";
 			toolStripMenuItemStayOnTop.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemStayOnTop.AutoToolTip = true;
@@ -180,12 +181,12 @@
 			// 
 			// labelTitle
 			// 
-			labelTitle.AccessibleDescription = "Show the title and the version";
+			labelTitle.AccessibleDescription = "Shows the title and the version";
 			labelTitle.AccessibleName = "Title/version";
 			labelTitle.AccessibleRole = AccessibleRole.StaticText;
 			labelTitle.AutoEllipsis = true;
 			labelTitle.AutoSize = true;
-			labelTitle.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+			labelTitle.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold);
 			labelTitle.Location = new Point(55, 10);
 			labelTitle.Margin = new Padding(4, 0, 4, 0);
 			labelTitle.Name = "labelTitle";
@@ -201,7 +202,7 @@
 			// 
 			// labelDescription
 			// 
-			labelDescription.AccessibleDescription = "Show the description";
+			labelDescription.AccessibleDescription = "Shows the description";
 			labelDescription.AccessibleName = "Description";
 			labelDescription.AccessibleRole = AccessibleRole.StaticText;
 			labelDescription.AutoEllipsis = true;
@@ -221,7 +222,7 @@
 			// 
 			// labelCopyright
 			// 
-			labelCopyright.AccessibleDescription = "Show the copyright and the company name";
+			labelCopyright.AccessibleDescription = "Shows the copyright and the company name";
 			labelCopyright.AccessibleName = "Copyright/company";
 			labelCopyright.AccessibleRole = AccessibleRole.StaticText;
 			labelCopyright.AutoEllipsis = true;
@@ -241,7 +242,7 @@
 			// 
 			// dateTimePickerDateOfTheBirth
 			// 
-			dateTimePickerDateOfTheBirth.AccessibleDescription = "Show the date of the birth";
+			dateTimePickerDateOfTheBirth.AccessibleDescription = "Shows the date of the birth";
 			dateTimePickerDateOfTheBirth.AccessibleName = "Date of the birth";
 			dateTimePickerDateOfTheBirth.AccessibleRole = AccessibleRole.SpinButton;
 			dateTimePickerDateOfTheBirth.Location = new Point(117, 7);
@@ -249,7 +250,7 @@
 			dateTimePickerDateOfTheBirth.Name = "dateTimePickerDateOfTheBirth";
 			dateTimePickerDateOfTheBirth.Size = new Size(233, 23);
 			dateTimePickerDateOfTheBirth.TabIndex = 1;
-			toolTip.SetToolTip(dateTimePickerDateOfTheBirth, "date of the birth");
+			toolTip.SetToolTip(dateTimePickerDateOfTheBirth, "Date of the birth");
 			dateTimePickerDateOfTheBirth.ValueChanged += DateTimePickerDateOfTheBirth_ValueChanged;
 			dateTimePickerDateOfTheBirth.Enter += SetStatusbar_Enter;
 			dateTimePickerDateOfTheBirth.Leave += ClearStatusbar_Leave;
@@ -258,7 +259,7 @@
 			// 
 			// labelDateOfTheBirth
 			// 
-			labelDateOfTheBirth.AccessibleDescription = "Show the description of the date of the birth";
+			labelDateOfTheBirth.AccessibleDescription = "Shows the description of the date of the birth";
 			labelDateOfTheBirth.AccessibleName = "Description of the date of the birth";
 			labelDateOfTheBirth.AccessibleRole = AccessibleRole.StaticText;
 			labelDateOfTheBirth.AutoEllipsis = true;
@@ -277,7 +278,7 @@
 			// 
 			// dateTimePickerDateIn
 			// 
-			dateTimePickerDateIn.AccessibleDescription = "Show the beginning date";
+			dateTimePickerDateIn.AccessibleDescription = "Shows the beginning date";
 			dateTimePickerDateIn.AccessibleName = "Beginning date";
 			dateTimePickerDateIn.AccessibleRole = AccessibleRole.SpinButton;
 			dateTimePickerDateIn.Location = new Point(77, 7);
@@ -294,7 +295,7 @@
 			// 
 			// numericUpDownDays
 			// 
-			numericUpDownDays.AccessibleDescription = "Change the day span";
+			numericUpDownDays.AccessibleDescription = "Changes the day span";
 			numericUpDownDays.AccessibleName = "Day span";
 			numericUpDownDays.AccessibleRole = AccessibleRole.SpinButton;
 			numericUpDownDays.Location = new Point(77, 37);
@@ -312,7 +313,7 @@
 			// 
 			// dateTimePickerDateOut
 			// 
-			dateTimePickerDateOut.AccessibleDescription = "Show the ending date";
+			dateTimePickerDateOut.AccessibleDescription = "Shows the ending date";
 			dateTimePickerDateOut.AccessibleName = "Ending date";
 			dateTimePickerDateOut.AccessibleRole = AccessibleRole.SpinButton;
 			dateTimePickerDateOut.Enabled = false;
@@ -329,7 +330,7 @@
 			// 
 			// labelDateIn
 			// 
-			labelDateIn.AccessibleDescription = "Show the description of the beginning date";
+			labelDateIn.AccessibleDescription = "Shows the description of the beginning date";
 			labelDateIn.AccessibleName = "Description of the beginning date";
 			labelDateIn.AccessibleRole = AccessibleRole.StaticText;
 			labelDateIn.AutoEllipsis = true;
@@ -348,7 +349,7 @@
 			// 
 			// labelDateOut
 			// 
-			labelDateOut.AccessibleDescription = "Show the description of the ending date";
+			labelDateOut.AccessibleDescription = "Shows the description of the ending date";
 			labelDateOut.AccessibleName = "Description of the ending date";
 			labelDateOut.AccessibleRole = AccessibleRole.StaticText;
 			labelDateOut.AutoEllipsis = true;
@@ -367,7 +368,7 @@
 			// 
 			// dateTimePickerEnd
 			// 
-			dateTimePickerEnd.AccessibleDescription = "Show the ending date";
+			dateTimePickerEnd.AccessibleDescription = "Shows the ending date";
 			dateTimePickerEnd.AccessibleName = "Ending date";
 			dateTimePickerEnd.AccessibleRole = AccessibleRole.SpinButton;
 			dateTimePickerEnd.Location = new Point(57, 37);
@@ -384,7 +385,7 @@
 			// 
 			// dateTimePickerBegin
 			// 
-			dateTimePickerBegin.AccessibleDescription = "Show the beginning date";
+			dateTimePickerBegin.AccessibleDescription = "Shows the beginning date";
 			dateTimePickerBegin.AccessibleName = "Beginning date";
 			dateTimePickerBegin.AccessibleRole = AccessibleRole.SpinButton;
 			dateTimePickerBegin.Location = new Point(57, 7);
@@ -401,7 +402,7 @@
 			// 
 			// labelDateBegin
 			// 
-			labelDateBegin.AccessibleDescription = "Show the description of the beginning date";
+			labelDateBegin.AccessibleDescription = "Shows the description of the beginning date";
 			labelDateBegin.AccessibleName = "Description of the beginning date";
 			labelDateBegin.AccessibleRole = AccessibleRole.StaticText;
 			labelDateBegin.AutoEllipsis = true;
@@ -420,7 +421,7 @@
 			// 
 			// labelDateEnd
 			// 
-			labelDateEnd.AccessibleDescription = "Show the description of the ending date";
+			labelDateEnd.AccessibleDescription = "Shows the description of the ending date";
 			labelDateEnd.AccessibleName = "Description of the ending date";
 			labelDateEnd.AccessibleRole = AccessibleRole.StaticText;
 			labelDateEnd.AutoEllipsis = true;
@@ -439,7 +440,7 @@
 			// 
 			// labelDays
 			// 
-			labelDays.AccessibleDescription = "Show the description of the counted days";
+			labelDays.AccessibleDescription = "Shows the description of the counted days";
 			labelDays.AccessibleName = "Description of the counted days";
 			labelDays.AccessibleRole = AccessibleRole.StaticText;
 			labelDays.AutoEllipsis = true;
@@ -458,7 +459,7 @@
 			// 
 			// labelDaysCounted
 			// 
-			labelDaysCounted.AccessibleDescription = "Show the the counted days";
+			labelDaysCounted.AccessibleDescription = "Shows the the counted days";
 			labelDaysCounted.AccessibleName = "Counted days";
 			labelDaysCounted.AccessibleRole = AccessibleRole.StaticText;
 			labelDaysCounted.AutoEllipsis = true;
@@ -477,7 +478,7 @@
 			// 
 			// labelDaysOld
 			// 
-			labelDaysOld.AccessibleDescription = "Show how old you are in days";
+			labelDaysOld.AccessibleDescription = "Shows how old you are in days";
 			labelDaysOld.AccessibleName = "How old you are in days";
 			labelDaysOld.AccessibleRole = AccessibleRole.StaticText;
 			labelDaysOld.AutoEllipsis = true;
@@ -496,7 +497,7 @@
 			// 
 			// labelDaysSpan
 			// 
-			labelDaysSpan.AccessibleDescription = "Show the description of the counted days";
+			labelDaysSpan.AccessibleDescription = "Shows the description of the counted days";
 			labelDaysSpan.AccessibleName = "Description of the counted days";
 			labelDaysSpan.AccessibleRole = AccessibleRole.StaticText;
 			labelDaysSpan.AutoEllipsis = true;
@@ -515,8 +516,8 @@
 			// 
 			// buttonSwitchDateEnd
 			// 
-			buttonSwitchDateEnd.AccessibleDescription = "Switch the input method of the ending date";
-			buttonSwitchDateEnd.AccessibleName = "Change the input method of the ending date";
+			buttonSwitchDateEnd.AccessibleDescription = "Switchs the input method of the ending date";
+			buttonSwitchDateEnd.AccessibleName = "Changes the input method of the ending date";
 			buttonSwitchDateEnd.AccessibleRole = AccessibleRole.PushButton;
 			buttonSwitchDateEnd.AutoEllipsis = true;
 			buttonSwitchDateEnd.Image = Properties.Resources.switch_small;
@@ -525,7 +526,7 @@
 			buttonSwitchDateEnd.Name = "buttonSwitchDateEnd";
 			buttonSwitchDateEnd.Size = new Size(23, 23);
 			buttonSwitchDateEnd.TabIndex = 5;
-			toolTip.SetToolTip(buttonSwitchDateEnd, "Change the input method of the ending date");
+			toolTip.SetToolTip(buttonSwitchDateEnd, "Changes the input method of the ending date");
 			buttonSwitchDateEnd.UseVisualStyleBackColor = true;
 			buttonSwitchDateEnd.Click += ButtonSwitchDateEnd_Click;
 			buttonSwitchDateEnd.Enter += SetStatusbar_Enter;
@@ -535,8 +536,8 @@
 			// 
 			// buttonSwitchDateBegin
 			// 
-			buttonSwitchDateBegin.AccessibleDescription = "Switch the input method of the beginning date";
-			buttonSwitchDateBegin.AccessibleName = "Change the input method of the beginning date";
+			buttonSwitchDateBegin.AccessibleDescription = "Switchs the input method of the beginning date";
+			buttonSwitchDateBegin.AccessibleName = "Changes the input method of the beginning date";
 			buttonSwitchDateBegin.AccessibleRole = AccessibleRole.PushButton;
 			buttonSwitchDateBegin.AutoEllipsis = true;
 			buttonSwitchDateBegin.Image = Properties.Resources.switch_small;
@@ -545,7 +546,7 @@
 			buttonSwitchDateBegin.Name = "buttonSwitchDateBegin";
 			buttonSwitchDateBegin.Size = new Size(23, 23);
 			buttonSwitchDateBegin.TabIndex = 2;
-			toolTip.SetToolTip(buttonSwitchDateBegin, "Change the input method of the beginning date");
+			toolTip.SetToolTip(buttonSwitchDateBegin, "Changes the input method of the beginning date");
 			buttonSwitchDateBegin.UseVisualStyleBackColor = true;
 			buttonSwitchDateBegin.Click += ButtonSwitchDateBegin_Click;
 			buttonSwitchDateBegin.Enter += SetStatusbar_Enter;
@@ -555,8 +556,8 @@
 			// 
 			// buttonSwitchDateIn
 			// 
-			buttonSwitchDateIn.AccessibleDescription = "Switch the input method of the beginning date";
-			buttonSwitchDateIn.AccessibleName = "Change the input method of the ending date";
+			buttonSwitchDateIn.AccessibleDescription = "Switchs the input method of the beginning date";
+			buttonSwitchDateIn.AccessibleName = "Changes the input method of the ending date";
 			buttonSwitchDateIn.AccessibleRole = AccessibleRole.PushButton;
 			buttonSwitchDateIn.AutoEllipsis = true;
 			buttonSwitchDateIn.Image = Properties.Resources.switch_small;
@@ -565,7 +566,7 @@
 			buttonSwitchDateIn.Name = "buttonSwitchDateIn";
 			buttonSwitchDateIn.Size = new Size(23, 23);
 			buttonSwitchDateIn.TabIndex = 2;
-			toolTip.SetToolTip(buttonSwitchDateIn, "Change the input method of the ending date");
+			toolTip.SetToolTip(buttonSwitchDateIn, "Changes the input method of the ending date");
 			buttonSwitchDateIn.UseVisualStyleBackColor = true;
 			buttonSwitchDateIn.Click += ButtonSwitchDateDays_Click;
 			buttonSwitchDateIn.Enter += SetStatusbar_Enter;
@@ -575,8 +576,8 @@
 			// 
 			// buttonDateOfTheBirth
 			// 
-			buttonDateOfTheBirth.AccessibleDescription = "Switch the input method of the date of the birth";
-			buttonDateOfTheBirth.AccessibleName = "Change the input method of the date of the birth";
+			buttonDateOfTheBirth.AccessibleDescription = "Switchs the input method of the date of the birth";
+			buttonDateOfTheBirth.AccessibleName = "Changes the input method of the date of the birth";
 			buttonDateOfTheBirth.AccessibleRole = AccessibleRole.PushButton;
 			buttonDateOfTheBirth.AutoEllipsis = true;
 			buttonDateOfTheBirth.Image = Properties.Resources.switch_small;
@@ -585,7 +586,7 @@
 			buttonDateOfTheBirth.Name = "buttonDateOfTheBirth";
 			buttonDateOfTheBirth.Size = new Size(23, 23);
 			buttonDateOfTheBirth.TabIndex = 2;
-			toolTip.SetToolTip(buttonDateOfTheBirth, "Change the input method of the date of the birth");
+			toolTip.SetToolTip(buttonDateOfTheBirth, "Changes the input method of the date of the birth");
 			buttonDateOfTheBirth.UseVisualStyleBackColor = true;
 			buttonDateOfTheBirth.Click += ButtonDateOfTheBirth_Click;
 			buttonDateOfTheBirth.Enter += SetStatusbar_Enter;
@@ -595,7 +596,7 @@
 			// 
 			// textBoxLicense
 			// 
-			textBoxLicense.AccessibleDescription = "Show the license";
+			textBoxLicense.AccessibleDescription = "Shows the license";
 			textBoxLicense.AccessibleName = "License";
 			textBoxLicense.AccessibleRole = AccessibleRole.Text;
 			textBoxLicense.Dock = DockStyle.Fill;
@@ -607,7 +608,7 @@
 			textBoxLicense.PlaceholderText = "license here... 😉";
 			textBoxLicense.ReadOnly = true;
 			textBoxLicense.ScrollBars = ScrollBars.Both;
-			textBoxLicense.Size = new Size(405, 102);
+			textBoxLicense.Size = new Size(405, 77);
 			textBoxLicense.TabIndex = 0;
 			textBoxLicense.Text = resources.GetString("textBoxLicense.Text");
 			toolTip.SetToolTip(textBoxLicense, "License");
@@ -615,6 +616,193 @@
 			textBoxLicense.Leave += ClearStatusbar_Leave;
 			textBoxLicense.MouseEnter += SetStatusbar_Enter;
 			textBoxLicense.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// labelDaysPlusMinus
+			// 
+			labelDaysPlusMinus.AccessibleDescription = "Shows the description of the ending date";
+			labelDaysPlusMinus.AccessibleName = "Description of the day span";
+			labelDaysPlusMinus.AccessibleRole = AccessibleRole.StaticText;
+			labelDaysPlusMinus.AutoEllipsis = true;
+			labelDaysPlusMinus.AutoSize = true;
+			labelDaysPlusMinus.Location = new Point(9, 39);
+			labelDaysPlusMinus.Margin = new Padding(4, 0, 4, 0);
+			labelDaysPlusMinus.Name = "labelDaysPlusMinus";
+			labelDaysPlusMinus.Size = new Size(64, 15);
+			labelDaysPlusMinus.TabIndex = 3;
+			labelDaysPlusMinus.Text = "&Days (-/+):";
+			toolTip.SetToolTip(labelDaysPlusMinus, "Description of the day span");
+			labelDaysPlusMinus.Enter += SetStatusbar_Enter;
+			labelDaysPlusMinus.Leave += ClearStatusbar_Leave;
+			labelDaysPlusMinus.MouseEnter += SetStatusbar_Enter;
+			labelDaysPlusMinus.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// tabControl
+			// 
+			tabControl.AccessibleDescription = "Shows the tabs";
+			tabControl.AccessibleName = "Shows the tabs";
+			tabControl.AccessibleRole = AccessibleRole.PageTab;
+			tabControl.Controls.Add(tabPageDateToDate);
+			tabControl.Controls.Add(tabPageDaySpan);
+			tabControl.Controls.Add(tabPageDaysOfLife);
+			tabControl.Controls.Add(tabPageAbout);
+			tabControl.Controls.Add(tabPageLicense);
+			tabControl.Dock = DockStyle.Fill;
+			tabControl.HotTrack = true;
+			tabControl.ImageList = imageList;
+			tabControl.Location = new Point(0, 0);
+			tabControl.Margin = new Padding(4, 3, 4, 3);
+			tabControl.Name = "tabControl";
+			tabControl.SelectedIndex = 0;
+			tabControl.ShowToolTips = true;
+			tabControl.Size = new Size(413, 105);
+			tabControl.TabIndex = 0;
+			toolTip.SetToolTip(tabControl, "Shows the tabs");
+			tabControl.Enter += SetStatusbar_Enter;
+			tabControl.Leave += ClearStatusbar_Leave;
+			tabControl.MouseEnter += SetStatusbar_Enter;
+			tabControl.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// tabPageDateToDate
+			// 
+			tabPageDateToDate.AccessibleDescription = "Shows the tab page \"From date to date\"";
+			tabPageDateToDate.AccessibleName = "Tab page \"From date to date\"";
+			tabPageDateToDate.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDateToDate.Controls.Add(labelDaysCounted);
+			tabPageDateToDate.Controls.Add(labelDays);
+			tabPageDateToDate.Controls.Add(labelDateEnd);
+			tabPageDateToDate.Controls.Add(labelDateBegin);
+			tabPageDateToDate.Controls.Add(dateTimePickerBegin);
+			tabPageDateToDate.Controls.Add(buttonSwitchDateEnd);
+			tabPageDateToDate.Controls.Add(buttonSwitchDateBegin);
+			tabPageDateToDate.Controls.Add(dateTimePickerEnd);
+			tabPageDateToDate.ImageKey = "calendar-select-days.png";
+			tabPageDateToDate.Location = new Point(4, 24);
+			tabPageDateToDate.Margin = new Padding(4, 3, 4, 3);
+			tabPageDateToDate.Name = "tabPageDateToDate";
+			tabPageDateToDate.Padding = new Padding(4, 3, 4, 3);
+			tabPageDateToDate.Size = new Size(405, 77);
+			tabPageDateToDate.TabIndex = 0;
+			tabPageDateToDate.Text = "From date to date";
+			toolTip.SetToolTip(tabPageDateToDate, "Shows the tab page \"From date to date\"");
+			tabPageDateToDate.ToolTipText = "From date to date";
+			tabPageDateToDate.UseVisualStyleBackColor = true;
+			tabPageDateToDate.Enter += SetStatusbar_Enter;
+			tabPageDateToDate.Leave += ClearStatusbar_Leave;
+			tabPageDateToDate.MouseEnter += SetStatusbar_Enter;
+			tabPageDateToDate.MouseHover += ClearStatusbar_Leave;
+			// 
+			// tabPageDaySpan
+			// 
+			tabPageDaySpan.AccessibleDescription = "Shows the tab page \"Days span\"";
+			tabPageDaySpan.AccessibleName = "Tab page \"Days span\"";
+			tabPageDaySpan.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDaySpan.Controls.Add(labelDateOut);
+			tabPageDaySpan.Controls.Add(labelDateIn);
+			tabPageDaySpan.Controls.Add(dateTimePickerDateOut);
+			tabPageDaySpan.Controls.Add(labelDaysPlusMinus);
+			tabPageDaySpan.Controls.Add(numericUpDownDays);
+			tabPageDaySpan.Controls.Add(dateTimePickerDateIn);
+			tabPageDaySpan.Controls.Add(buttonSwitchDateIn);
+			tabPageDaySpan.ImageKey = "calendar-select-days-span.png";
+			tabPageDaySpan.Location = new Point(4, 24);
+			tabPageDaySpan.Margin = new Padding(4, 3, 4, 3);
+			tabPageDaySpan.Name = "tabPageDaySpan";
+			tabPageDaySpan.Padding = new Padding(4, 3, 4, 3);
+			tabPageDaySpan.Size = new Size(405, 77);
+			tabPageDaySpan.TabIndex = 1;
+			tabPageDaySpan.Text = "Days span";
+			toolTip.SetToolTip(tabPageDaySpan, "Shows the tab page \"Days span\"");
+			tabPageDaySpan.ToolTipText = "Day span";
+			tabPageDaySpan.UseVisualStyleBackColor = true;
+			tabPageDaySpan.Enter += SetStatusbar_Enter;
+			tabPageDaySpan.Leave += ClearStatusbar_Leave;
+			tabPageDaySpan.MouseEnter += SetStatusbar_Enter;
+			tabPageDaySpan.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// tabPageDaysOfLife
+			// 
+			tabPageDaysOfLife.AccessibleDescription = "Shows the tab page \"Days of life\"";
+			tabPageDaysOfLife.AccessibleName = "Tab page \"Days of life\"";
+			tabPageDaysOfLife.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDaysOfLife.Controls.Add(labelDaysSpan);
+			tabPageDaysOfLife.Controls.Add(labelDaysOld);
+			tabPageDaysOfLife.Controls.Add(labelDateOfTheBirth);
+			tabPageDaysOfLife.Controls.Add(dateTimePickerDateOfTheBirth);
+			tabPageDaysOfLife.Controls.Add(buttonDateOfTheBirth);
+			tabPageDaysOfLife.ImageKey = "calendar-select.png";
+			tabPageDaysOfLife.Location = new Point(4, 24);
+			tabPageDaysOfLife.Margin = new Padding(4, 3, 4, 3);
+			tabPageDaysOfLife.Name = "tabPageDaysOfLife";
+			tabPageDaysOfLife.Padding = new Padding(4, 3, 4, 3);
+			tabPageDaysOfLife.Size = new Size(405, 77);
+			tabPageDaysOfLife.TabIndex = 3;
+			tabPageDaysOfLife.Text = "Days of life";
+			toolTip.SetToolTip(tabPageDaysOfLife, "Shows the tab page \"Days of life\"");
+			tabPageDaysOfLife.ToolTipText = "Days of life";
+			tabPageDaysOfLife.UseVisualStyleBackColor = true;
+			tabPageDaysOfLife.Enter += SetStatusbar_Enter;
+			tabPageDaysOfLife.Leave += ClearStatusbar_Leave;
+			tabPageDaysOfLife.MouseEnter += SetStatusbar_Enter;
+			tabPageDaysOfLife.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// tabPageAbout
+			// 
+			tabPageAbout.AccessibleDescription = "Shows the tab page \"About\"";
+			tabPageAbout.AccessibleName = "Tab page \"About\"";
+			tabPageAbout.AccessibleRole = AccessibleRole.PageTab;
+			tabPageAbout.Controls.Add(labelCopyright);
+			tabPageAbout.Controls.Add(labelDescription);
+			tabPageAbout.Controls.Add(labelTitle);
+			tabPageAbout.Controls.Add(pictureBox);
+			tabPageAbout.ImageKey = "information-button.png";
+			tabPageAbout.Location = new Point(4, 24);
+			tabPageAbout.Margin = new Padding(4, 3, 4, 3);
+			tabPageAbout.Name = "tabPageAbout";
+			tabPageAbout.Padding = new Padding(4, 3, 4, 3);
+			tabPageAbout.Size = new Size(405, 77);
+			tabPageAbout.TabIndex = 2;
+			tabPageAbout.Text = "About";
+			toolTip.SetToolTip(tabPageAbout, "Shows the tab page \"About\"");
+			tabPageAbout.ToolTipText = "About";
+			tabPageAbout.UseVisualStyleBackColor = true;
+			tabPageAbout.Enter += SetStatusbar_Enter;
+			tabPageAbout.Leave += ClearStatusbar_Leave;
+			tabPageAbout.MouseEnter += SetStatusbar_Enter;
+			tabPageAbout.MouseHover += ClearStatusbar_Leave;
+			// 
+			// pictureBox
+			// 
+			pictureBox.AccessibleDescription = "Show the application logo";
+			pictureBox.AccessibleName = "Apllication logo";
+			pictureBox.AccessibleRole = AccessibleRole.Graphic;
+			pictureBox.Image = (Image)resources.GetObject("pictureBox.Image");
+			pictureBox.Location = new Point(10, 8);
+			pictureBox.Margin = new Padding(4, 3, 4, 3);
+			pictureBox.Name = "pictureBox";
+			pictureBox.Size = new Size(37, 37);
+			pictureBox.TabIndex = 0;
+			pictureBox.TabStop = false;
+			pictureBox.MouseEnter += SetStatusbar_Enter;
+			pictureBox.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// tabPageLicense
+			// 
+			tabPageLicense.AccessibleDescription = "Shows the tab page \"License\"";
+			tabPageLicense.AccessibleName = "Tab page \"License\"";
+			tabPageLicense.Controls.Add(textBoxLicense);
+			tabPageLicense.ImageKey = "script-text.png";
+			tabPageLicense.Location = new Point(4, 24);
+			tabPageLicense.Name = "tabPageLicense";
+			tabPageLicense.Size = new Size(405, 77);
+			tabPageLicense.TabIndex = 4;
+			tabPageLicense.Text = "License";
+			toolTip.SetToolTip(tabPageLicense, "Shows the tab page \"License\"");
+			tabPageLicense.ToolTipText = "License";
+			tabPageLicense.UseVisualStyleBackColor = true;
+			tabPageLicense.Enter += SetStatusbar_Enter;
+			tabPageLicense.Leave += ClearStatusbar_Leave;
+			tabPageLicense.MouseEnter += SetStatusbar_Enter;
+			tabPageLicense.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// BottomToolStripPanel
 			// 
@@ -672,7 +860,7 @@
 			// 
 			// toolStripContainer
 			// 
-			toolStripContainer.AccessibleDescription = "Group the toolbars and the statusbar";
+			toolStripContainer.AccessibleDescription = "Groups the toolbars and the statusbar";
 			toolStripContainer.AccessibleName = "Toolbar container";
 			toolStripContainer.AccessibleRole = AccessibleRole.Grouping;
 			// 
@@ -691,7 +879,7 @@
 			toolStripContainer.ContentPanel.AutoScroll = true;
 			toolStripContainer.ContentPanel.Controls.Add(tabControl);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(413, 130);
+			toolStripContainer.ContentPanel.Size = new Size(413, 105);
 			toolStripContainer.Dock = DockStyle.Fill;
 			// 
 			// toolStripContainer.LeftToolStripPanel
@@ -718,157 +906,6 @@
 			toolStripContainer.TopToolStripPanel.AccessibleName = "Upper part of the ToolStripContainer";
 			toolStripContainer.TopToolStripPanel.AccessibleRole = AccessibleRole.Pane;
 			// 
-			// tabControl
-			// 
-			tabControl.AccessibleDescription = "Show the tabs";
-			tabControl.AccessibleName = "Show the tabs";
-			tabControl.AccessibleRole = AccessibleRole.PageTab;
-			tabControl.Controls.Add(tabPageDateToDate);
-			tabControl.Controls.Add(tabPageDaySpan);
-			tabControl.Controls.Add(tabPageDaysOfLife);
-			tabControl.Controls.Add(tabPageAbout);
-			tabControl.Controls.Add(tabPageLicense);
-			tabControl.Dock = DockStyle.Fill;
-			tabControl.HotTrack = true;
-			tabControl.ImageList = imageList;
-			tabControl.Location = new Point(0, 0);
-			tabControl.Margin = new Padding(4, 3, 4, 3);
-			tabControl.Name = "tabControl";
-			tabControl.SelectedIndex = 0;
-			tabControl.ShowToolTips = true;
-			tabControl.Size = new Size(413, 130);
-			tabControl.TabIndex = 0;
-			// 
-			// tabPageDateToDate
-			// 
-			tabPageDateToDate.AccessibleDescription = "Show the tab page \"From date to date\"";
-			tabPageDateToDate.AccessibleName = "Tab page \"From date to date\"";
-			tabPageDateToDate.AccessibleRole = AccessibleRole.PageTab;
-			tabPageDateToDate.Controls.Add(labelDaysCounted);
-			tabPageDateToDate.Controls.Add(labelDays);
-			tabPageDateToDate.Controls.Add(labelDateEnd);
-			tabPageDateToDate.Controls.Add(labelDateBegin);
-			tabPageDateToDate.Controls.Add(dateTimePickerBegin);
-			tabPageDateToDate.Controls.Add(buttonSwitchDateEnd);
-			tabPageDateToDate.Controls.Add(buttonSwitchDateBegin);
-			tabPageDateToDate.Controls.Add(dateTimePickerEnd);
-			tabPageDateToDate.ImageKey = "calendar-select-days.png";
-			tabPageDateToDate.Location = new Point(4, 24);
-			tabPageDateToDate.Margin = new Padding(4, 3, 4, 3);
-			tabPageDateToDate.Name = "tabPageDateToDate";
-			tabPageDateToDate.Padding = new Padding(4, 3, 4, 3);
-			tabPageDateToDate.Size = new Size(405, 102);
-			tabPageDateToDate.TabIndex = 0;
-			tabPageDateToDate.Text = "From date to date";
-			tabPageDateToDate.UseVisualStyleBackColor = true;
-			// 
-			// tabPageDaySpan
-			// 
-			tabPageDaySpan.AccessibleDescription = "Show the tab page \"Days span\"";
-			tabPageDaySpan.AccessibleName = "Tab page \"Days span\"";
-			tabPageDaySpan.AccessibleRole = AccessibleRole.PageTab;
-			tabPageDaySpan.Controls.Add(labelDateOut);
-			tabPageDaySpan.Controls.Add(labelDateIn);
-			tabPageDaySpan.Controls.Add(dateTimePickerDateOut);
-			tabPageDaySpan.Controls.Add(labelDaysPlusMinus);
-			tabPageDaySpan.Controls.Add(numericUpDownDays);
-			tabPageDaySpan.Controls.Add(dateTimePickerDateIn);
-			tabPageDaySpan.Controls.Add(buttonSwitchDateIn);
-			tabPageDaySpan.ImageKey = "calendar-select-days-span.png";
-			tabPageDaySpan.Location = new Point(4, 24);
-			tabPageDaySpan.Margin = new Padding(4, 3, 4, 3);
-			tabPageDaySpan.Name = "tabPageDaySpan";
-			tabPageDaySpan.Padding = new Padding(4, 3, 4, 3);
-			tabPageDaySpan.Size = new Size(405, 102);
-			tabPageDaySpan.TabIndex = 1;
-			tabPageDaySpan.Text = "Days span";
-			tabPageDaySpan.UseVisualStyleBackColor = true;
-			// 
-			// labelDaysPlusMinus
-			// 
-			labelDaysPlusMinus.AccessibleDescription = "Show the description of the ending date";
-			labelDaysPlusMinus.AccessibleName = "Description of the day span";
-			labelDaysPlusMinus.AccessibleRole = AccessibleRole.StaticText;
-			labelDaysPlusMinus.AutoEllipsis = true;
-			labelDaysPlusMinus.AutoSize = true;
-			labelDaysPlusMinus.Location = new Point(9, 39);
-			labelDaysPlusMinus.Margin = new Padding(4, 0, 4, 0);
-			labelDaysPlusMinus.Name = "labelDaysPlusMinus";
-			labelDaysPlusMinus.Size = new Size(64, 15);
-			labelDaysPlusMinus.TabIndex = 3;
-			labelDaysPlusMinus.Text = "&Days (-/+):";
-			labelDaysPlusMinus.Enter += SetStatusbar_Enter;
-			labelDaysPlusMinus.Leave += ClearStatusbar_Leave;
-			labelDaysPlusMinus.MouseEnter += SetStatusbar_Enter;
-			labelDaysPlusMinus.MouseLeave += ClearStatusbar_Leave;
-			// 
-			// tabPageDaysOfLife
-			// 
-			tabPageDaysOfLife.AccessibleDescription = "Show the tab page \"Days of life\"";
-			tabPageDaysOfLife.AccessibleName = "Tab page \"Days of life\"";
-			tabPageDaysOfLife.AccessibleRole = AccessibleRole.PageTab;
-			tabPageDaysOfLife.Controls.Add(labelDaysSpan);
-			tabPageDaysOfLife.Controls.Add(labelDaysOld);
-			tabPageDaysOfLife.Controls.Add(labelDateOfTheBirth);
-			tabPageDaysOfLife.Controls.Add(dateTimePickerDateOfTheBirth);
-			tabPageDaysOfLife.Controls.Add(buttonDateOfTheBirth);
-			tabPageDaysOfLife.ImageKey = "calendar-select.png";
-			tabPageDaysOfLife.Location = new Point(4, 24);
-			tabPageDaysOfLife.Margin = new Padding(4, 3, 4, 3);
-			tabPageDaysOfLife.Name = "tabPageDaysOfLife";
-			tabPageDaysOfLife.Padding = new Padding(4, 3, 4, 3);
-			tabPageDaysOfLife.Size = new Size(405, 102);
-			tabPageDaysOfLife.TabIndex = 3;
-			tabPageDaysOfLife.Text = "Days of life";
-			tabPageDaysOfLife.UseVisualStyleBackColor = true;
-			// 
-			// tabPageAbout
-			// 
-			tabPageAbout.AccessibleDescription = "Show the tab page \"About\"";
-			tabPageAbout.AccessibleName = "Tab page \"About\"";
-			tabPageAbout.AccessibleRole = AccessibleRole.PageTab;
-			tabPageAbout.Controls.Add(labelCopyright);
-			tabPageAbout.Controls.Add(labelDescription);
-			tabPageAbout.Controls.Add(labelTitle);
-			tabPageAbout.Controls.Add(pictureBox);
-			tabPageAbout.ImageKey = "information-button.png";
-			tabPageAbout.Location = new Point(4, 24);
-			tabPageAbout.Margin = new Padding(4, 3, 4, 3);
-			tabPageAbout.Name = "tabPageAbout";
-			tabPageAbout.Padding = new Padding(4, 3, 4, 3);
-			tabPageAbout.Size = new Size(405, 102);
-			tabPageAbout.TabIndex = 2;
-			tabPageAbout.Text = "About";
-			tabPageAbout.UseVisualStyleBackColor = true;
-			// 
-			// pictureBox
-			// 
-			pictureBox.AccessibleDescription = "Show the application logo";
-			pictureBox.AccessibleName = "Apllication logo";
-			pictureBox.AccessibleRole = AccessibleRole.Graphic;
-			pictureBox.Image = Properties.Resources.calendar_day;
-			pictureBox.Location = new Point(10, 8);
-			pictureBox.Margin = new Padding(4, 3, 4, 3);
-			pictureBox.Name = "pictureBox";
-			pictureBox.Size = new Size(37, 37);
-			pictureBox.TabIndex = 0;
-			pictureBox.TabStop = false;
-			pictureBox.MouseEnter += SetStatusbar_Enter;
-			pictureBox.MouseLeave += ClearStatusbar_Leave;
-			// 
-			// tabPageLicense
-			// 
-			tabPageLicense.AccessibleDescription = "Show the tab page \"License\"";
-			tabPageLicense.AccessibleName = "Tab page \"License\"";
-			tabPageLicense.Controls.Add(textBoxLicense);
-			tabPageLicense.ImageKey = "script-text.png";
-			tabPageLicense.Location = new Point(4, 24);
-			tabPageLicense.Name = "tabPageLicense";
-			tabPageLicense.Size = new Size(405, 102);
-			tabPageLicense.TabIndex = 4;
-			tabPageLicense.Text = "License";
-			tabPageLicense.UseVisualStyleBackColor = true;
-			// 
 			// MainForm
 			// 
 			AccessibleDescription = "This is the main window of the application";
@@ -888,11 +925,6 @@
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)numericUpDownDays).EndInit();
-			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
-			toolStripContainer.BottomToolStripPanel.PerformLayout();
-			toolStripContainer.ContentPanel.ResumeLayout(false);
-			toolStripContainer.ResumeLayout(false);
-			toolStripContainer.PerformLayout();
 			tabControl.ResumeLayout(false);
 			tabPageDateToDate.ResumeLayout(false);
 			tabPageDateToDate.PerformLayout();
@@ -905,6 +937,11 @@
 			((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
 			tabPageLicense.ResumeLayout(false);
 			tabPageLicense.PerformLayout();
+			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
+			toolStripContainer.BottomToolStripPanel.PerformLayout();
+			toolStripContainer.ContentPanel.ResumeLayout(false);
+			toolStripContainer.ResumeLayout(false);
+			toolStripContainer.PerformLayout();
 			ResumeLayout(false);
 		}
 
