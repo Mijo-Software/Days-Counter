@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using NLog;
 
-namespace Numeric_List_Generator
+namespace DaysCounter
 {
 	/// <summary>
 	/// Main class of the program.
@@ -23,16 +23,16 @@ namespace Numeric_List_Generator
 			{
 				// Initializes the application configurations
 				ApplicationConfiguration.Initialize();
-				Logger.Info(message: "Anwendung gestartet.");
+				Logger.Info(message: "Application started.");
 
 				// Starts the main form of the application
-				using NumericListGeneratorForm mainForm = new();
+				using MainForm mainForm = new();
 				Application.Run(mainForm);
 			}
 			catch (InvalidOperationException ex)
 			{
 				// Handle specific InvalidOperationException
-				string message = "Ein ungültiger Vorgang ist aufgetreten. Bitte versuchen Sie es erneut.";
+				string message = "An invalid operation occurred. Please try again.";
 				Debug.WriteLine(value: ex);
 				Logger.Error(exception: ex, message: message);
 				LogError(ex);
@@ -41,7 +41,7 @@ namespace Numeric_List_Generator
 			catch (Exception ex)
 			{
 				// Error handling: Log the error and display an error message
-				string message = "Ein unerwarteter Fehler ist aufgetreten. Bitte kontaktieren Sie den Support.";
+				string message = "An unexpected error occurred. Please contact support.";
 				Debug.WriteLine(value: ex);
 				Logger.Error(exception: ex, message: message);
 				LogError(ex);
@@ -56,7 +56,7 @@ namespace Numeric_List_Generator
 		private static void LogError(Exception ex)
 		{
 			// Implement logging logic here (e.g., log to a file or monitoring system)
-			Console.WriteLine(value: $"Fehler: {ex.Message}\n{ex.StackTrace}");
+			Console.WriteLine(value: $"Error: {ex.Message}\n{ex.StackTrace}");
 		}
 
 		/// <summary>
@@ -65,7 +65,7 @@ namespace Numeric_List_Generator
 		/// <param name="message">The error message to display.</param>
 		private static void ShowErrorMessage(string message)
 		{
-			_ = MessageBox.Show(text: message, caption: "Fehler", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			_ = MessageBox.Show(text: message, caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 	}
 }

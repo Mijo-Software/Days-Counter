@@ -65,6 +65,8 @@
 			tabPageDateToDate = new TabPage();
 			tabPageDaySpan = new TabPage();
 			tabPageDaysOfLife = new TabPage();
+			tabPageDaysOfYear = new TabPage();
+			labelDaysOfYearPassed = new Label();
 			tabPageAbout = new TabPage();
 			pictureBox = new PictureBox();
 			tabPageLicense = new TabPage();
@@ -80,6 +82,7 @@
 			tabPageDateToDate.SuspendLayout();
 			tabPageDaySpan.SuspendLayout();
 			tabPageDaysOfLife.SuspendLayout();
+			tabPageDaysOfYear.SuspendLayout();
 			tabPageAbout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
 			tabPageLicense.SuspendLayout();
@@ -608,7 +611,7 @@
 			textBoxLicense.PlaceholderText = "license here... 😉";
 			textBoxLicense.ReadOnly = true;
 			textBoxLicense.ScrollBars = ScrollBars.Both;
-			textBoxLicense.Size = new Size(405, 77);
+			textBoxLicense.Size = new Size(405, 82);
 			textBoxLicense.TabIndex = 0;
 			textBoxLicense.Text = resources.GetString("textBoxLicense.Text");
 			toolTip.SetToolTip(textBoxLicense, "License");
@@ -644,6 +647,7 @@
 			tabControl.Controls.Add(tabPageDateToDate);
 			tabControl.Controls.Add(tabPageDaySpan);
 			tabControl.Controls.Add(tabPageDaysOfLife);
+			tabControl.Controls.Add(tabPageDaysOfYear);
 			tabControl.Controls.Add(tabPageAbout);
 			tabControl.Controls.Add(tabPageLicense);
 			tabControl.Dock = DockStyle.Fill;
@@ -651,10 +655,11 @@
 			tabControl.ImageList = imageList;
 			tabControl.Location = new Point(0, 0);
 			tabControl.Margin = new Padding(4, 3, 4, 3);
+			tabControl.Multiline = true;
 			tabControl.Name = "tabControl";
 			tabControl.SelectedIndex = 0;
 			tabControl.ShowToolTips = true;
-			tabControl.Size = new Size(413, 105);
+			tabControl.Size = new Size(413, 144);
 			tabControl.TabIndex = 0;
 			toolTip.SetToolTip(tabControl, "Shows the tabs");
 			tabControl.Enter += SetStatusbar_Enter;
@@ -676,11 +681,11 @@
 			tabPageDateToDate.Controls.Add(buttonSwitchDateBegin);
 			tabPageDateToDate.Controls.Add(dateTimePickerEnd);
 			tabPageDateToDate.ImageKey = "calendar-select-days.png";
-			tabPageDateToDate.Location = new Point(4, 24);
+			tabPageDateToDate.Location = new Point(4, 44);
 			tabPageDateToDate.Margin = new Padding(4, 3, 4, 3);
 			tabPageDateToDate.Name = "tabPageDateToDate";
 			tabPageDateToDate.Padding = new Padding(4, 3, 4, 3);
-			tabPageDateToDate.Size = new Size(405, 77);
+			tabPageDateToDate.Size = new Size(405, 96);
 			tabPageDateToDate.TabIndex = 0;
 			tabPageDateToDate.Text = "From date to date";
 			toolTip.SetToolTip(tabPageDateToDate, "Shows the tab page \"From date to date\"");
@@ -704,11 +709,11 @@
 			tabPageDaySpan.Controls.Add(dateTimePickerDateIn);
 			tabPageDaySpan.Controls.Add(buttonSwitchDateIn);
 			tabPageDaySpan.ImageKey = "calendar-select-days-span.png";
-			tabPageDaySpan.Location = new Point(4, 24);
+			tabPageDaySpan.Location = new Point(4, 44);
 			tabPageDaySpan.Margin = new Padding(4, 3, 4, 3);
 			tabPageDaySpan.Name = "tabPageDaySpan";
 			tabPageDaySpan.Padding = new Padding(4, 3, 4, 3);
-			tabPageDaySpan.Size = new Size(405, 77);
+			tabPageDaySpan.Size = new Size(405, 96);
 			tabPageDaySpan.TabIndex = 1;
 			tabPageDaySpan.Text = "Days span";
 			toolTip.SetToolTip(tabPageDaySpan, "Shows the tab page \"Days span\"");
@@ -730,11 +735,11 @@
 			tabPageDaysOfLife.Controls.Add(dateTimePickerDateOfTheBirth);
 			tabPageDaysOfLife.Controls.Add(buttonDateOfTheBirth);
 			tabPageDaysOfLife.ImageKey = "calendar-select.png";
-			tabPageDaysOfLife.Location = new Point(4, 24);
+			tabPageDaysOfLife.Location = new Point(4, 44);
 			tabPageDaysOfLife.Margin = new Padding(4, 3, 4, 3);
 			tabPageDaysOfLife.Name = "tabPageDaysOfLife";
 			tabPageDaysOfLife.Padding = new Padding(4, 3, 4, 3);
-			tabPageDaysOfLife.Size = new Size(405, 77);
+			tabPageDaysOfLife.Size = new Size(405, 96);
 			tabPageDaysOfLife.TabIndex = 3;
 			tabPageDaysOfLife.Text = "Days of life";
 			toolTip.SetToolTip(tabPageDaysOfLife, "Shows the tab page \"Days of life\"");
@@ -744,6 +749,46 @@
 			tabPageDaysOfLife.Leave += ClearStatusbar_Leave;
 			tabPageDaysOfLife.MouseEnter += SetStatusbar_Enter;
 			tabPageDaysOfLife.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// tabPageDaysOfYear
+			// 
+			tabPageDaysOfYear.AccessibleDescription = "Shows the tab page \"Days of year\"";
+			tabPageDaysOfYear.AccessibleName = "Tab page \"Days of year\"";
+			tabPageDaysOfYear.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDaysOfYear.Controls.Add(labelDaysOfYearPassed);
+			tabPageDaysOfYear.ImageKey = "calendar-day.png";
+			tabPageDaysOfYear.Location = new Point(4, 44);
+			tabPageDaysOfYear.Name = "tabPageDaysOfYear";
+			tabPageDaysOfYear.Padding = new Padding(3);
+			tabPageDaysOfYear.Size = new Size(405, 96);
+			tabPageDaysOfYear.TabIndex = 5;
+			tabPageDaysOfYear.Text = "Days of year";
+			toolTip.SetToolTip(tabPageDaysOfYear, "Shows the tab page \"Days of year\"");
+			tabPageDaysOfYear.ToolTipText = "Days of year";
+			tabPageDaysOfYear.UseVisualStyleBackColor = true;
+			tabPageDaysOfYear.Enter += SetStatusbar_Enter;
+			tabPageDaysOfYear.Leave += ClearStatusbar_Leave;
+			tabPageDaysOfYear.MouseEnter += SetStatusbar_Enter;
+			tabPageDaysOfYear.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// labelDaysOfYearPassed
+			// 
+			labelDaysOfYearPassed.AccessibleDescription = "Shows how many days have been since the start of the year";
+			labelDaysOfYearPassed.AccessibleName = "How many days have been since the start of the year";
+			labelDaysOfYearPassed.AccessibleRole = AccessibleRole.StaticText;
+			labelDaysOfYearPassed.AutoEllipsis = true;
+			labelDaysOfYearPassed.AutoSize = true;
+			labelDaysOfYearPassed.Location = new Point(9, 12);
+			labelDaysOfYearPassed.Margin = new Padding(4, 0, 4, 0);
+			labelDaysOfYearPassed.Name = "labelDaysOfYearPassed";
+			labelDaysOfYearPassed.Size = new Size(255, 15);
+			labelDaysOfYearPassed.TabIndex = 8;
+			labelDaysOfYearPassed.Text = "It has been XXX days since the start of this year.";
+			toolTip.SetToolTip(labelDaysOfYearPassed, "How many days have been since the start of the year");
+			labelDaysOfYearPassed.Enter += SetStatusbar_Enter;
+			labelDaysOfYearPassed.Leave += ClearStatusbar_Leave;
+			labelDaysOfYearPassed.MouseEnter += SetStatusbar_Enter;
+			labelDaysOfYearPassed.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// tabPageAbout
 			// 
@@ -755,11 +800,11 @@
 			tabPageAbout.Controls.Add(labelTitle);
 			tabPageAbout.Controls.Add(pictureBox);
 			tabPageAbout.ImageKey = "information-button.png";
-			tabPageAbout.Location = new Point(4, 24);
+			tabPageAbout.Location = new Point(4, 44);
 			tabPageAbout.Margin = new Padding(4, 3, 4, 3);
 			tabPageAbout.Name = "tabPageAbout";
 			tabPageAbout.Padding = new Padding(4, 3, 4, 3);
-			tabPageAbout.Size = new Size(405, 77);
+			tabPageAbout.Size = new Size(405, 96);
 			tabPageAbout.TabIndex = 2;
 			tabPageAbout.Text = "About";
 			toolTip.SetToolTip(tabPageAbout, "Shows the tab page \"About\"");
@@ -791,9 +836,9 @@
 			tabPageLicense.AccessibleName = "Tab page \"License\"";
 			tabPageLicense.Controls.Add(textBoxLicense);
 			tabPageLicense.ImageKey = "script-text.png";
-			tabPageLicense.Location = new Point(4, 24);
+			tabPageLicense.Location = new Point(4, 44);
 			tabPageLicense.Name = "tabPageLicense";
-			tabPageLicense.Size = new Size(405, 77);
+			tabPageLicense.Size = new Size(405, 82);
 			tabPageLicense.TabIndex = 4;
 			tabPageLicense.Text = "License";
 			toolTip.SetToolTip(tabPageLicense, "Shows the tab page \"License\"");
@@ -879,7 +924,7 @@
 			toolStripContainer.ContentPanel.AutoScroll = true;
 			toolStripContainer.ContentPanel.Controls.Add(tabControl);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(413, 105);
+			toolStripContainer.ContentPanel.Size = new Size(413, 144);
 			toolStripContainer.Dock = DockStyle.Fill;
 			// 
 			// toolStripContainer.LeftToolStripPanel
@@ -896,7 +941,7 @@
 			toolStripContainer.RightToolStripPanel.AccessibleDescription = "Right part of the ToolStripContainer";
 			toolStripContainer.RightToolStripPanel.AccessibleName = "Right part of the ToolStripContainer";
 			toolStripContainer.RightToolStripPanel.AccessibleRole = AccessibleRole.Pane;
-			toolStripContainer.Size = new Size(413, 152);
+			toolStripContainer.Size = new Size(413, 166);
 			toolStripContainer.TabIndex = 6;
 			toolStripContainer.Text = "toolStripContainer";
 			// 
@@ -913,7 +958,7 @@
 			AccessibleRole = AccessibleRole.Window;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(413, 152);
+			ClientSize = new Size(413, 166);
 			Controls.Add(toolStripContainer);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			Icon = (Icon)resources.GetObject("$this.Icon");
@@ -932,6 +977,8 @@
 			tabPageDaySpan.PerformLayout();
 			tabPageDaysOfLife.ResumeLayout(false);
 			tabPageDaysOfLife.PerformLayout();
+			tabPageDaysOfYear.ResumeLayout(false);
+			tabPageDaysOfYear.PerformLayout();
 			tabPageAbout.ResumeLayout(false);
 			tabPageAbout.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
@@ -990,6 +1037,8 @@
 		private ToolStripMenuItem toolStripMenuItemStayOnTop;
 		private TabPage tabPageLicense;
 		private TextBox textBoxLicense;
+		private TabPage tabPageDaysOfYear;
+		private Label labelDaysOfYearPassed;
 	}
 }
 
