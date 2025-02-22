@@ -66,6 +66,9 @@
 			tabPageDaySpan = new TabPage();
 			tabPageDaysOfLife = new TabPage();
 			tabPageDaysOfYear = new TabPage();
+			labelDate = new Label();
+			dateTimePickerDaysOfYear = new DateTimePicker();
+			buttonDaysOfYear = new Button();
 			labelDaysOfYearPassed = new Label();
 			tabPageAbout = new TabPage();
 			pictureBox = new PictureBox();
@@ -76,6 +79,7 @@
 			LeftToolStripPanel = new ToolStripPanel();
 			ContentPanel = new ToolStripContentPanel();
 			toolStripContainer = new ToolStripContainer();
+			labelDaysOfYear = new Label();
 			statusStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numericUpDownDays).BeginInit();
 			tabControl.SuspendLayout();
@@ -611,7 +615,7 @@
 			textBoxLicense.PlaceholderText = "license here... 😉";
 			textBoxLicense.ReadOnly = true;
 			textBoxLicense.ScrollBars = ScrollBars.Both;
-			textBoxLicense.Size = new Size(405, 82);
+			textBoxLicense.Size = new Size(405, 96);
 			textBoxLicense.TabIndex = 0;
 			textBoxLicense.Text = resources.GetString("textBoxLicense.Text");
 			toolTip.SetToolTip(textBoxLicense, "License");
@@ -685,7 +689,7 @@
 			tabPageDateToDate.Margin = new Padding(4, 3, 4, 3);
 			tabPageDateToDate.Name = "tabPageDateToDate";
 			tabPageDateToDate.Padding = new Padding(4, 3, 4, 3);
-			tabPageDateToDate.Size = new Size(405, 96);
+			tabPageDateToDate.Size = new Size(405, 71);
 			tabPageDateToDate.TabIndex = 0;
 			tabPageDateToDate.Text = "From date to date";
 			toolTip.SetToolTip(tabPageDateToDate, "Shows the tab page \"From date to date\"");
@@ -755,6 +759,10 @@
 			tabPageDaysOfYear.AccessibleDescription = "Shows the tab page \"Days of year\"";
 			tabPageDaysOfYear.AccessibleName = "Tab page \"Days of year\"";
 			tabPageDaysOfYear.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDaysOfYear.Controls.Add(labelDaysOfYear);
+			tabPageDaysOfYear.Controls.Add(labelDate);
+			tabPageDaysOfYear.Controls.Add(dateTimePickerDaysOfYear);
+			tabPageDaysOfYear.Controls.Add(buttonDaysOfYear);
 			tabPageDaysOfYear.Controls.Add(labelDaysOfYearPassed);
 			tabPageDaysOfYear.ImageKey = "calendar-day.png";
 			tabPageDaysOfYear.Location = new Point(4, 44);
@@ -771,6 +779,62 @@
 			tabPageDaysOfYear.MouseEnter += SetStatusbar_Enter;
 			tabPageDaysOfYear.MouseLeave += ClearStatusbar_Leave;
 			// 
+			// labelDate
+			// 
+			labelDate.AccessibleDescription = "Shows the description of the date";
+			labelDate.AccessibleName = "Description of the date";
+			labelDate.AccessibleRole = AccessibleRole.StaticText;
+			labelDate.AutoEllipsis = true;
+			labelDate.AutoSize = true;
+			labelDate.Location = new Point(9, 13);
+			labelDate.Margin = new Padding(4, 0, 4, 0);
+			labelDate.Name = "labelDate";
+			labelDate.Size = new Size(34, 15);
+			labelDate.TabIndex = 0;
+			labelDate.Text = "&Date:";
+			toolTip.SetToolTip(labelDate, "Description of the date");
+			labelDate.Enter += SetStatusbar_Enter;
+			labelDate.Leave += ClearStatusbar_Leave;
+			labelDate.MouseEnter += SetStatusbar_Enter;
+			labelDate.MouseHover += ClearStatusbar_Leave;
+			// 
+			// dateTimePickerDaysOfYear
+			// 
+			dateTimePickerDaysOfYear.AccessibleDescription = "Shows the date";
+			dateTimePickerDaysOfYear.AccessibleName = "date";
+			dateTimePickerDaysOfYear.AccessibleRole = AccessibleRole.SpinButton;
+			dateTimePickerDaysOfYear.Location = new Point(57, 8);
+			dateTimePickerDaysOfYear.Margin = new Padding(4, 3, 4, 3);
+			dateTimePickerDaysOfYear.Name = "dateTimePickerDaysOfYear";
+			dateTimePickerDaysOfYear.Size = new Size(233, 23);
+			dateTimePickerDaysOfYear.TabIndex = 1;
+			toolTip.SetToolTip(dateTimePickerDaysOfYear, "Date");
+			dateTimePickerDaysOfYear.ValueChanged += DateTimePickerDaysOfYear_ValueChanged;
+			dateTimePickerDaysOfYear.Enter += SetStatusbar_Enter;
+			dateTimePickerDaysOfYear.Leave += ClearStatusbar_Leave;
+			dateTimePickerDaysOfYear.MouseEnter += SetStatusbar_Enter;
+			dateTimePickerDaysOfYear.MouseHover += ClearStatusbar_Leave;
+			// 
+			// buttonDaysOfYear
+			// 
+			buttonDaysOfYear.AccessibleDescription = "Switchs the input method of of the days of years";
+			buttonDaysOfYear.AccessibleName = "Changes the input method of of the days of years";
+			buttonDaysOfYear.AccessibleRole = AccessibleRole.PushButton;
+			buttonDaysOfYear.AutoEllipsis = true;
+			buttonDaysOfYear.Image = Properties.Resources.switch_small;
+			buttonDaysOfYear.Location = new Point(298, 8);
+			buttonDaysOfYear.Margin = new Padding(4, 3, 4, 3);
+			buttonDaysOfYear.Name = "buttonDaysOfYear";
+			buttonDaysOfYear.Size = new Size(23, 23);
+			buttonDaysOfYear.TabIndex = 2;
+			toolTip.SetToolTip(buttonDaysOfYear, "Changes the input method of of the days of years");
+			buttonDaysOfYear.UseVisualStyleBackColor = true;
+			buttonDaysOfYear.Click += ButtonDaysOfYear_Click;
+			buttonDaysOfYear.Enter += SetStatusbar_Enter;
+			buttonDaysOfYear.Leave += ClearStatusbar_Leave;
+			buttonDaysOfYear.MouseEnter += SetStatusbar_Enter;
+			buttonDaysOfYear.MouseHover += ClearStatusbar_Leave;
+			// 
 			// labelDaysOfYearPassed
 			// 
 			labelDaysOfYearPassed.AccessibleDescription = "Shows how many days have been since the start of the year";
@@ -778,17 +842,18 @@
 			labelDaysOfYearPassed.AccessibleRole = AccessibleRole.StaticText;
 			labelDaysOfYearPassed.AutoEllipsis = true;
 			labelDaysOfYearPassed.AutoSize = true;
-			labelDaysOfYearPassed.Location = new Point(9, 12);
+			labelDaysOfYearPassed.Location = new Point(57, 53);
 			labelDaysOfYearPassed.Margin = new Padding(4, 0, 4, 0);
 			labelDaysOfYearPassed.Name = "labelDaysOfYearPassed";
 			labelDaysOfYearPassed.Size = new Size(255, 15);
-			labelDaysOfYearPassed.TabIndex = 8;
+			labelDaysOfYearPassed.TabIndex = 4;
 			labelDaysOfYearPassed.Text = "It has been XXX days since the start of this year.";
 			toolTip.SetToolTip(labelDaysOfYearPassed, "How many days have been since the start of the year");
 			labelDaysOfYearPassed.Enter += SetStatusbar_Enter;
 			labelDaysOfYearPassed.Leave += ClearStatusbar_Leave;
 			labelDaysOfYearPassed.MouseEnter += SetStatusbar_Enter;
 			labelDaysOfYearPassed.MouseLeave += ClearStatusbar_Leave;
+			labelDaysOfYearPassed.MouseHover += ClearStatusbar_Leave;
 			// 
 			// tabPageAbout
 			// 
@@ -838,7 +903,7 @@
 			tabPageLicense.ImageKey = "script-text.png";
 			tabPageLicense.Location = new Point(4, 44);
 			tabPageLicense.Name = "tabPageLicense";
-			tabPageLicense.Size = new Size(405, 82);
+			tabPageLicense.Size = new Size(405, 96);
 			tabPageLicense.TabIndex = 4;
 			tabPageLicense.Text = "License";
 			toolTip.SetToolTip(tabPageLicense, "Shows the tab page \"License\"");
@@ -951,6 +1016,25 @@
 			toolStripContainer.TopToolStripPanel.AccessibleName = "Upper part of the ToolStripContainer";
 			toolStripContainer.TopToolStripPanel.AccessibleRole = AccessibleRole.Pane;
 			// 
+			// labelDaysOfYear
+			// 
+			labelDaysOfYear.AccessibleDescription = "Shows the description of the days of the year";
+			labelDaysOfYear.AccessibleName = "Description of the days of the year";
+			labelDaysOfYear.AccessibleRole = AccessibleRole.StaticText;
+			labelDaysOfYear.AutoEllipsis = true;
+			labelDaysOfYear.AutoSize = true;
+			labelDaysOfYear.Location = new Point(9, 53);
+			labelDaysOfYear.Margin = new Padding(4, 0, 4, 0);
+			labelDaysOfYear.Name = "labelDaysOfYear";
+			labelDaysOfYear.Size = new Size(35, 15);
+			labelDaysOfYear.TabIndex = 3;
+			labelDaysOfYear.Text = "&Days:";
+			toolTip.SetToolTip(labelDaysOfYear, "Description of the days of the year");
+			labelDaysOfYear.Enter += SetStatusbar_Enter;
+			labelDaysOfYear.Leave += ClearStatusbar_Leave;
+			labelDaysOfYear.MouseEnter += SetStatusbar_Enter;
+			labelDaysOfYear.MouseLeave += ClearStatusbar_Leave;
+			// 
 			// MainForm
 			// 
 			AccessibleDescription = "This is the main window of the application";
@@ -1039,6 +1123,10 @@
 		private TextBox textBoxLicense;
 		private TabPage tabPageDaysOfYear;
 		private Label labelDaysOfYearPassed;
+		private Label labelDate;
+		private DateTimePicker dateTimePickerDaysOfYear;
+		private Button buttonDaysOfYear;
+		private Label labelDaysOfYear;
 	}
 }
 
