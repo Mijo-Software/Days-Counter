@@ -12,9 +12,9 @@
     <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>Days Counter</Title>
-    <Version>1.4.1.8</Version>
+    <Version>1.5.0.9</Version>
     <Authors>Mijo Software</Authors>
-    <Description>Count the days between two days</Description>
+    <Description>Counts the days between two days</Description>
     <Copyright>2019-2025 Mijo Software</Copyright>
     <PackageProjectUrl>https://mijo-software.de/programme/wissenschaft/days-counter/</PackageProjectUrl>
     <PackageIcon>logo.png</PackageIcon>

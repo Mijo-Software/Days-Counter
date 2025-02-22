@@ -82,6 +82,11 @@ namespace DaysCounter
 		}
 
 		/// <summary>
+		/// Count the days since the start of the year until now
+		/// </summary>
+		private void CountDaysOfYear() => labelDaysOfYearPassed.Text = $"It has been {DateTime.Now.DayOfYear} days since the start of this year.";
+
+		/// <summary>
 		/// Don't set the application on top
 		/// </summary>
 		private void ApplicationStayNotOnTop()
@@ -115,10 +120,13 @@ namespace DaysCounter
 		public MainForm()
 		{
 			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(MainForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
 			ClearStatusbar_Leave(sender: null, e: null);
 			CountDaysFromDateToDate();
 			CountDaysFromDaySpan();
 			CountDaysOfLife();
+			CountDaysOfYear();
 			labelTitle.Text = $"{AssemblyInfo.AssemblyProduct} {AssemblyInfo.AssemblyVersion}";
 			labelDescription.Text = AssemblyInfo.AssemblyDescription;
 			labelCopyright.Text = $"{AssemblyInfo.AssemblyCopyright}";
@@ -284,6 +292,24 @@ namespace DaysCounter
 		/// <param name="sender">The source of the event</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ClearStatusbar_Leave(object? sender, EventArgs? e) => SetStatusbarText(text: string.Empty);
+
+		#endregion
+
+		#region KeyDown event handlers
+
+		/// <summary>
+		/// Handles the KeyDown event of the MainForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void MainForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
+			}
+		}
 
 		#endregion
 	}
