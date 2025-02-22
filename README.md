@@ -1,2 +1,2 @@
-# Days-Counter
-Counts days between two dates
+# Numeric-List-Generator
+Creates lists with numeric entries
