@@ -12,7 +12,7 @@
     <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>Days Counter</Title>
-    <Version>1.5.0.9</Version>
+    <Version>1.5.1.10</Version>
     <Authors>Mijo Software</Authors>
     <Description>Counts the days between two days</Description>
     <Copyright>2019-2025 Mijo Software</Copyright>

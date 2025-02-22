@@ -84,7 +84,10 @@ namespace DaysCounter
 		/// <summary>
 		/// Count the days since the start of the year until now
 		/// </summary>
-		private void CountDaysOfYear() => labelDaysOfYearPassed.Text = $"It has been {DateTime.Now.DayOfYear} days since the start of this year.";
+		private void CountDaysOfYear()
+		{
+			labelDaysOfYearPassed.Text = $"It has been {dateTimePickerDaysOfYear.Value.DayOfYear} days since the start of this year.";
+		}
 
 		/// <summary>
 		/// Don't set the application on top
@@ -165,6 +168,14 @@ namespace DaysCounter
 		private void ButtonDateOfTheBirth_Click(object sender, EventArgs e) => dateTimePickerDateOfTheBirth.ShowUpDown = !dateTimePickerDateOfTheBirth.ShowUpDown;
 
 		/// <summary>
+		/// Switch the input method of the days of the years
+		/// </summary>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
+		private void ButtonDaysOfYear_Click(object sender, EventArgs e) => dateTimePickerDaysOfYear.ShowUpDown = !dateTimePickerDaysOfYear.ShowUpDown;
+
+
+		/// <summary>
 		/// Don't set the application on top
 		/// </summary>
 		/// <param name="sender">The source of the event</param>
@@ -237,6 +248,14 @@ namespace DaysCounter
 		/// <param name="sender">The source of the event</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void DateTimePickerDateOfTheBirth_ValueChanged(object sender, EventArgs e) => CountDaysOfLife();
+
+		/// <summary>
+		/// Update the value of the days of the years
+		/// </summary>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
+		private void DateTimePickerDaysOfYear_ValueChanged(object sender, EventArgs e) => CountDaysOfYear();
+
 
 		#endregion
 
