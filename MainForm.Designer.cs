@@ -63,12 +63,16 @@
 			labelDaysPlusMinus = new Label();
 			tabControl = new TabControl();
 			tabPageDateToDate = new TabPage();
+			buttonDateToDateCopyFromClipboard = new Button();
 			buttonDateToDateCopyToClipboard = new Button();
 			tabPageSpanOfDays = new TabPage();
+			buttonSpanOfDaysCopyFromClipboard = new Button();
 			buttonDaysOfSpanCopyToClipboard = new Button();
 			tabPageDaysOfLife = new TabPage();
+			buttonDaysOfLifeCopyFromClipboard = new Button();
 			buttonDaysOfLifeClopyToClipboard = new Button();
 			tabPageDaysOfYear = new TabPage();
+			buttonDaysOfYearCopyFromClipboard = new Button();
 			buttonDaysOfYearClopyToClipboard = new Button();
 			labelDaysOfYear = new Label();
 			labelDate = new Label();
@@ -667,7 +671,7 @@
 			tabControl.Name = "tabControl";
 			tabControl.SelectedIndex = 0;
 			tabControl.ShowToolTips = true;
-			tabControl.Size = new Size(425, 144);
+			tabControl.Size = new Size(425, 119);
 			tabControl.TabIndex = 0;
 			toolTip.SetToolTip(tabControl, "Shows the tabs");
 			tabControl.Enter += SetStatusbar_Enter;
@@ -680,6 +684,7 @@
 			tabPageDateToDate.AccessibleDescription = "Shows the tab page \"From date to date\"";
 			tabPageDateToDate.AccessibleName = "Tab page \"From date to date\"";
 			tabPageDateToDate.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDateToDate.Controls.Add(buttonDateToDateCopyFromClipboard);
 			tabPageDateToDate.Controls.Add(buttonDateToDateCopyToClipboard);
 			tabPageDateToDate.Controls.Add(labelDaysCounted);
 			tabPageDateToDate.Controls.Add(labelDays);
@@ -694,7 +699,7 @@
 			tabPageDateToDate.Margin = new Padding(4, 3, 4, 3);
 			tabPageDateToDate.Name = "tabPageDateToDate";
 			tabPageDateToDate.Padding = new Padding(4, 3, 4, 3);
-			tabPageDateToDate.Size = new Size(417, 96);
+			tabPageDateToDate.Size = new Size(417, 71);
 			tabPageDateToDate.TabIndex = 0;
 			tabPageDateToDate.Text = "From date to date";
 			toolTip.SetToolTip(tabPageDateToDate, "Shows the tab page \"From date to date\"");
@@ -704,6 +709,26 @@
 			tabPageDateToDate.Leave += ClearStatusbar_Leave;
 			tabPageDateToDate.MouseEnter += SetStatusbar_Enter;
 			tabPageDateToDate.MouseHover += ClearStatusbar_Leave;
+			// 
+			// buttonDateToDateCopyFromClipboard
+			// 
+			buttonDateToDateCopyFromClipboard.AccessibleDescription = "Copies the date from the clipboard to the calendar";
+			buttonDateToDateCopyFromClipboard.AccessibleName = "Copy from clipboard";
+			buttonDateToDateCopyFromClipboard.AccessibleRole = AccessibleRole.PushButton;
+			buttonDateToDateCopyFromClipboard.AutoEllipsis = true;
+			buttonDateToDateCopyFromClipboard.Image = (Image)resources.GetObject("buttonDateToDateCopyFromClipboard.Image");
+			buttonDateToDateCopyFromClipboard.Location = new Point(383, 7);
+			buttonDateToDateCopyFromClipboard.Margin = new Padding(4, 3, 4, 3);
+			buttonDateToDateCopyFromClipboard.Name = "buttonDateToDateCopyFromClipboard";
+			buttonDateToDateCopyFromClipboard.Size = new Size(26, 26);
+			buttonDateToDateCopyFromClipboard.TabIndex = 9;
+			toolTip.SetToolTip(buttonDateToDateCopyFromClipboard, "Copy the date from the clipboard to the calendar");
+			buttonDateToDateCopyFromClipboard.UseVisualStyleBackColor = true;
+			buttonDateToDateCopyFromClipboard.Click += ButtonDateToDateCopyFromClipboard_Click;
+			buttonDateToDateCopyFromClipboard.Enter += SetStatusbar_Enter;
+			buttonDateToDateCopyFromClipboard.Leave += ClearStatusbar_Leave;
+			buttonDateToDateCopyFromClipboard.MouseEnter += SetStatusbar_Enter;
+			buttonDateToDateCopyFromClipboard.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// buttonDateToDateCopyToClipboard
 			// 
@@ -728,6 +753,7 @@
 			tabPageSpanOfDays.AccessibleDescription = "Shows the tab page \"Span of days\"";
 			tabPageSpanOfDays.AccessibleName = "Tab page \"Span of days\"";
 			tabPageSpanOfDays.AccessibleRole = AccessibleRole.PageTab;
+			tabPageSpanOfDays.Controls.Add(buttonSpanOfDaysCopyFromClipboard);
 			tabPageSpanOfDays.Controls.Add(buttonDaysOfSpanCopyToClipboard);
 			tabPageSpanOfDays.Controls.Add(labelDateOut);
 			tabPageSpanOfDays.Controls.Add(labelDateIn);
@@ -741,7 +767,7 @@
 			tabPageSpanOfDays.Margin = new Padding(4, 3, 4, 3);
 			tabPageSpanOfDays.Name = "tabPageSpanOfDays";
 			tabPageSpanOfDays.Padding = new Padding(4, 3, 4, 3);
-			tabPageSpanOfDays.Size = new Size(417, 96);
+			tabPageSpanOfDays.Size = new Size(417, 71);
 			tabPageSpanOfDays.TabIndex = 1;
 			tabPageSpanOfDays.Text = "Span of days";
 			toolTip.SetToolTip(tabPageSpanOfDays, "Shows the tab page \"Span of days\"");
@@ -751,6 +777,22 @@
 			tabPageSpanOfDays.Leave += ClearStatusbar_Leave;
 			tabPageSpanOfDays.MouseEnter += SetStatusbar_Enter;
 			tabPageSpanOfDays.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// buttonSpanOfDaysCopyFromClipboard
+			// 
+			buttonSpanOfDaysCopyFromClipboard.AccessibleDescription = "Copies the date from the clipboard to the calendar";
+			buttonSpanOfDaysCopyFromClipboard.AccessibleName = "Copy from clipboard";
+			buttonSpanOfDaysCopyFromClipboard.AccessibleRole = AccessibleRole.PushButton;
+			buttonSpanOfDaysCopyFromClipboard.AutoEllipsis = true;
+			buttonSpanOfDaysCopyFromClipboard.Image = (Image)resources.GetObject("buttonSpanOfDaysCopyFromClipboard.Image");
+			buttonSpanOfDaysCopyFromClipboard.Location = new Point(383, 7);
+			buttonSpanOfDaysCopyFromClipboard.Margin = new Padding(4, 3, 4, 3);
+			buttonSpanOfDaysCopyFromClipboard.Name = "buttonSpanOfDaysCopyFromClipboard";
+			buttonSpanOfDaysCopyFromClipboard.Size = new Size(26, 26);
+			buttonSpanOfDaysCopyFromClipboard.TabIndex = 10;
+			toolTip.SetToolTip(buttonSpanOfDaysCopyFromClipboard, "Copy the date from the clipboard to the calendar");
+			buttonSpanOfDaysCopyFromClipboard.UseVisualStyleBackColor = true;
+			buttonSpanOfDaysCopyFromClipboard.Click += ButtonSpanOfDaysCopyFromClipboard_Click;
 			// 
 			// buttonDaysOfSpanCopyToClipboard
 			// 
@@ -775,6 +817,7 @@
 			tabPageDaysOfLife.AccessibleDescription = "Shows the tab page \"Days of life\"";
 			tabPageDaysOfLife.AccessibleName = "Tab page \"Days of life\"";
 			tabPageDaysOfLife.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDaysOfLife.Controls.Add(buttonDaysOfLifeCopyFromClipboard);
 			tabPageDaysOfLife.Controls.Add(buttonDaysOfLifeClopyToClipboard);
 			tabPageDaysOfLife.Controls.Add(labelDaysSpan);
 			tabPageDaysOfLife.Controls.Add(labelDaysOld);
@@ -786,7 +829,7 @@
 			tabPageDaysOfLife.Margin = new Padding(4, 3, 4, 3);
 			tabPageDaysOfLife.Name = "tabPageDaysOfLife";
 			tabPageDaysOfLife.Padding = new Padding(4, 3, 4, 3);
-			tabPageDaysOfLife.Size = new Size(417, 96);
+			tabPageDaysOfLife.Size = new Size(417, 71);
 			tabPageDaysOfLife.TabIndex = 3;
 			tabPageDaysOfLife.Text = "Days of life";
 			toolTip.SetToolTip(tabPageDaysOfLife, "Shows the tab page \"Days of life\"");
@@ -796,6 +839,22 @@
 			tabPageDaysOfLife.Leave += ClearStatusbar_Leave;
 			tabPageDaysOfLife.MouseEnter += SetStatusbar_Enter;
 			tabPageDaysOfLife.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// buttonDaysOfLifeCopyFromClipboard
+			// 
+			buttonDaysOfLifeCopyFromClipboard.AccessibleDescription = "Copies the date from the clipboard to the calendar";
+			buttonDaysOfLifeCopyFromClipboard.AccessibleName = "Copy from clipboard";
+			buttonDaysOfLifeCopyFromClipboard.AccessibleRole = AccessibleRole.PushButton;
+			buttonDaysOfLifeCopyFromClipboard.AutoEllipsis = true;
+			buttonDaysOfLifeCopyFromClipboard.Image = (Image)resources.GetObject("buttonDaysOfLifeCopyFromClipboard.Image");
+			buttonDaysOfLifeCopyFromClipboard.Location = new Point(383, 7);
+			buttonDaysOfLifeCopyFromClipboard.Margin = new Padding(4, 3, 4, 3);
+			buttonDaysOfLifeCopyFromClipboard.Name = "buttonDaysOfLifeCopyFromClipboard";
+			buttonDaysOfLifeCopyFromClipboard.Size = new Size(26, 26);
+			buttonDaysOfLifeCopyFromClipboard.TabIndex = 10;
+			toolTip.SetToolTip(buttonDaysOfLifeCopyFromClipboard, "Copy the date from the clipboard to the calendar");
+			buttonDaysOfLifeCopyFromClipboard.UseVisualStyleBackColor = true;
+			buttonDaysOfLifeCopyFromClipboard.Click += ButtonDaysOfLifeCopyFromClipboard_Click;
 			// 
 			// buttonDaysOfLifeClopyToClipboard
 			// 
@@ -820,6 +879,7 @@
 			tabPageDaysOfYear.AccessibleDescription = "Shows the tab page \"Days of year\"";
 			tabPageDaysOfYear.AccessibleName = "Tab page \"Days of year\"";
 			tabPageDaysOfYear.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDaysOfYear.Controls.Add(buttonDaysOfYearCopyFromClipboard);
 			tabPageDaysOfYear.Controls.Add(buttonDaysOfYearClopyToClipboard);
 			tabPageDaysOfYear.Controls.Add(labelDaysOfYear);
 			tabPageDaysOfYear.Controls.Add(labelDate);
@@ -830,7 +890,7 @@
 			tabPageDaysOfYear.Location = new Point(4, 44);
 			tabPageDaysOfYear.Name = "tabPageDaysOfYear";
 			tabPageDaysOfYear.Padding = new Padding(3);
-			tabPageDaysOfYear.Size = new Size(417, 96);
+			tabPageDaysOfYear.Size = new Size(417, 71);
 			tabPageDaysOfYear.TabIndex = 5;
 			tabPageDaysOfYear.Text = "Days of year";
 			toolTip.SetToolTip(tabPageDaysOfYear, "Shows the tab page \"Days of year\"");
@@ -840,6 +900,22 @@
 			tabPageDaysOfYear.Leave += ClearStatusbar_Leave;
 			tabPageDaysOfYear.MouseEnter += SetStatusbar_Enter;
 			tabPageDaysOfYear.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// buttonDaysOfYearCopyFromClipboard
+			// 
+			buttonDaysOfYearCopyFromClipboard.AccessibleDescription = "Copies the date from the clipboard to the calendar";
+			buttonDaysOfYearCopyFromClipboard.AccessibleName = "Copy from clipboard";
+			buttonDaysOfYearCopyFromClipboard.AccessibleRole = AccessibleRole.PushButton;
+			buttonDaysOfYearCopyFromClipboard.AutoEllipsis = true;
+			buttonDaysOfYearCopyFromClipboard.Image = (Image)resources.GetObject("buttonDaysOfYearCopyFromClipboard.Image");
+			buttonDaysOfYearCopyFromClipboard.Location = new Point(383, 7);
+			buttonDaysOfYearCopyFromClipboard.Margin = new Padding(4, 3, 4, 3);
+			buttonDaysOfYearCopyFromClipboard.Name = "buttonDaysOfYearCopyFromClipboard";
+			buttonDaysOfYearCopyFromClipboard.Size = new Size(26, 26);
+			buttonDaysOfYearCopyFromClipboard.TabIndex = 10;
+			toolTip.SetToolTip(buttonDaysOfYearCopyFromClipboard, "Copy the date from the clipboard to the calendar");
+			buttonDaysOfYearCopyFromClipboard.UseVisualStyleBackColor = true;
+			buttonDaysOfYearCopyFromClipboard.Click += ButtonDaysOfYearCopyFromClipboard_Click;
 			// 
 			// buttonDaysOfYearClopyToClipboard
 			// 
@@ -1088,7 +1164,7 @@
 			toolStripContainer.ContentPanel.AutoScroll = true;
 			toolStripContainer.ContentPanel.Controls.Add(tabControl);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(425, 144);
+			toolStripContainer.ContentPanel.Size = new Size(425, 119);
 			toolStripContainer.Dock = DockStyle.Fill;
 			// 
 			// toolStripContainer.LeftToolStripPanel
@@ -1211,6 +1287,10 @@
 		private Button buttonDaysOfSpanCopyToClipboard;
 		private Button buttonDaysOfLifeClopyToClipboard;
 		private Button buttonDaysOfYearClopyToClipboard;
+		private Button buttonDateToDateCopyFromClipboard;
+		private Button buttonSpanOfDaysCopyFromClipboard;
+		private Button buttonDaysOfLifeCopyFromClipboard;
+		private Button buttonDaysOfYearCopyFromClipboard;
 	}
 }
 
