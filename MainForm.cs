@@ -66,7 +66,7 @@ namespace DaysCounter
 		/// <summary>
 		/// Count the days from a date with a specific span in days
 		/// </summary>
-		private void CountDaysFromDaySpan() => dateTimePickerDateOut.Value = dateTimePickerDateIn.Value.AddDays(value: (double)numericUpDownDays.Value);
+		private void CountDaysFromDatesSpan() => dateTimePickerDateOut.Value = dateTimePickerDateIn.Value.AddDays(value: (double)numericUpDownDays.Value);
 
 		/// <summary>
 		/// Count the days from a date until now
@@ -127,7 +127,7 @@ namespace DaysCounter
 			this.KeyPreview = true; // Ensures the form receives key events before the controls
 			ClearStatusbar_Leave(sender: null, e: null);
 			CountDaysFromDateToDate();
-			CountDaysFromDaySpan();
+			CountDaysFromDatesSpan();
 			CountDaysOfLife();
 			CountDaysOfYear();
 			labelTitle.Text = $"{AssemblyInfo.AssemblyProduct} {AssemblyInfo.AssemblyVersion}";
@@ -233,14 +233,14 @@ namespace DaysCounter
 		/// </summary>
 		/// <param name="sender">The source of the event</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
-		private void DateTimePickerDateIn_ValueChanged(object sender, EventArgs e) => CountDaysFromDaySpan();
+		private void DateTimePickerDateIn_ValueChanged(object sender, EventArgs e) => CountDaysFromDatesSpan();
 
 		/// <summary>
 		/// Update the value of the span in days
 		/// </summary>
 		/// <param name="sender">The source of the event</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
-		private void NumericUpDownDays_ValueChanged(object sender, EventArgs e) => CountDaysFromDaySpan();
+		private void NumericUpDownDays_ValueChanged(object sender, EventArgs e) => CountDaysFromDatesSpan();
 
 		/// <summary>
 		/// Update the value of the date of the birth

@@ -63,9 +63,10 @@
 			labelDaysPlusMinus = new Label();
 			tabControl = new TabControl();
 			tabPageDateToDate = new TabPage();
-			tabPageDaySpan = new TabPage();
+			tabPageSpanOfDays = new TabPage();
 			tabPageDaysOfLife = new TabPage();
 			tabPageDaysOfYear = new TabPage();
+			labelDaysOfYear = new Label();
 			labelDate = new Label();
 			dateTimePickerDaysOfYear = new DateTimePicker();
 			buttonDaysOfYear = new Button();
@@ -79,12 +80,11 @@
 			LeftToolStripPanel = new ToolStripPanel();
 			ContentPanel = new ToolStripContentPanel();
 			toolStripContainer = new ToolStripContainer();
-			labelDaysOfYear = new Label();
 			statusStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numericUpDownDays).BeginInit();
 			tabControl.SuspendLayout();
 			tabPageDateToDate.SuspendLayout();
-			tabPageDaySpan.SuspendLayout();
+			tabPageSpanOfDays.SuspendLayout();
 			tabPageDaysOfLife.SuspendLayout();
 			tabPageDaysOfYear.SuspendLayout();
 			tabPageAbout.SuspendLayout();
@@ -117,7 +117,7 @@
 			statusStrip.Location = new Point(0, 0);
 			statusStrip.Name = "statusStrip";
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			statusStrip.Size = new Size(413, 22);
+			statusStrip.Size = new Size(428, 22);
 			statusStrip.SizingGrip = false;
 			statusStrip.TabIndex = 0;
 			statusStrip.Text = "statusStrip";
@@ -134,7 +134,7 @@
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
 			labelInformation.Name = "labelInformation";
-			labelInformation.Size = new Size(366, 17);
+			labelInformation.Size = new Size(381, 17);
 			labelInformation.Spring = true;
 			labelInformation.Text = "information";
 			labelInformation.TextAlign = ContentAlignment.MiddleLeft;
@@ -649,7 +649,7 @@
 			tabControl.AccessibleName = "Shows the tabs";
 			tabControl.AccessibleRole = AccessibleRole.PageTab;
 			tabControl.Controls.Add(tabPageDateToDate);
-			tabControl.Controls.Add(tabPageDaySpan);
+			tabControl.Controls.Add(tabPageSpanOfDays);
 			tabControl.Controls.Add(tabPageDaysOfLife);
 			tabControl.Controls.Add(tabPageDaysOfYear);
 			tabControl.Controls.Add(tabPageAbout);
@@ -663,7 +663,7 @@
 			tabControl.Name = "tabControl";
 			tabControl.SelectedIndex = 0;
 			tabControl.ShowToolTips = true;
-			tabControl.Size = new Size(413, 144);
+			tabControl.Size = new Size(428, 144);
 			tabControl.TabIndex = 0;
 			toolTip.SetToolTip(tabControl, "Shows the tabs");
 			tabControl.Enter += SetStatusbar_Enter;
@@ -689,7 +689,7 @@
 			tabPageDateToDate.Margin = new Padding(4, 3, 4, 3);
 			tabPageDateToDate.Name = "tabPageDateToDate";
 			tabPageDateToDate.Padding = new Padding(4, 3, 4, 3);
-			tabPageDateToDate.Size = new Size(405, 71);
+			tabPageDateToDate.Size = new Size(420, 96);
 			tabPageDateToDate.TabIndex = 0;
 			tabPageDateToDate.Text = "From date to date";
 			toolTip.SetToolTip(tabPageDateToDate, "Shows the tab page \"From date to date\"");
@@ -700,33 +700,33 @@
 			tabPageDateToDate.MouseEnter += SetStatusbar_Enter;
 			tabPageDateToDate.MouseHover += ClearStatusbar_Leave;
 			// 
-			// tabPageDaySpan
+			// tabPageSpanOfDays
 			// 
-			tabPageDaySpan.AccessibleDescription = "Shows the tab page \"Days span\"";
-			tabPageDaySpan.AccessibleName = "Tab page \"Days span\"";
-			tabPageDaySpan.AccessibleRole = AccessibleRole.PageTab;
-			tabPageDaySpan.Controls.Add(labelDateOut);
-			tabPageDaySpan.Controls.Add(labelDateIn);
-			tabPageDaySpan.Controls.Add(dateTimePickerDateOut);
-			tabPageDaySpan.Controls.Add(labelDaysPlusMinus);
-			tabPageDaySpan.Controls.Add(numericUpDownDays);
-			tabPageDaySpan.Controls.Add(dateTimePickerDateIn);
-			tabPageDaySpan.Controls.Add(buttonSwitchDateIn);
-			tabPageDaySpan.ImageKey = "calendar-select-days-span.png";
-			tabPageDaySpan.Location = new Point(4, 44);
-			tabPageDaySpan.Margin = new Padding(4, 3, 4, 3);
-			tabPageDaySpan.Name = "tabPageDaySpan";
-			tabPageDaySpan.Padding = new Padding(4, 3, 4, 3);
-			tabPageDaySpan.Size = new Size(405, 96);
-			tabPageDaySpan.TabIndex = 1;
-			tabPageDaySpan.Text = "Days span";
-			toolTip.SetToolTip(tabPageDaySpan, "Shows the tab page \"Days span\"");
-			tabPageDaySpan.ToolTipText = "Day span";
-			tabPageDaySpan.UseVisualStyleBackColor = true;
-			tabPageDaySpan.Enter += SetStatusbar_Enter;
-			tabPageDaySpan.Leave += ClearStatusbar_Leave;
-			tabPageDaySpan.MouseEnter += SetStatusbar_Enter;
-			tabPageDaySpan.MouseLeave += ClearStatusbar_Leave;
+			tabPageSpanOfDays.AccessibleDescription = "Shows the tab page \"Span of days\"";
+			tabPageSpanOfDays.AccessibleName = "Tab page \"Span of days\"";
+			tabPageSpanOfDays.AccessibleRole = AccessibleRole.PageTab;
+			tabPageSpanOfDays.Controls.Add(labelDateOut);
+			tabPageSpanOfDays.Controls.Add(labelDateIn);
+			tabPageSpanOfDays.Controls.Add(dateTimePickerDateOut);
+			tabPageSpanOfDays.Controls.Add(labelDaysPlusMinus);
+			tabPageSpanOfDays.Controls.Add(numericUpDownDays);
+			tabPageSpanOfDays.Controls.Add(dateTimePickerDateIn);
+			tabPageSpanOfDays.Controls.Add(buttonSwitchDateIn);
+			tabPageSpanOfDays.ImageKey = "calendar-select-days-span.png";
+			tabPageSpanOfDays.Location = new Point(4, 44);
+			tabPageSpanOfDays.Margin = new Padding(4, 3, 4, 3);
+			tabPageSpanOfDays.Name = "tabPageSpanOfDays";
+			tabPageSpanOfDays.Padding = new Padding(4, 3, 4, 3);
+			tabPageSpanOfDays.Size = new Size(405, 96);
+			tabPageSpanOfDays.TabIndex = 1;
+			tabPageSpanOfDays.Text = "Span of days";
+			toolTip.SetToolTip(tabPageSpanOfDays, "Shows the tab page \"Span of days\"");
+			tabPageSpanOfDays.ToolTipText = "Span of days";
+			tabPageSpanOfDays.UseVisualStyleBackColor = true;
+			tabPageSpanOfDays.Enter += SetStatusbar_Enter;
+			tabPageSpanOfDays.Leave += ClearStatusbar_Leave;
+			tabPageSpanOfDays.MouseEnter += SetStatusbar_Enter;
+			tabPageSpanOfDays.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// tabPageDaysOfLife
 			// 
@@ -778,6 +778,25 @@
 			tabPageDaysOfYear.Leave += ClearStatusbar_Leave;
 			tabPageDaysOfYear.MouseEnter += SetStatusbar_Enter;
 			tabPageDaysOfYear.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// labelDaysOfYear
+			// 
+			labelDaysOfYear.AccessibleDescription = "Shows the description of the days of the year";
+			labelDaysOfYear.AccessibleName = "Description of the days of the year";
+			labelDaysOfYear.AccessibleRole = AccessibleRole.StaticText;
+			labelDaysOfYear.AutoEllipsis = true;
+			labelDaysOfYear.AutoSize = true;
+			labelDaysOfYear.Location = new Point(9, 53);
+			labelDaysOfYear.Margin = new Padding(4, 0, 4, 0);
+			labelDaysOfYear.Name = "labelDaysOfYear";
+			labelDaysOfYear.Size = new Size(35, 15);
+			labelDaysOfYear.TabIndex = 3;
+			labelDaysOfYear.Text = "&Days:";
+			toolTip.SetToolTip(labelDaysOfYear, "Description of the days of the year");
+			labelDaysOfYear.Enter += SetStatusbar_Enter;
+			labelDaysOfYear.Leave += ClearStatusbar_Leave;
+			labelDaysOfYear.MouseEnter += SetStatusbar_Enter;
+			labelDaysOfYear.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDate
 			// 
@@ -989,7 +1008,7 @@
 			toolStripContainer.ContentPanel.AutoScroll = true;
 			toolStripContainer.ContentPanel.Controls.Add(tabControl);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(413, 144);
+			toolStripContainer.ContentPanel.Size = new Size(428, 144);
 			toolStripContainer.Dock = DockStyle.Fill;
 			// 
 			// toolStripContainer.LeftToolStripPanel
@@ -1006,7 +1025,7 @@
 			toolStripContainer.RightToolStripPanel.AccessibleDescription = "Right part of the ToolStripContainer";
 			toolStripContainer.RightToolStripPanel.AccessibleName = "Right part of the ToolStripContainer";
 			toolStripContainer.RightToolStripPanel.AccessibleRole = AccessibleRole.Pane;
-			toolStripContainer.Size = new Size(413, 166);
+			toolStripContainer.Size = new Size(428, 166);
 			toolStripContainer.TabIndex = 6;
 			toolStripContainer.Text = "toolStripContainer";
 			// 
@@ -1016,25 +1035,6 @@
 			toolStripContainer.TopToolStripPanel.AccessibleName = "Upper part of the ToolStripContainer";
 			toolStripContainer.TopToolStripPanel.AccessibleRole = AccessibleRole.Pane;
 			// 
-			// labelDaysOfYear
-			// 
-			labelDaysOfYear.AccessibleDescription = "Shows the description of the days of the year";
-			labelDaysOfYear.AccessibleName = "Description of the days of the year";
-			labelDaysOfYear.AccessibleRole = AccessibleRole.StaticText;
-			labelDaysOfYear.AutoEllipsis = true;
-			labelDaysOfYear.AutoSize = true;
-			labelDaysOfYear.Location = new Point(9, 53);
-			labelDaysOfYear.Margin = new Padding(4, 0, 4, 0);
-			labelDaysOfYear.Name = "labelDaysOfYear";
-			labelDaysOfYear.Size = new Size(35, 15);
-			labelDaysOfYear.TabIndex = 3;
-			labelDaysOfYear.Text = "&Days:";
-			toolTip.SetToolTip(labelDaysOfYear, "Description of the days of the year");
-			labelDaysOfYear.Enter += SetStatusbar_Enter;
-			labelDaysOfYear.Leave += ClearStatusbar_Leave;
-			labelDaysOfYear.MouseEnter += SetStatusbar_Enter;
-			labelDaysOfYear.MouseLeave += ClearStatusbar_Leave;
-			// 
 			// MainForm
 			// 
 			AccessibleDescription = "This is the main window of the application";
@@ -1042,7 +1042,7 @@
 			AccessibleRole = AccessibleRole.Window;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(413, 166);
+			ClientSize = new Size(428, 166);
 			Controls.Add(toolStripContainer);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			Icon = (Icon)resources.GetObject("$this.Icon");
@@ -1057,8 +1057,8 @@
 			tabControl.ResumeLayout(false);
 			tabPageDateToDate.ResumeLayout(false);
 			tabPageDateToDate.PerformLayout();
-			tabPageDaySpan.ResumeLayout(false);
-			tabPageDaySpan.PerformLayout();
+			tabPageSpanOfDays.ResumeLayout(false);
+			tabPageSpanOfDays.PerformLayout();
 			tabPageDaysOfLife.ResumeLayout(false);
 			tabPageDaysOfLife.PerformLayout();
 			tabPageDaysOfYear.ResumeLayout(false);
@@ -1092,7 +1092,7 @@
 		private Button buttonSwitchDateEnd;
 		private Button buttonSwitchDateBegin;
 		private DateTimePicker dateTimePickerEnd;
-		private TabPage tabPageDaySpan;
+		private TabPage tabPageSpanOfDays;
 		private Label labelDateOut;
 		private Label labelDateIn;
 		private DateTimePicker dateTimePickerDateOut;
