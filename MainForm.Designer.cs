@@ -63,9 +63,13 @@
 			labelDaysPlusMinus = new Label();
 			tabControl = new TabControl();
 			tabPageDateToDate = new TabPage();
+			buttonDateToDateCopyToClipboard = new Button();
 			tabPageSpanOfDays = new TabPage();
+			buttonDaysOfSpanCopyToClipboard = new Button();
 			tabPageDaysOfLife = new TabPage();
+			buttonDaysOfLifeClopyToClipboard = new Button();
 			tabPageDaysOfYear = new TabPage();
+			buttonDaysOfYearClopyToClipboard = new Button();
 			labelDaysOfYear = new Label();
 			labelDate = new Label();
 			dateTimePickerDaysOfYear = new DateTimePicker();
@@ -117,7 +121,7 @@
 			statusStrip.Location = new Point(0, 0);
 			statusStrip.Name = "statusStrip";
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			statusStrip.Size = new Size(428, 22);
+			statusStrip.Size = new Size(425, 22);
 			statusStrip.SizingGrip = false;
 			statusStrip.TabIndex = 0;
 			statusStrip.Text = "statusStrip";
@@ -134,7 +138,7 @@
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
 			labelInformation.Name = "labelInformation";
-			labelInformation.Size = new Size(381, 17);
+			labelInformation.Size = new Size(378, 17);
 			labelInformation.Spring = true;
 			labelInformation.Text = "information";
 			labelInformation.TextAlign = ContentAlignment.MiddleLeft;
@@ -615,7 +619,7 @@
 			textBoxLicense.PlaceholderText = "license here... 😉";
 			textBoxLicense.ReadOnly = true;
 			textBoxLicense.ScrollBars = ScrollBars.Both;
-			textBoxLicense.Size = new Size(405, 96);
+			textBoxLicense.Size = new Size(417, 96);
 			textBoxLicense.TabIndex = 0;
 			textBoxLicense.Text = resources.GetString("textBoxLicense.Text");
 			toolTip.SetToolTip(textBoxLicense, "License");
@@ -663,7 +667,7 @@
 			tabControl.Name = "tabControl";
 			tabControl.SelectedIndex = 0;
 			tabControl.ShowToolTips = true;
-			tabControl.Size = new Size(428, 144);
+			tabControl.Size = new Size(425, 144);
 			tabControl.TabIndex = 0;
 			toolTip.SetToolTip(tabControl, "Shows the tabs");
 			tabControl.Enter += SetStatusbar_Enter;
@@ -676,6 +680,7 @@
 			tabPageDateToDate.AccessibleDescription = "Shows the tab page \"From date to date\"";
 			tabPageDateToDate.AccessibleName = "Tab page \"From date to date\"";
 			tabPageDateToDate.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDateToDate.Controls.Add(buttonDateToDateCopyToClipboard);
 			tabPageDateToDate.Controls.Add(labelDaysCounted);
 			tabPageDateToDate.Controls.Add(labelDays);
 			tabPageDateToDate.Controls.Add(labelDateEnd);
@@ -689,7 +694,7 @@
 			tabPageDateToDate.Margin = new Padding(4, 3, 4, 3);
 			tabPageDateToDate.Name = "tabPageDateToDate";
 			tabPageDateToDate.Padding = new Padding(4, 3, 4, 3);
-			tabPageDateToDate.Size = new Size(420, 96);
+			tabPageDateToDate.Size = new Size(417, 96);
 			tabPageDateToDate.TabIndex = 0;
 			tabPageDateToDate.Text = "From date to date";
 			toolTip.SetToolTip(tabPageDateToDate, "Shows the tab page \"From date to date\"");
@@ -700,11 +705,30 @@
 			tabPageDateToDate.MouseEnter += SetStatusbar_Enter;
 			tabPageDateToDate.MouseHover += ClearStatusbar_Leave;
 			// 
+			// buttonDateToDateCopyToClipboard
+			// 
+			buttonDateToDateCopyToClipboard.AccessibleDescription = "Copies the date to date to clipboard";
+			buttonDateToDateCopyToClipboard.AccessibleName = "Copy to clipboard";
+			buttonDateToDateCopyToClipboard.AccessibleRole = AccessibleRole.PushButton;
+			buttonDateToDateCopyToClipboard.Image = (Image)resources.GetObject("buttonDateToDateCopyToClipboard.Image");
+			buttonDateToDateCopyToClipboard.Location = new Point(383, 64);
+			buttonDateToDateCopyToClipboard.Name = "buttonDateToDateCopyToClipboard";
+			buttonDateToDateCopyToClipboard.Size = new Size(26, 26);
+			buttonDateToDateCopyToClipboard.TabIndex = 8;
+			toolTip.SetToolTip(buttonDateToDateCopyToClipboard, "Copy the result to clipboard");
+			buttonDateToDateCopyToClipboard.UseVisualStyleBackColor = true;
+			buttonDateToDateCopyToClipboard.Click += ButtonDateToDateCopyToClipboard_Click;
+			buttonDateToDateCopyToClipboard.Enter += SetStatusbar_Enter;
+			buttonDateToDateCopyToClipboard.Leave += ClearStatusbar_Leave;
+			buttonDateToDateCopyToClipboard.MouseEnter += SetStatusbar_Enter;
+			buttonDateToDateCopyToClipboard.MouseLeave += ClearStatusbar_Leave;
+			// 
 			// tabPageSpanOfDays
 			// 
 			tabPageSpanOfDays.AccessibleDescription = "Shows the tab page \"Span of days\"";
 			tabPageSpanOfDays.AccessibleName = "Tab page \"Span of days\"";
 			tabPageSpanOfDays.AccessibleRole = AccessibleRole.PageTab;
+			tabPageSpanOfDays.Controls.Add(buttonDaysOfSpanCopyToClipboard);
 			tabPageSpanOfDays.Controls.Add(labelDateOut);
 			tabPageSpanOfDays.Controls.Add(labelDateIn);
 			tabPageSpanOfDays.Controls.Add(dateTimePickerDateOut);
@@ -717,7 +741,7 @@
 			tabPageSpanOfDays.Margin = new Padding(4, 3, 4, 3);
 			tabPageSpanOfDays.Name = "tabPageSpanOfDays";
 			tabPageSpanOfDays.Padding = new Padding(4, 3, 4, 3);
-			tabPageSpanOfDays.Size = new Size(405, 96);
+			tabPageSpanOfDays.Size = new Size(417, 96);
 			tabPageSpanOfDays.TabIndex = 1;
 			tabPageSpanOfDays.Text = "Span of days";
 			toolTip.SetToolTip(tabPageSpanOfDays, "Shows the tab page \"Span of days\"");
@@ -728,11 +752,30 @@
 			tabPageSpanOfDays.MouseEnter += SetStatusbar_Enter;
 			tabPageSpanOfDays.MouseLeave += ClearStatusbar_Leave;
 			// 
+			// buttonDaysOfSpanCopyToClipboard
+			// 
+			buttonDaysOfSpanCopyToClipboard.AccessibleDescription = "Copies the span of days to clipboard";
+			buttonDaysOfSpanCopyToClipboard.AccessibleName = "Copy to clipboard";
+			buttonDaysOfSpanCopyToClipboard.AccessibleRole = AccessibleRole.PushButton;
+			buttonDaysOfSpanCopyToClipboard.Image = (Image)resources.GetObject("buttonDaysOfSpanCopyToClipboard.Image");
+			buttonDaysOfSpanCopyToClipboard.Location = new Point(383, 64);
+			buttonDaysOfSpanCopyToClipboard.Name = "buttonDaysOfSpanCopyToClipboard";
+			buttonDaysOfSpanCopyToClipboard.Size = new Size(26, 26);
+			buttonDaysOfSpanCopyToClipboard.TabIndex = 9;
+			toolTip.SetToolTip(buttonDaysOfSpanCopyToClipboard, "Copy the result to clipboard");
+			buttonDaysOfSpanCopyToClipboard.UseVisualStyleBackColor = true;
+			buttonDaysOfSpanCopyToClipboard.Click += ButtonDaysOfSpanCopyToClipboard_Click;
+			buttonDaysOfSpanCopyToClipboard.Enter += SetStatusbar_Enter;
+			buttonDaysOfSpanCopyToClipboard.Leave += ClearStatusbar_Leave;
+			buttonDaysOfSpanCopyToClipboard.MouseEnter += SetStatusbar_Enter;
+			buttonDaysOfSpanCopyToClipboard.MouseLeave += ClearStatusbar_Leave;
+			// 
 			// tabPageDaysOfLife
 			// 
 			tabPageDaysOfLife.AccessibleDescription = "Shows the tab page \"Days of life\"";
 			tabPageDaysOfLife.AccessibleName = "Tab page \"Days of life\"";
 			tabPageDaysOfLife.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDaysOfLife.Controls.Add(buttonDaysOfLifeClopyToClipboard);
 			tabPageDaysOfLife.Controls.Add(labelDaysSpan);
 			tabPageDaysOfLife.Controls.Add(labelDaysOld);
 			tabPageDaysOfLife.Controls.Add(labelDateOfTheBirth);
@@ -743,7 +786,7 @@
 			tabPageDaysOfLife.Margin = new Padding(4, 3, 4, 3);
 			tabPageDaysOfLife.Name = "tabPageDaysOfLife";
 			tabPageDaysOfLife.Padding = new Padding(4, 3, 4, 3);
-			tabPageDaysOfLife.Size = new Size(405, 96);
+			tabPageDaysOfLife.Size = new Size(417, 96);
 			tabPageDaysOfLife.TabIndex = 3;
 			tabPageDaysOfLife.Text = "Days of life";
 			toolTip.SetToolTip(tabPageDaysOfLife, "Shows the tab page \"Days of life\"");
@@ -754,11 +797,30 @@
 			tabPageDaysOfLife.MouseEnter += SetStatusbar_Enter;
 			tabPageDaysOfLife.MouseLeave += ClearStatusbar_Leave;
 			// 
+			// buttonDaysOfLifeClopyToClipboard
+			// 
+			buttonDaysOfLifeClopyToClipboard.AccessibleDescription = "Copies the days of life to clipboard";
+			buttonDaysOfLifeClopyToClipboard.AccessibleName = "Copy to clipboard";
+			buttonDaysOfLifeClopyToClipboard.AccessibleRole = AccessibleRole.PushButton;
+			buttonDaysOfLifeClopyToClipboard.Image = (Image)resources.GetObject("buttonDaysOfLifeClopyToClipboard.Image");
+			buttonDaysOfLifeClopyToClipboard.Location = new Point(383, 64);
+			buttonDaysOfLifeClopyToClipboard.Name = "buttonDaysOfLifeClopyToClipboard";
+			buttonDaysOfLifeClopyToClipboard.Size = new Size(26, 26);
+			buttonDaysOfLifeClopyToClipboard.TabIndex = 9;
+			toolTip.SetToolTip(buttonDaysOfLifeClopyToClipboard, "Copy the result to clipboard");
+			buttonDaysOfLifeClopyToClipboard.UseVisualStyleBackColor = true;
+			buttonDaysOfLifeClopyToClipboard.Click += ButtonDaysOfLifeClopyToClipboard_Click;
+			buttonDaysOfLifeClopyToClipboard.Enter += SetStatusbar_Enter;
+			buttonDaysOfLifeClopyToClipboard.Leave += ClearStatusbar_Leave;
+			buttonDaysOfLifeClopyToClipboard.MouseEnter += SetStatusbar_Enter;
+			buttonDaysOfLifeClopyToClipboard.MouseLeave += ClearStatusbar_Leave;
+			// 
 			// tabPageDaysOfYear
 			// 
 			tabPageDaysOfYear.AccessibleDescription = "Shows the tab page \"Days of year\"";
 			tabPageDaysOfYear.AccessibleName = "Tab page \"Days of year\"";
 			tabPageDaysOfYear.AccessibleRole = AccessibleRole.PageTab;
+			tabPageDaysOfYear.Controls.Add(buttonDaysOfYearClopyToClipboard);
 			tabPageDaysOfYear.Controls.Add(labelDaysOfYear);
 			tabPageDaysOfYear.Controls.Add(labelDate);
 			tabPageDaysOfYear.Controls.Add(dateTimePickerDaysOfYear);
@@ -768,7 +830,7 @@
 			tabPageDaysOfYear.Location = new Point(4, 44);
 			tabPageDaysOfYear.Name = "tabPageDaysOfYear";
 			tabPageDaysOfYear.Padding = new Padding(3);
-			tabPageDaysOfYear.Size = new Size(405, 96);
+			tabPageDaysOfYear.Size = new Size(417, 96);
 			tabPageDaysOfYear.TabIndex = 5;
 			tabPageDaysOfYear.Text = "Days of year";
 			toolTip.SetToolTip(tabPageDaysOfYear, "Shows the tab page \"Days of year\"");
@@ -779,6 +841,24 @@
 			tabPageDaysOfYear.MouseEnter += SetStatusbar_Enter;
 			tabPageDaysOfYear.MouseLeave += ClearStatusbar_Leave;
 			// 
+			// buttonDaysOfYearClopyToClipboard
+			// 
+			buttonDaysOfYearClopyToClipboard.AccessibleDescription = "Copies the days of year to clipboard";
+			buttonDaysOfYearClopyToClipboard.AccessibleName = "Copy to clipboard";
+			buttonDaysOfYearClopyToClipboard.AccessibleRole = AccessibleRole.PushButton;
+			buttonDaysOfYearClopyToClipboard.Image = (Image)resources.GetObject("buttonDaysOfYearClopyToClipboard.Image");
+			buttonDaysOfYearClopyToClipboard.Location = new Point(383, 64);
+			buttonDaysOfYearClopyToClipboard.Name = "buttonDaysOfYearClopyToClipboard";
+			buttonDaysOfYearClopyToClipboard.Size = new Size(26, 26);
+			buttonDaysOfYearClopyToClipboard.TabIndex = 9;
+			toolTip.SetToolTip(buttonDaysOfYearClopyToClipboard, "Copy the result to clipboard");
+			buttonDaysOfYearClopyToClipboard.UseVisualStyleBackColor = true;
+			buttonDaysOfYearClopyToClipboard.Click += ButtonDaysOfYearClopyToClipboard_Click;
+			buttonDaysOfYearClopyToClipboard.Enter += SetStatusbar_Enter;
+			buttonDaysOfYearClopyToClipboard.Leave += ClearStatusbar_Leave;
+			buttonDaysOfYearClopyToClipboard.MouseEnter += SetStatusbar_Enter;
+			buttonDaysOfYearClopyToClipboard.MouseLeave += ClearStatusbar_Leave;
+			// 
 			// labelDaysOfYear
 			// 
 			labelDaysOfYear.AccessibleDescription = "Shows the description of the days of the year";
@@ -786,7 +866,7 @@
 			labelDaysOfYear.AccessibleRole = AccessibleRole.StaticText;
 			labelDaysOfYear.AutoEllipsis = true;
 			labelDaysOfYear.AutoSize = true;
-			labelDaysOfYear.Location = new Point(9, 53);
+			labelDaysOfYear.Location = new Point(9, 52);
 			labelDaysOfYear.Margin = new Padding(4, 0, 4, 0);
 			labelDaysOfYear.Name = "labelDaysOfYear";
 			labelDaysOfYear.Size = new Size(35, 15);
@@ -805,7 +885,7 @@
 			labelDate.AccessibleRole = AccessibleRole.StaticText;
 			labelDate.AutoEllipsis = true;
 			labelDate.AutoSize = true;
-			labelDate.Location = new Point(9, 13);
+			labelDate.Location = new Point(9, 12);
 			labelDate.Margin = new Padding(4, 0, 4, 0);
 			labelDate.Name = "labelDate";
 			labelDate.Size = new Size(34, 15);
@@ -822,7 +902,7 @@
 			dateTimePickerDaysOfYear.AccessibleDescription = "Shows the date";
 			dateTimePickerDaysOfYear.AccessibleName = "date";
 			dateTimePickerDaysOfYear.AccessibleRole = AccessibleRole.SpinButton;
-			dateTimePickerDaysOfYear.Location = new Point(57, 8);
+			dateTimePickerDaysOfYear.Location = new Point(57, 7);
 			dateTimePickerDaysOfYear.Margin = new Padding(4, 3, 4, 3);
 			dateTimePickerDaysOfYear.Name = "dateTimePickerDaysOfYear";
 			dateTimePickerDaysOfYear.Size = new Size(233, 23);
@@ -841,7 +921,7 @@
 			buttonDaysOfYear.AccessibleRole = AccessibleRole.PushButton;
 			buttonDaysOfYear.AutoEllipsis = true;
 			buttonDaysOfYear.Image = Properties.Resources.switch_small;
-			buttonDaysOfYear.Location = new Point(298, 8);
+			buttonDaysOfYear.Location = new Point(298, 7);
 			buttonDaysOfYear.Margin = new Padding(4, 3, 4, 3);
 			buttonDaysOfYear.Name = "buttonDaysOfYear";
 			buttonDaysOfYear.Size = new Size(23, 23);
@@ -861,7 +941,7 @@
 			labelDaysOfYearPassed.AccessibleRole = AccessibleRole.StaticText;
 			labelDaysOfYearPassed.AutoEllipsis = true;
 			labelDaysOfYearPassed.AutoSize = true;
-			labelDaysOfYearPassed.Location = new Point(57, 53);
+			labelDaysOfYearPassed.Location = new Point(57, 52);
 			labelDaysOfYearPassed.Margin = new Padding(4, 0, 4, 0);
 			labelDaysOfYearPassed.Name = "labelDaysOfYearPassed";
 			labelDaysOfYearPassed.Size = new Size(255, 15);
@@ -888,7 +968,7 @@
 			tabPageAbout.Margin = new Padding(4, 3, 4, 3);
 			tabPageAbout.Name = "tabPageAbout";
 			tabPageAbout.Padding = new Padding(4, 3, 4, 3);
-			tabPageAbout.Size = new Size(405, 96);
+			tabPageAbout.Size = new Size(417, 96);
 			tabPageAbout.TabIndex = 2;
 			tabPageAbout.Text = "About";
 			toolTip.SetToolTip(tabPageAbout, "Shows the tab page \"About\"");
@@ -922,7 +1002,7 @@
 			tabPageLicense.ImageKey = "script-text.png";
 			tabPageLicense.Location = new Point(4, 44);
 			tabPageLicense.Name = "tabPageLicense";
-			tabPageLicense.Size = new Size(405, 96);
+			tabPageLicense.Size = new Size(417, 96);
 			tabPageLicense.TabIndex = 4;
 			tabPageLicense.Text = "License";
 			toolTip.SetToolTip(tabPageLicense, "Shows the tab page \"License\"");
@@ -1008,7 +1088,7 @@
 			toolStripContainer.ContentPanel.AutoScroll = true;
 			toolStripContainer.ContentPanel.Controls.Add(tabControl);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(428, 144);
+			toolStripContainer.ContentPanel.Size = new Size(425, 144);
 			toolStripContainer.Dock = DockStyle.Fill;
 			// 
 			// toolStripContainer.LeftToolStripPanel
@@ -1025,7 +1105,7 @@
 			toolStripContainer.RightToolStripPanel.AccessibleDescription = "Right part of the ToolStripContainer";
 			toolStripContainer.RightToolStripPanel.AccessibleName = "Right part of the ToolStripContainer";
 			toolStripContainer.RightToolStripPanel.AccessibleRole = AccessibleRole.Pane;
-			toolStripContainer.Size = new Size(428, 166);
+			toolStripContainer.Size = new Size(425, 166);
 			toolStripContainer.TabIndex = 6;
 			toolStripContainer.Text = "toolStripContainer";
 			// 
@@ -1042,7 +1122,7 @@
 			AccessibleRole = AccessibleRole.Window;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(428, 166);
+			ClientSize = new Size(425, 166);
 			Controls.Add(toolStripContainer);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			Icon = (Icon)resources.GetObject("$this.Icon");
@@ -1127,6 +1207,10 @@
 		private DateTimePicker dateTimePickerDaysOfYear;
 		private Button buttonDaysOfYear;
 		private Label labelDaysOfYear;
+		private Button buttonDateToDateCopyToClipboard;
+		private Button buttonDaysOfSpanCopyToClipboard;
+		private Button buttonDaysOfLifeClopyToClipboard;
+		private Button buttonDaysOfYearClopyToClipboard;
 	}
 }
 
