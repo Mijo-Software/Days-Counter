@@ -26,20 +26,6 @@ namespace DaysCounter
 		/// <param name="e">The event data associated with the exception</param>
 		private static void HandleException(Exception ex, string message, object? sender = null, EventArgs? e = null)
 		{
-			//DateTime date = DateTime.TryParse("2021-09-01", out DateTime parsedDate) ? parsedDate : DateTime.Now;
-			/*
-			DateTime s;
-			if (DateTime.TryParse("2021-09-01", result: out DateTime date))
-			{
-				s = date;
-			}
-			else
-			{
-				s = DateTime.Now;
-			}
-			*/
-
-			// Implement logging logic here (e.g., log to a file or monitoring system)
 			string msg = $"Error: {ex}\nMessage: {ex.Message}\nStackTrace: {ex.StackTrace}\nSender: {sender}, EventArgs: {e}";
 			Debug.WriteLine(value: msg);
 			Console.WriteLine(value: msg);
@@ -127,9 +113,9 @@ namespace DaysCounter
 		}
 
 		/// <summary>
-		/// Copies the specified text to the clipboard and displays a confirmation message.
+		/// Copies the specified text to the clipboard and displays a confirmation message
 		/// </summary>
-		/// <param name="text">The text to be copied.</param>
+		/// <param name="text">The text to be copied</param>
 		private static void CopyToClipboard(string text)
 		{
 			try
@@ -140,6 +126,28 @@ namespace DaysCounter
 			catch (Exception ex)
 			{
 				HandleException(ex: ex, message: "An error occurred while coping to clipboard.");
+			}
+		}
+
+		/// <summary>
+		/// Copies a date from the clipboard and sets it to the specified DateTimePicker
+		/// </summary>
+		/// <param name="dateTimePicker">The DateTimePicker to set the date to</param>
+		private static void CopyFromClipboard(DateTimePicker dateTimePicker)
+		{
+			string date = Clipboard.GetText();
+			if (string.IsNullOrEmpty(value: date))
+			{
+				_ = MessageBox.Show(text: "The clipboard is empty.", caption: "Information", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+				return;
+			}
+			if (DateTime.TryParse(s: date, result: out DateTime parsedDate))
+			{
+				dateTimePicker.Value = parsedDate;
+			}
+			else
+			{
+				_ = MessageBox.Show(text: "The clipboard does not contain a valid date.", caption: "Warning", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
 			}
 		}
 
@@ -219,32 +227,60 @@ namespace DaysCounter
 		private void ToolStripMenuItemStayOnTop_Click(object sender, EventArgs e) => ApplicationStayOnTop();
 
 		/// <summary>
-		/// Copies the counted days between two dates to the clipboard.
+		/// Copies the counted days between two dates to the clipboard
 		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ButtonDateToDateCopyToClipboard_Click(object sender, EventArgs e) => CopyToClipboard(text: labelDaysCounted.Text);
 
 		/// <summary>
-		/// Copies the calculated date from a specific span of days to the clipboard.
+		/// Copies the calculated date from a specific span of days to the clipboard
 		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ButtonDaysOfSpanCopyToClipboard_Click(object sender, EventArgs e) => CopyToClipboard(text: dateTimePickerDateOut.Value.ToShortDateString());
 
 		/// <summary>
-		/// Copies the calculated days of life to the clipboard.
+		/// Copies the calculated days of life to the clipboard
 		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ButtonDaysOfLifeClopyToClipboard_Click(object sender, EventArgs e) => CopyToClipboard(text: labelDaysOld.Text);
 
 		/// <summary>
-		/// Copies the calculated days of the year to the clipboard.
+		/// Copies the calculated days of the year to the clipboard
 		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
 		private void ButtonDaysOfYearClopyToClipboard_Click(object sender, EventArgs e) => CopyToClipboard(text: labelDaysOfYearPassed.Text);
+
+		/// <summary>
+		/// Copies a date from the clipboard to the beginning date DateTimePicker
+		/// </summary>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
+		private void ButtonDateToDateCopyFromClipboard_Click(object sender, EventArgs e) => CopyFromClipboard(dateTimePicker: dateTimePickerBegin);
+
+		/// <summary>
+		/// Copies a date from the clipboard to the date with span DateTimePicker
+		/// </summary>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
+		private void ButtonSpanOfDaysCopyFromClipboard_Click(object sender, EventArgs e) => CopyFromClipboard(dateTimePicker: dateTimePickerDateIn);
+
+		/// <summary>
+		/// Copies a date from the clipboard to the date of birth DateTimePicker
+		/// </summary>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
+		private void ButtonDaysOfLifeCopyFromClipboard_Click(object sender, EventArgs e) => CopyFromClipboard(dateTimePicker: dateTimePickerDateOfTheBirth);
+
+		/// <summary>
+		/// Copies a date from the clipboard to the days of the year DateTimePicker
+		/// </summary>
+		/// <param name="sender">The source of the event</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
+		private void ButtonDaysOfYearCopyFromClipboard_Click(object sender, EventArgs e) => CopyFromClipboard(dateTimePicker: dateTimePickerDaysOfYear);
 
 		#endregion
 
@@ -320,8 +356,8 @@ namespace DaysCounter
 		/// <summary>
 		/// Detect the accessibility description to set as information text in the status bar
 		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		/// <param name="sender">The event source</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
 			try
@@ -376,8 +412,8 @@ namespace DaysCounter
 		/// Handles the KeyDown event of the MainForm.
 		/// Closes the form when the Escape key is pressed.
 		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		/// <param name="sender">The event source</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data</param>
 		private void MainForm_KeyDown(object? sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Escape)
