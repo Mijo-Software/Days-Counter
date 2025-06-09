@@ -1,11 +1,14 @@
-﻿namespace DaysCounter
+﻿using System.ComponentModel;
+using DaysCounter.Properties;
+
+namespace DaysCounter
 {
 	partial class MainForm
 	{
 		/// <summary>
 		/// Erforderliche Designervariable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
@@ -28,8 +31,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(MainForm));
 			imageList = new ImageList(components);
 			toolTip = new ToolTip(components);
 			statusStrip = new StatusStrip();
@@ -89,14 +92,14 @@
 			ContentPanel = new ToolStripContentPanel();
 			toolStripContainer = new ToolStripContainer();
 			statusStrip.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)numericUpDownDays).BeginInit();
+			((ISupportInitialize)numericUpDownDays).BeginInit();
 			tabControl.SuspendLayout();
 			tabPageDateToDate.SuspendLayout();
 			tabPageSpanOfDays.SuspendLayout();
 			tabPageDaysOfLife.SuspendLayout();
 			tabPageDaysOfYear.SuspendLayout();
 			tabPageAbout.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
+			((ISupportInitialize)pictureBox).BeginInit();
 			tabPageLicense.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
@@ -130,10 +133,10 @@
 			statusStrip.TabIndex = 0;
 			statusStrip.Text = "statusStrip";
 			toolTip.SetToolTip(statusStrip, "Statusbar with some information");
-			statusStrip.Enter += SetStatusbar_Enter;
-			statusStrip.Leave += ClearStatusbar_Leave;
-			statusStrip.MouseEnter += SetStatusbar_Enter;
-			statusStrip.MouseLeave += ClearStatusbar_Leave;
+			statusStrip.Enter += SetStatusBar_Enter;
+			statusStrip.Leave += ClearStatusBar_Leave;
+			statusStrip.MouseEnter += SetStatusBar_Enter;
+			statusStrip.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelInformation
 			// 
@@ -154,14 +157,14 @@
 			toolStripSplitButtonStayOnTop.AccessibleRole = AccessibleRole.SplitButton;
 			toolStripSplitButtonStayOnTop.DisplayStyle = ToolStripItemDisplayStyle.Image;
 			toolStripSplitButtonStayOnTop.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemStayNotOnTop, toolStripMenuItemStayOnTop });
-			toolStripSplitButtonStayOnTop.Image = Properties.Resources.application;
+			toolStripSplitButtonStayOnTop.Image = Resources.application;
 			toolStripSplitButtonStayOnTop.ImageTransparentColor = Color.Magenta;
 			toolStripSplitButtonStayOnTop.Name = "toolStripSplitButtonStayOnTop";
 			toolStripSplitButtonStayOnTop.Size = new Size(32, 20);
 			toolStripSplitButtonStayOnTop.Text = "Stay not on top";
 			toolStripSplitButtonStayOnTop.ButtonClick += ToolStripSplitButtonStayOnTop_ButtonClick;
-			toolStripSplitButtonStayOnTop.MouseEnter += SetStatusbar_Enter;
-			toolStripSplitButtonStayOnTop.MouseLeave += ClearStatusbar_Leave;
+			toolStripSplitButtonStayOnTop.MouseEnter += SetStatusBar_Enter;
+			toolStripSplitButtonStayOnTop.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// toolStripMenuItemStayNotOnTop
 			// 
@@ -171,14 +174,14 @@
 			toolStripMenuItemStayNotOnTop.AutoToolTip = true;
 			toolStripMenuItemStayNotOnTop.Checked = true;
 			toolStripMenuItemStayNotOnTop.CheckState = CheckState.Checked;
-			toolStripMenuItemStayNotOnTop.Image = Properties.Resources.application;
+			toolStripMenuItemStayNotOnTop.Image = Resources.application;
 			toolStripMenuItemStayNotOnTop.Name = "toolStripMenuItemStayNotOnTop";
 			toolStripMenuItemStayNotOnTop.ShortcutKeyDisplayString = "";
 			toolStripMenuItemStayNotOnTop.Size = new Size(155, 22);
 			toolStripMenuItemStayNotOnTop.Text = "Stay &not on top";
 			toolStripMenuItemStayNotOnTop.Click += ToolStripMenuItemStayNotOnTop_Click;
-			toolStripMenuItemStayNotOnTop.MouseEnter += SetStatusbar_Enter;
-			toolStripMenuItemStayNotOnTop.MouseLeave += ClearStatusbar_Leave;
+			toolStripMenuItemStayNotOnTop.MouseEnter += SetStatusBar_Enter;
+			toolStripMenuItemStayNotOnTop.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// toolStripMenuItemStayOnTop
 			// 
@@ -186,13 +189,13 @@
 			toolStripMenuItemStayOnTop.AccessibleName = "Stay on top";
 			toolStripMenuItemStayOnTop.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemStayOnTop.AutoToolTip = true;
-			toolStripMenuItemStayOnTop.Image = Properties.Resources.application_blue;
+			toolStripMenuItemStayOnTop.Image = Resources.application_blue;
 			toolStripMenuItemStayOnTop.Name = "toolStripMenuItemStayOnTop";
 			toolStripMenuItemStayOnTop.Size = new Size(155, 22);
 			toolStripMenuItemStayOnTop.Text = "&Stay on top";
 			toolStripMenuItemStayOnTop.Click += ToolStripMenuItemStayOnTop_Click;
-			toolStripMenuItemStayOnTop.MouseEnter += SetStatusbar_Enter;
-			toolStripMenuItemStayOnTop.MouseLeave += ClearStatusbar_Leave;
+			toolStripMenuItemStayOnTop.MouseEnter += SetStatusBar_Enter;
+			toolStripMenuItemStayOnTop.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelTitle
 			// 
@@ -210,10 +213,10 @@
 			labelTitle.Text = "[Title + Version]";
 			toolTip.SetToolTip(labelTitle, "Title/version");
 			labelTitle.UseCompatibleTextRendering = true;
-			labelTitle.Enter += SetStatusbar_Enter;
-			labelTitle.Leave += ClearStatusbar_Leave;
-			labelTitle.MouseEnter += SetStatusbar_Enter;
-			labelTitle.MouseLeave += ClearStatusbar_Leave;
+			labelTitle.Enter += SetStatusBar_Enter;
+			labelTitle.Leave += ClearStatusBar_Leave;
+			labelTitle.MouseEnter += SetStatusBar_Enter;
+			labelTitle.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDescription
 			// 
@@ -230,10 +233,10 @@
 			labelDescription.Text = "[Description]";
 			toolTip.SetToolTip(labelDescription, "Description");
 			labelDescription.UseCompatibleTextRendering = true;
-			labelDescription.Enter += SetStatusbar_Enter;
-			labelDescription.Leave += ClearStatusbar_Leave;
-			labelDescription.MouseEnter += SetStatusbar_Enter;
-			labelDescription.MouseLeave += ClearStatusbar_Leave;
+			labelDescription.Enter += SetStatusBar_Enter;
+			labelDescription.Leave += ClearStatusBar_Leave;
+			labelDescription.MouseEnter += SetStatusBar_Enter;
+			labelDescription.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelCopyright
 			// 
@@ -250,10 +253,10 @@
 			labelCopyright.Text = "[Copyright + Company]";
 			toolTip.SetToolTip(labelCopyright, "Copyright/company");
 			labelCopyright.UseCompatibleTextRendering = true;
-			labelCopyright.Enter += SetStatusbar_Enter;
-			labelCopyright.Leave += ClearStatusbar_Leave;
-			labelCopyright.MouseEnter += SetStatusbar_Enter;
-			labelCopyright.MouseLeave += ClearStatusbar_Leave;
+			labelCopyright.Enter += SetStatusBar_Enter;
+			labelCopyright.Leave += ClearStatusBar_Leave;
+			labelCopyright.MouseEnter += SetStatusBar_Enter;
+			labelCopyright.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// dateTimePickerDateOfTheBirth
 			// 
@@ -267,10 +270,10 @@
 			dateTimePickerDateOfTheBirth.TabIndex = 1;
 			toolTip.SetToolTip(dateTimePickerDateOfTheBirth, "Date of the birth");
 			dateTimePickerDateOfTheBirth.ValueChanged += DateTimePickerDateOfTheBirth_ValueChanged;
-			dateTimePickerDateOfTheBirth.Enter += SetStatusbar_Enter;
-			dateTimePickerDateOfTheBirth.Leave += ClearStatusbar_Leave;
-			dateTimePickerDateOfTheBirth.MouseEnter += SetStatusbar_Enter;
-			dateTimePickerDateOfTheBirth.MouseLeave += ClearStatusbar_Leave;
+			dateTimePickerDateOfTheBirth.Enter += SetStatusBar_Enter;
+			dateTimePickerDateOfTheBirth.Leave += ClearStatusBar_Leave;
+			dateTimePickerDateOfTheBirth.MouseEnter += SetStatusBar_Enter;
+			dateTimePickerDateOfTheBirth.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateOfTheBirth
 			// 
@@ -286,10 +289,10 @@
 			labelDateOfTheBirth.TabIndex = 0;
 			labelDateOfTheBirth.Text = "Date of the &birth:";
 			toolTip.SetToolTip(labelDateOfTheBirth, "Description of the date of the birth");
-			labelDateOfTheBirth.Enter += SetStatusbar_Enter;
-			labelDateOfTheBirth.Leave += ClearStatusbar_Leave;
-			labelDateOfTheBirth.MouseEnter += SetStatusbar_Enter;
-			labelDateOfTheBirth.MouseLeave += ClearStatusbar_Leave;
+			labelDateOfTheBirth.Enter += SetStatusBar_Enter;
+			labelDateOfTheBirth.Leave += ClearStatusBar_Leave;
+			labelDateOfTheBirth.MouseEnter += SetStatusBar_Enter;
+			labelDateOfTheBirth.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// dateTimePickerDateIn
 			// 
@@ -303,10 +306,10 @@
 			dateTimePickerDateIn.TabIndex = 1;
 			toolTip.SetToolTip(dateTimePickerDateIn, "Beginning date");
 			dateTimePickerDateIn.ValueChanged += DateTimePickerDateIn_ValueChanged;
-			dateTimePickerDateIn.Enter += SetStatusbar_Enter;
-			dateTimePickerDateIn.Leave += ClearStatusbar_Leave;
-			dateTimePickerDateIn.MouseEnter += SetStatusbar_Enter;
-			dateTimePickerDateIn.MouseLeave += ClearStatusbar_Leave;
+			dateTimePickerDateIn.Enter += SetStatusBar_Enter;
+			dateTimePickerDateIn.Leave += ClearStatusBar_Leave;
+			dateTimePickerDateIn.MouseEnter += SetStatusBar_Enter;
+			dateTimePickerDateIn.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownDays
 			// 
@@ -323,8 +326,8 @@
 			numericUpDownDays.TextAlign = HorizontalAlignment.Center;
 			toolTip.SetToolTip(numericUpDownDays, "Day span");
 			numericUpDownDays.ValueChanged += NumericUpDownDays_ValueChanged;
-			numericUpDownDays.Enter += SetStatusbar_Enter;
-			numericUpDownDays.Leave += ClearStatusbar_Leave;
+			numericUpDownDays.Enter += SetStatusBar_Enter;
+			numericUpDownDays.Leave += ClearStatusBar_Leave;
 			// 
 			// dateTimePickerDateOut
 			// 
@@ -338,10 +341,10 @@
 			dateTimePickerDateOut.Size = new Size(231, 23);
 			dateTimePickerDateOut.TabIndex = 6;
 			toolTip.SetToolTip(dateTimePickerDateOut, "Ending date");
-			dateTimePickerDateOut.Enter += SetStatusbar_Enter;
-			dateTimePickerDateOut.Leave += ClearStatusbar_Leave;
-			dateTimePickerDateOut.MouseEnter += SetStatusbar_Enter;
-			dateTimePickerDateOut.MouseLeave += ClearStatusbar_Leave;
+			dateTimePickerDateOut.Enter += SetStatusBar_Enter;
+			dateTimePickerDateOut.Leave += ClearStatusBar_Leave;
+			dateTimePickerDateOut.MouseEnter += SetStatusBar_Enter;
+			dateTimePickerDateOut.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateIn
 			// 
@@ -357,10 +360,10 @@
 			labelDateIn.TabIndex = 0;
 			labelDateIn.Text = "Date &in:";
 			toolTip.SetToolTip(labelDateIn, "Description of the beginning date");
-			labelDateIn.Enter += SetStatusbar_Enter;
-			labelDateIn.Leave += ClearStatusbar_Leave;
-			labelDateIn.MouseEnter += SetStatusbar_Enter;
-			labelDateIn.MouseLeave += ClearStatusbar_Leave;
+			labelDateIn.Enter += SetStatusBar_Enter;
+			labelDateIn.Leave += ClearStatusBar_Leave;
+			labelDateIn.MouseEnter += SetStatusBar_Enter;
+			labelDateIn.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateOut
 			// 
@@ -376,10 +379,10 @@
 			labelDateOut.TabIndex = 5;
 			labelDateOut.Text = "Date &out:";
 			toolTip.SetToolTip(labelDateOut, "Description of the ending date");
-			labelDateOut.Enter += SetStatusbar_Enter;
-			labelDateOut.Leave += ClearStatusbar_Leave;
-			labelDateOut.MouseEnter += SetStatusbar_Enter;
-			labelDateOut.MouseLeave += ClearStatusbar_Leave;
+			labelDateOut.Enter += SetStatusBar_Enter;
+			labelDateOut.Leave += ClearStatusBar_Leave;
+			labelDateOut.MouseEnter += SetStatusBar_Enter;
+			labelDateOut.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// dateTimePickerEnd
 			// 
@@ -393,10 +396,10 @@
 			dateTimePickerEnd.TabIndex = 4;
 			toolTip.SetToolTip(dateTimePickerEnd, "Ending date");
 			dateTimePickerEnd.ValueChanged += DateTimePickerEnd_ValueChanged;
-			dateTimePickerEnd.Enter += SetStatusbar_Enter;
-			dateTimePickerEnd.Leave += ClearStatusbar_Leave;
-			dateTimePickerEnd.MouseEnter += SetStatusbar_Enter;
-			dateTimePickerEnd.MouseLeave += ClearStatusbar_Leave;
+			dateTimePickerEnd.Enter += SetStatusBar_Enter;
+			dateTimePickerEnd.Leave += ClearStatusBar_Leave;
+			dateTimePickerEnd.MouseEnter += SetStatusBar_Enter;
+			dateTimePickerEnd.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// dateTimePickerBegin
 			// 
@@ -410,10 +413,10 @@
 			dateTimePickerBegin.TabIndex = 1;
 			toolTip.SetToolTip(dateTimePickerBegin, "Beginning");
 			dateTimePickerBegin.ValueChanged += DateTimePickerBegin_ValueChanged;
-			dateTimePickerBegin.Enter += SetStatusbar_Enter;
-			dateTimePickerBegin.Leave += ClearStatusbar_Leave;
-			dateTimePickerBegin.MouseEnter += SetStatusbar_Enter;
-			dateTimePickerBegin.MouseLeave += ClearStatusbar_Leave;
+			dateTimePickerBegin.Enter += SetStatusBar_Enter;
+			dateTimePickerBegin.Leave += ClearStatusBar_Leave;
+			dateTimePickerBegin.MouseEnter += SetStatusBar_Enter;
+			dateTimePickerBegin.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateBegin
 			// 
@@ -429,10 +432,10 @@
 			labelDateBegin.TabIndex = 0;
 			labelDateBegin.Text = "&From:";
 			toolTip.SetToolTip(labelDateBegin, "Description of the first date");
-			labelDateBegin.Enter += SetStatusbar_Enter;
-			labelDateBegin.Leave += ClearStatusbar_Leave;
-			labelDateBegin.MouseEnter += SetStatusbar_Enter;
-			labelDateBegin.MouseLeave += ClearStatusbar_Leave;
+			labelDateBegin.Enter += SetStatusBar_Enter;
+			labelDateBegin.Leave += ClearStatusBar_Leave;
+			labelDateBegin.MouseEnter += SetStatusBar_Enter;
+			labelDateBegin.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateEnd
 			// 
@@ -448,10 +451,10 @@
 			labelDateEnd.TabIndex = 3;
 			labelDateEnd.Text = "&To:";
 			toolTip.SetToolTip(labelDateEnd, "Description of the second date");
-			labelDateEnd.Enter += SetStatusbar_Enter;
-			labelDateEnd.Leave += ClearStatusbar_Leave;
-			labelDateEnd.MouseEnter += SetStatusbar_Enter;
-			labelDateEnd.MouseLeave += ClearStatusbar_Leave;
+			labelDateEnd.Enter += SetStatusBar_Enter;
+			labelDateEnd.Leave += ClearStatusBar_Leave;
+			labelDateEnd.MouseEnter += SetStatusBar_Enter;
+			labelDateEnd.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDays
 			// 
@@ -467,10 +470,10 @@
 			labelDays.TabIndex = 6;
 			labelDays.Text = "&Days:";
 			toolTip.SetToolTip(labelDays, "Description of the counted days");
-			labelDays.Enter += SetStatusbar_Enter;
-			labelDays.Leave += ClearStatusbar_Leave;
-			labelDays.MouseEnter += SetStatusbar_Enter;
-			labelDays.MouseLeave += ClearStatusbar_Leave;
+			labelDays.Enter += SetStatusBar_Enter;
+			labelDays.Leave += ClearStatusBar_Leave;
+			labelDays.MouseEnter += SetStatusBar_Enter;
+			labelDays.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDaysCounted
 			// 
@@ -486,10 +489,10 @@
 			labelDaysCounted.TabIndex = 7;
 			labelDaysCounted.Text = "They are xxxxx days.";
 			toolTip.SetToolTip(labelDaysCounted, "Counted days");
-			labelDaysCounted.Enter += SetStatusbar_Enter;
-			labelDaysCounted.Leave += ClearStatusbar_Leave;
-			labelDaysCounted.MouseEnter += SetStatusbar_Enter;
-			labelDaysCounted.MouseLeave += ClearStatusbar_Leave;
+			labelDaysCounted.Enter += SetStatusBar_Enter;
+			labelDaysCounted.Leave += ClearStatusBar_Leave;
+			labelDaysCounted.MouseEnter += SetStatusBar_Enter;
+			labelDaysCounted.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDaysOld
 			// 
@@ -505,10 +508,10 @@
 			labelDaysOld.TabIndex = 4;
 			labelDaysOld.Text = "You are xxxxx days old.";
 			toolTip.SetToolTip(labelDaysOld, "How old you are in days");
-			labelDaysOld.Enter += SetStatusbar_Enter;
-			labelDaysOld.Leave += ClearStatusbar_Leave;
-			labelDaysOld.MouseEnter += SetStatusbar_Enter;
-			labelDaysOld.MouseLeave += ClearStatusbar_Leave;
+			labelDaysOld.Enter += SetStatusBar_Enter;
+			labelDaysOld.Leave += ClearStatusBar_Leave;
+			labelDaysOld.MouseEnter += SetStatusBar_Enter;
+			labelDaysOld.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDaysSpan
 			// 
@@ -524,10 +527,10 @@
 			labelDaysSpan.TabIndex = 3;
 			labelDaysSpan.Text = "&Days:";
 			toolTip.SetToolTip(labelDaysSpan, "Description of the counted days");
-			labelDaysSpan.Enter += SetStatusbar_Enter;
-			labelDaysSpan.Leave += ClearStatusbar_Leave;
-			labelDaysSpan.MouseEnter += SetStatusbar_Enter;
-			labelDaysSpan.MouseLeave += ClearStatusbar_Leave;
+			labelDaysSpan.Enter += SetStatusBar_Enter;
+			labelDaysSpan.Leave += ClearStatusBar_Leave;
+			labelDaysSpan.MouseEnter += SetStatusBar_Enter;
+			labelDaysSpan.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonSwitchDateEnd
 			// 
@@ -535,7 +538,7 @@
 			buttonSwitchDateEnd.AccessibleName = "Changes the input method of the ending date";
 			buttonSwitchDateEnd.AccessibleRole = AccessibleRole.PushButton;
 			buttonSwitchDateEnd.AutoEllipsis = true;
-			buttonSwitchDateEnd.Image = Properties.Resources.switch_small;
+			buttonSwitchDateEnd.Image = Resources.switch_small;
 			buttonSwitchDateEnd.Location = new Point(298, 37);
 			buttonSwitchDateEnd.Margin = new Padding(4, 3, 4, 3);
 			buttonSwitchDateEnd.Name = "buttonSwitchDateEnd";
@@ -544,10 +547,10 @@
 			toolTip.SetToolTip(buttonSwitchDateEnd, "Changes the input method of the ending date");
 			buttonSwitchDateEnd.UseVisualStyleBackColor = true;
 			buttonSwitchDateEnd.Click += ButtonSwitchDateEnd_Click;
-			buttonSwitchDateEnd.Enter += SetStatusbar_Enter;
-			buttonSwitchDateEnd.Leave += ClearStatusbar_Leave;
-			buttonSwitchDateEnd.MouseEnter += SetStatusbar_Enter;
-			buttonSwitchDateEnd.MouseLeave += ClearStatusbar_Leave;
+			buttonSwitchDateEnd.Enter += SetStatusBar_Enter;
+			buttonSwitchDateEnd.Leave += ClearStatusBar_Leave;
+			buttonSwitchDateEnd.MouseEnter += SetStatusBar_Enter;
+			buttonSwitchDateEnd.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonSwitchDateBegin
 			// 
@@ -555,7 +558,7 @@
 			buttonSwitchDateBegin.AccessibleName = "Changes the input method of the beginning date";
 			buttonSwitchDateBegin.AccessibleRole = AccessibleRole.PushButton;
 			buttonSwitchDateBegin.AutoEllipsis = true;
-			buttonSwitchDateBegin.Image = Properties.Resources.switch_small;
+			buttonSwitchDateBegin.Image = Resources.switch_small;
 			buttonSwitchDateBegin.Location = new Point(298, 7);
 			buttonSwitchDateBegin.Margin = new Padding(4, 3, 4, 3);
 			buttonSwitchDateBegin.Name = "buttonSwitchDateBegin";
@@ -564,10 +567,10 @@
 			toolTip.SetToolTip(buttonSwitchDateBegin, "Changes the input method of the beginning date");
 			buttonSwitchDateBegin.UseVisualStyleBackColor = true;
 			buttonSwitchDateBegin.Click += ButtonSwitchDateBegin_Click;
-			buttonSwitchDateBegin.Enter += SetStatusbar_Enter;
-			buttonSwitchDateBegin.Leave += ClearStatusbar_Leave;
-			buttonSwitchDateBegin.MouseEnter += SetStatusbar_Enter;
-			buttonSwitchDateBegin.MouseLeave += ClearStatusbar_Leave;
+			buttonSwitchDateBegin.Enter += SetStatusBar_Enter;
+			buttonSwitchDateBegin.Leave += ClearStatusBar_Leave;
+			buttonSwitchDateBegin.MouseEnter += SetStatusBar_Enter;
+			buttonSwitchDateBegin.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonSwitchDateIn
 			// 
@@ -575,7 +578,7 @@
 			buttonSwitchDateIn.AccessibleName = "Changes the input method of the ending date";
 			buttonSwitchDateIn.AccessibleRole = AccessibleRole.PushButton;
 			buttonSwitchDateIn.AutoEllipsis = true;
-			buttonSwitchDateIn.Image = Properties.Resources.switch_small;
+			buttonSwitchDateIn.Image = Resources.switch_small;
 			buttonSwitchDateIn.Location = new Point(316, 7);
 			buttonSwitchDateIn.Margin = new Padding(4, 3, 4, 3);
 			buttonSwitchDateIn.Name = "buttonSwitchDateIn";
@@ -584,10 +587,10 @@
 			toolTip.SetToolTip(buttonSwitchDateIn, "Changes the input method of the ending date");
 			buttonSwitchDateIn.UseVisualStyleBackColor = true;
 			buttonSwitchDateIn.Click += ButtonSwitchDateDays_Click;
-			buttonSwitchDateIn.Enter += SetStatusbar_Enter;
-			buttonSwitchDateIn.Leave += ClearStatusbar_Leave;
-			buttonSwitchDateIn.MouseEnter += SetStatusbar_Enter;
-			buttonSwitchDateIn.MouseLeave += ClearStatusbar_Leave;
+			buttonSwitchDateIn.Enter += SetStatusBar_Enter;
+			buttonSwitchDateIn.Leave += ClearStatusBar_Leave;
+			buttonSwitchDateIn.MouseEnter += SetStatusBar_Enter;
+			buttonSwitchDateIn.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonDateOfTheBirth
 			// 
@@ -595,7 +598,7 @@
 			buttonDateOfTheBirth.AccessibleName = "Changes the input method of the date of the birth";
 			buttonDateOfTheBirth.AccessibleRole = AccessibleRole.PushButton;
 			buttonDateOfTheBirth.AutoEllipsis = true;
-			buttonDateOfTheBirth.Image = Properties.Resources.switch_small;
+			buttonDateOfTheBirth.Image = Resources.switch_small;
 			buttonDateOfTheBirth.Location = new Point(357, 7);
 			buttonDateOfTheBirth.Margin = new Padding(4, 3, 4, 3);
 			buttonDateOfTheBirth.Name = "buttonDateOfTheBirth";
@@ -604,10 +607,10 @@
 			toolTip.SetToolTip(buttonDateOfTheBirth, "Changes the input method of the date of the birth");
 			buttonDateOfTheBirth.UseVisualStyleBackColor = true;
 			buttonDateOfTheBirth.Click += ButtonDateOfTheBirth_Click;
-			buttonDateOfTheBirth.Enter += SetStatusbar_Enter;
-			buttonDateOfTheBirth.Leave += ClearStatusbar_Leave;
-			buttonDateOfTheBirth.MouseEnter += SetStatusbar_Enter;
-			buttonDateOfTheBirth.MouseLeave += ClearStatusbar_Leave;
+			buttonDateOfTheBirth.Enter += SetStatusBar_Enter;
+			buttonDateOfTheBirth.Leave += ClearStatusBar_Leave;
+			buttonDateOfTheBirth.MouseEnter += SetStatusBar_Enter;
+			buttonDateOfTheBirth.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// textBoxLicense
 			// 
@@ -627,10 +630,10 @@
 			textBoxLicense.TabIndex = 0;
 			textBoxLicense.Text = resources.GetString("textBoxLicense.Text");
 			toolTip.SetToolTip(textBoxLicense, "License");
-			textBoxLicense.Enter += SetStatusbar_Enter;
-			textBoxLicense.Leave += ClearStatusbar_Leave;
-			textBoxLicense.MouseEnter += SetStatusbar_Enter;
-			textBoxLicense.MouseLeave += ClearStatusbar_Leave;
+			textBoxLicense.Enter += SetStatusBar_Enter;
+			textBoxLicense.Leave += ClearStatusBar_Leave;
+			textBoxLicense.MouseEnter += SetStatusBar_Enter;
+			textBoxLicense.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDaysPlusMinus
 			// 
@@ -646,10 +649,10 @@
 			labelDaysPlusMinus.TabIndex = 3;
 			labelDaysPlusMinus.Text = "&Days (-/+):";
 			toolTip.SetToolTip(labelDaysPlusMinus, "Description of the day span");
-			labelDaysPlusMinus.Enter += SetStatusbar_Enter;
-			labelDaysPlusMinus.Leave += ClearStatusbar_Leave;
-			labelDaysPlusMinus.MouseEnter += SetStatusbar_Enter;
-			labelDaysPlusMinus.MouseLeave += ClearStatusbar_Leave;
+			labelDaysPlusMinus.Enter += SetStatusBar_Enter;
+			labelDaysPlusMinus.Leave += ClearStatusBar_Leave;
+			labelDaysPlusMinus.MouseEnter += SetStatusBar_Enter;
+			labelDaysPlusMinus.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tabControl
 			// 
@@ -674,10 +677,10 @@
 			tabControl.Size = new Size(425, 119);
 			tabControl.TabIndex = 0;
 			toolTip.SetToolTip(tabControl, "Shows the tabs");
-			tabControl.Enter += SetStatusbar_Enter;
-			tabControl.Leave += ClearStatusbar_Leave;
-			tabControl.MouseEnter += SetStatusbar_Enter;
-			tabControl.MouseLeave += ClearStatusbar_Leave;
+			tabControl.Enter += SetStatusBar_Enter;
+			tabControl.Leave += ClearStatusBar_Leave;
+			tabControl.MouseEnter += SetStatusBar_Enter;
+			tabControl.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tabPageDateToDate
 			// 
@@ -705,10 +708,10 @@
 			toolTip.SetToolTip(tabPageDateToDate, "Shows the tab page \"From date to date\"");
 			tabPageDateToDate.ToolTipText = "From date to date";
 			tabPageDateToDate.UseVisualStyleBackColor = true;
-			tabPageDateToDate.Enter += SetStatusbar_Enter;
-			tabPageDateToDate.Leave += ClearStatusbar_Leave;
-			tabPageDateToDate.MouseEnter += SetStatusbar_Enter;
-			tabPageDateToDate.MouseHover += ClearStatusbar_Leave;
+			tabPageDateToDate.Enter += SetStatusBar_Enter;
+			tabPageDateToDate.Leave += ClearStatusBar_Leave;
+			tabPageDateToDate.MouseEnter += SetStatusBar_Enter;
+			tabPageDateToDate.MouseHover += ClearStatusBar_Leave;
 			// 
 			// buttonDateToDateCopyFromClipboard
 			// 
@@ -725,10 +728,10 @@
 			toolTip.SetToolTip(buttonDateToDateCopyFromClipboard, "Copy the date from the clipboard to the calendar");
 			buttonDateToDateCopyFromClipboard.UseVisualStyleBackColor = true;
 			buttonDateToDateCopyFromClipboard.Click += ButtonDateToDateCopyFromClipboard_Click;
-			buttonDateToDateCopyFromClipboard.Enter += SetStatusbar_Enter;
-			buttonDateToDateCopyFromClipboard.Leave += ClearStatusbar_Leave;
-			buttonDateToDateCopyFromClipboard.MouseEnter += SetStatusbar_Enter;
-			buttonDateToDateCopyFromClipboard.MouseLeave += ClearStatusbar_Leave;
+			buttonDateToDateCopyFromClipboard.Enter += SetStatusBar_Enter;
+			buttonDateToDateCopyFromClipboard.Leave += ClearStatusBar_Leave;
+			buttonDateToDateCopyFromClipboard.MouseEnter += SetStatusBar_Enter;
+			buttonDateToDateCopyFromClipboard.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonDateToDateCopyToClipboard
 			// 
@@ -743,10 +746,10 @@
 			toolTip.SetToolTip(buttonDateToDateCopyToClipboard, "Copy the result to clipboard");
 			buttonDateToDateCopyToClipboard.UseVisualStyleBackColor = true;
 			buttonDateToDateCopyToClipboard.Click += ButtonDateToDateCopyToClipboard_Click;
-			buttonDateToDateCopyToClipboard.Enter += SetStatusbar_Enter;
-			buttonDateToDateCopyToClipboard.Leave += ClearStatusbar_Leave;
-			buttonDateToDateCopyToClipboard.MouseEnter += SetStatusbar_Enter;
-			buttonDateToDateCopyToClipboard.MouseLeave += ClearStatusbar_Leave;
+			buttonDateToDateCopyToClipboard.Enter += SetStatusBar_Enter;
+			buttonDateToDateCopyToClipboard.Leave += ClearStatusBar_Leave;
+			buttonDateToDateCopyToClipboard.MouseEnter += SetStatusBar_Enter;
+			buttonDateToDateCopyToClipboard.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tabPageSpanOfDays
 			// 
@@ -773,10 +776,10 @@
 			toolTip.SetToolTip(tabPageSpanOfDays, "Shows the tab page \"Span of days\"");
 			tabPageSpanOfDays.ToolTipText = "Span of days";
 			tabPageSpanOfDays.UseVisualStyleBackColor = true;
-			tabPageSpanOfDays.Enter += SetStatusbar_Enter;
-			tabPageSpanOfDays.Leave += ClearStatusbar_Leave;
-			tabPageSpanOfDays.MouseEnter += SetStatusbar_Enter;
-			tabPageSpanOfDays.MouseLeave += ClearStatusbar_Leave;
+			tabPageSpanOfDays.Enter += SetStatusBar_Enter;
+			tabPageSpanOfDays.Leave += ClearStatusBar_Leave;
+			tabPageSpanOfDays.MouseEnter += SetStatusBar_Enter;
+			tabPageSpanOfDays.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonSpanOfDaysCopyFromClipboard
 			// 
@@ -807,10 +810,10 @@
 			toolTip.SetToolTip(buttonDaysOfSpanCopyToClipboard, "Copy the result to clipboard");
 			buttonDaysOfSpanCopyToClipboard.UseVisualStyleBackColor = true;
 			buttonDaysOfSpanCopyToClipboard.Click += ButtonDaysOfSpanCopyToClipboard_Click;
-			buttonDaysOfSpanCopyToClipboard.Enter += SetStatusbar_Enter;
-			buttonDaysOfSpanCopyToClipboard.Leave += ClearStatusbar_Leave;
-			buttonDaysOfSpanCopyToClipboard.MouseEnter += SetStatusbar_Enter;
-			buttonDaysOfSpanCopyToClipboard.MouseLeave += ClearStatusbar_Leave;
+			buttonDaysOfSpanCopyToClipboard.Enter += SetStatusBar_Enter;
+			buttonDaysOfSpanCopyToClipboard.Leave += ClearStatusBar_Leave;
+			buttonDaysOfSpanCopyToClipboard.MouseEnter += SetStatusBar_Enter;
+			buttonDaysOfSpanCopyToClipboard.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tabPageDaysOfLife
 			// 
@@ -835,10 +838,10 @@
 			toolTip.SetToolTip(tabPageDaysOfLife, "Shows the tab page \"Days of life\"");
 			tabPageDaysOfLife.ToolTipText = "Days of life";
 			tabPageDaysOfLife.UseVisualStyleBackColor = true;
-			tabPageDaysOfLife.Enter += SetStatusbar_Enter;
-			tabPageDaysOfLife.Leave += ClearStatusbar_Leave;
-			tabPageDaysOfLife.MouseEnter += SetStatusbar_Enter;
-			tabPageDaysOfLife.MouseLeave += ClearStatusbar_Leave;
+			tabPageDaysOfLife.Enter += SetStatusBar_Enter;
+			tabPageDaysOfLife.Leave += ClearStatusBar_Leave;
+			tabPageDaysOfLife.MouseEnter += SetStatusBar_Enter;
+			tabPageDaysOfLife.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonDaysOfLifeCopyFromClipboard
 			// 
@@ -868,11 +871,11 @@
 			buttonDaysOfLifeClopyToClipboard.TabIndex = 9;
 			toolTip.SetToolTip(buttonDaysOfLifeClopyToClipboard, "Copy the result to clipboard");
 			buttonDaysOfLifeClopyToClipboard.UseVisualStyleBackColor = true;
-			buttonDaysOfLifeClopyToClipboard.Click += ButtonDaysOfLifeClopyToClipboard_Click;
-			buttonDaysOfLifeClopyToClipboard.Enter += SetStatusbar_Enter;
-			buttonDaysOfLifeClopyToClipboard.Leave += ClearStatusbar_Leave;
-			buttonDaysOfLifeClopyToClipboard.MouseEnter += SetStatusbar_Enter;
-			buttonDaysOfLifeClopyToClipboard.MouseLeave += ClearStatusbar_Leave;
+			buttonDaysOfLifeClopyToClipboard.Click += ButtonDaysOfLifeCopyToClipboard_Click;
+			buttonDaysOfLifeClopyToClipboard.Enter += SetStatusBar_Enter;
+			buttonDaysOfLifeClopyToClipboard.Leave += ClearStatusBar_Leave;
+			buttonDaysOfLifeClopyToClipboard.MouseEnter += SetStatusBar_Enter;
+			buttonDaysOfLifeClopyToClipboard.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tabPageDaysOfYear
 			// 
@@ -896,10 +899,10 @@
 			toolTip.SetToolTip(tabPageDaysOfYear, "Shows the tab page \"Days of year\"");
 			tabPageDaysOfYear.ToolTipText = "Days of year";
 			tabPageDaysOfYear.UseVisualStyleBackColor = true;
-			tabPageDaysOfYear.Enter += SetStatusbar_Enter;
-			tabPageDaysOfYear.Leave += ClearStatusbar_Leave;
-			tabPageDaysOfYear.MouseEnter += SetStatusbar_Enter;
-			tabPageDaysOfYear.MouseLeave += ClearStatusbar_Leave;
+			tabPageDaysOfYear.Enter += SetStatusBar_Enter;
+			tabPageDaysOfYear.Leave += ClearStatusBar_Leave;
+			tabPageDaysOfYear.MouseEnter += SetStatusBar_Enter;
+			tabPageDaysOfYear.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonDaysOfYearCopyFromClipboard
 			// 
@@ -929,11 +932,11 @@
 			buttonDaysOfYearClopyToClipboard.TabIndex = 9;
 			toolTip.SetToolTip(buttonDaysOfYearClopyToClipboard, "Copy the result to clipboard");
 			buttonDaysOfYearClopyToClipboard.UseVisualStyleBackColor = true;
-			buttonDaysOfYearClopyToClipboard.Click += ButtonDaysOfYearClopyToClipboard_Click;
-			buttonDaysOfYearClopyToClipboard.Enter += SetStatusbar_Enter;
-			buttonDaysOfYearClopyToClipboard.Leave += ClearStatusbar_Leave;
-			buttonDaysOfYearClopyToClipboard.MouseEnter += SetStatusbar_Enter;
-			buttonDaysOfYearClopyToClipboard.MouseLeave += ClearStatusbar_Leave;
+			buttonDaysOfYearClopyToClipboard.Click += ButtonDaysOfYearCopyToClipboard_Click;
+			buttonDaysOfYearClopyToClipboard.Enter += SetStatusBar_Enter;
+			buttonDaysOfYearClopyToClipboard.Leave += ClearStatusBar_Leave;
+			buttonDaysOfYearClopyToClipboard.MouseEnter += SetStatusBar_Enter;
+			buttonDaysOfYearClopyToClipboard.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDaysOfYear
 			// 
@@ -949,10 +952,10 @@
 			labelDaysOfYear.TabIndex = 3;
 			labelDaysOfYear.Text = "&Days:";
 			toolTip.SetToolTip(labelDaysOfYear, "Description of the days of the year");
-			labelDaysOfYear.Enter += SetStatusbar_Enter;
-			labelDaysOfYear.Leave += ClearStatusbar_Leave;
-			labelDaysOfYear.MouseEnter += SetStatusbar_Enter;
-			labelDaysOfYear.MouseLeave += ClearStatusbar_Leave;
+			labelDaysOfYear.Enter += SetStatusBar_Enter;
+			labelDaysOfYear.Leave += ClearStatusBar_Leave;
+			labelDaysOfYear.MouseEnter += SetStatusBar_Enter;
+			labelDaysOfYear.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDate
 			// 
@@ -968,10 +971,10 @@
 			labelDate.TabIndex = 0;
 			labelDate.Text = "&Date:";
 			toolTip.SetToolTip(labelDate, "Description of the date");
-			labelDate.Enter += SetStatusbar_Enter;
-			labelDate.Leave += ClearStatusbar_Leave;
-			labelDate.MouseEnter += SetStatusbar_Enter;
-			labelDate.MouseHover += ClearStatusbar_Leave;
+			labelDate.Enter += SetStatusBar_Enter;
+			labelDate.Leave += ClearStatusBar_Leave;
+			labelDate.MouseEnter += SetStatusBar_Enter;
+			labelDate.MouseHover += ClearStatusBar_Leave;
 			// 
 			// dateTimePickerDaysOfYear
 			// 
@@ -985,10 +988,10 @@
 			dateTimePickerDaysOfYear.TabIndex = 1;
 			toolTip.SetToolTip(dateTimePickerDaysOfYear, "Date");
 			dateTimePickerDaysOfYear.ValueChanged += DateTimePickerDaysOfYear_ValueChanged;
-			dateTimePickerDaysOfYear.Enter += SetStatusbar_Enter;
-			dateTimePickerDaysOfYear.Leave += ClearStatusbar_Leave;
-			dateTimePickerDaysOfYear.MouseEnter += SetStatusbar_Enter;
-			dateTimePickerDaysOfYear.MouseHover += ClearStatusbar_Leave;
+			dateTimePickerDaysOfYear.Enter += SetStatusBar_Enter;
+			dateTimePickerDaysOfYear.Leave += ClearStatusBar_Leave;
+			dateTimePickerDaysOfYear.MouseEnter += SetStatusBar_Enter;
+			dateTimePickerDaysOfYear.MouseHover += ClearStatusBar_Leave;
 			// 
 			// buttonDaysOfYear
 			// 
@@ -996,7 +999,7 @@
 			buttonDaysOfYear.AccessibleName = "Changes the input method of of the days of years";
 			buttonDaysOfYear.AccessibleRole = AccessibleRole.PushButton;
 			buttonDaysOfYear.AutoEllipsis = true;
-			buttonDaysOfYear.Image = Properties.Resources.switch_small;
+			buttonDaysOfYear.Image = Resources.switch_small;
 			buttonDaysOfYear.Location = new Point(298, 7);
 			buttonDaysOfYear.Margin = new Padding(4, 3, 4, 3);
 			buttonDaysOfYear.Name = "buttonDaysOfYear";
@@ -1005,10 +1008,10 @@
 			toolTip.SetToolTip(buttonDaysOfYear, "Changes the input method of of the days of years");
 			buttonDaysOfYear.UseVisualStyleBackColor = true;
 			buttonDaysOfYear.Click += ButtonDaysOfYear_Click;
-			buttonDaysOfYear.Enter += SetStatusbar_Enter;
-			buttonDaysOfYear.Leave += ClearStatusbar_Leave;
-			buttonDaysOfYear.MouseEnter += SetStatusbar_Enter;
-			buttonDaysOfYear.MouseHover += ClearStatusbar_Leave;
+			buttonDaysOfYear.Enter += SetStatusBar_Enter;
+			buttonDaysOfYear.Leave += ClearStatusBar_Leave;
+			buttonDaysOfYear.MouseEnter += SetStatusBar_Enter;
+			buttonDaysOfYear.MouseHover += ClearStatusBar_Leave;
 			// 
 			// labelDaysOfYearPassed
 			// 
@@ -1024,11 +1027,11 @@
 			labelDaysOfYearPassed.TabIndex = 4;
 			labelDaysOfYearPassed.Text = "It has been XXX days since the start of this year.";
 			toolTip.SetToolTip(labelDaysOfYearPassed, "How many days have been since the start of the year");
-			labelDaysOfYearPassed.Enter += SetStatusbar_Enter;
-			labelDaysOfYearPassed.Leave += ClearStatusbar_Leave;
-			labelDaysOfYearPassed.MouseEnter += SetStatusbar_Enter;
-			labelDaysOfYearPassed.MouseLeave += ClearStatusbar_Leave;
-			labelDaysOfYearPassed.MouseHover += ClearStatusbar_Leave;
+			labelDaysOfYearPassed.Enter += SetStatusBar_Enter;
+			labelDaysOfYearPassed.Leave += ClearStatusBar_Leave;
+			labelDaysOfYearPassed.MouseEnter += SetStatusBar_Enter;
+			labelDaysOfYearPassed.MouseLeave += ClearStatusBar_Leave;
+			labelDaysOfYearPassed.MouseHover += ClearStatusBar_Leave;
 			// 
 			// tabPageAbout
 			// 
@@ -1050,10 +1053,10 @@
 			toolTip.SetToolTip(tabPageAbout, "Shows the tab page \"About\"");
 			tabPageAbout.ToolTipText = "About";
 			tabPageAbout.UseVisualStyleBackColor = true;
-			tabPageAbout.Enter += SetStatusbar_Enter;
-			tabPageAbout.Leave += ClearStatusbar_Leave;
-			tabPageAbout.MouseEnter += SetStatusbar_Enter;
-			tabPageAbout.MouseHover += ClearStatusbar_Leave;
+			tabPageAbout.Enter += SetStatusBar_Enter;
+			tabPageAbout.Leave += ClearStatusBar_Leave;
+			tabPageAbout.MouseEnter += SetStatusBar_Enter;
+			tabPageAbout.MouseHover += ClearStatusBar_Leave;
 			// 
 			// pictureBox
 			// 
@@ -1067,8 +1070,8 @@
 			pictureBox.Size = new Size(37, 37);
 			pictureBox.TabIndex = 0;
 			pictureBox.TabStop = false;
-			pictureBox.MouseEnter += SetStatusbar_Enter;
-			pictureBox.MouseLeave += ClearStatusbar_Leave;
+			pictureBox.MouseEnter += SetStatusBar_Enter;
+			pictureBox.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tabPageLicense
 			// 
@@ -1084,10 +1087,10 @@
 			toolTip.SetToolTip(tabPageLicense, "Shows the tab page \"License\"");
 			tabPageLicense.ToolTipText = "License";
 			tabPageLicense.UseVisualStyleBackColor = true;
-			tabPageLicense.Enter += SetStatusbar_Enter;
-			tabPageLicense.Leave += ClearStatusbar_Leave;
-			tabPageLicense.MouseEnter += SetStatusbar_Enter;
-			tabPageLicense.MouseLeave += ClearStatusbar_Leave;
+			tabPageLicense.Enter += SetStatusBar_Enter;
+			tabPageLicense.Leave += ClearStatusBar_Leave;
+			tabPageLicense.MouseEnter += SetStatusBar_Enter;
+			tabPageLicense.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// BottomToolStripPanel
 			// 
@@ -1209,7 +1212,7 @@
 			Text = "Days Counter";
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)numericUpDownDays).EndInit();
+			((ISupportInitialize)numericUpDownDays).EndInit();
 			tabControl.ResumeLayout(false);
 			tabPageDateToDate.ResumeLayout(false);
 			tabPageDateToDate.PerformLayout();
@@ -1221,7 +1224,7 @@
 			tabPageDaysOfYear.PerformLayout();
 			tabPageAbout.ResumeLayout(false);
 			tabPageAbout.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
+			((ISupportInitialize)pictureBox).EndInit();
 			tabPageLicense.ResumeLayout(false);
 			tabPageLicense.PerformLayout();
 			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);

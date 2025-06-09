@@ -30,7 +30,7 @@ namespace DaysCounter
 			Debug.WriteLine(value: msg);
 			Console.WriteLine(value: msg);
 			Logger.Error(exception: ex, message: msg);
-			_ = MessageBox.Show(text: message, caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			_ = MessageBox.Show(text: message, caption: @"Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -43,7 +43,7 @@ namespace DaysCounter
 		/// Set a specific text to the status bar
 		/// </summary>
 		/// <param name="text">text with some information</param>
-		private void SetStatusbarText(string text)
+		private void SetStatusBarText(string text)
 		{
 			labelInformation.Enabled = !string.IsNullOrEmpty(value: text);
 			labelInformation.Text = text;
@@ -59,7 +59,7 @@ namespace DaysCounter
 			{
 				days *= -1;
 			}
-			labelDaysCounted.Text = $"They are {Math.Truncate(d: days)} days.";
+			labelDaysCounted.Text = $@"They are {Math.Truncate(d: days)} days.";
 		}
 
 		/// <summary>
@@ -77,7 +77,7 @@ namespace DaysCounter
 			{
 				daysOld *= -1;
 			}
-			labelDaysOld.Text = $"You are {Math.Truncate(d: daysOld)} days old.";
+			labelDaysOld.Text = $@"You are {Math.Truncate(d: daysOld)} days old.";
 		}
 
 		/// <summary>
@@ -85,7 +85,7 @@ namespace DaysCounter
 		/// </summary>
 		private void CountDaysOfYear()
 		{
-			labelDaysOfYearPassed.Text = $"It has been {dateTimePickerDaysOfYear.Value.DayOfYear} days since the start of this year.";
+			labelDaysOfYearPassed.Text = $@"It has been {dateTimePickerDaysOfYear.Value.DayOfYear} days since the start of this year.";
 		}
 
 		/// <summary>
@@ -121,7 +121,7 @@ namespace DaysCounter
 			try
 			{
 				Clipboard.SetText(text: text);
-				_ = MessageBox.Show(text: "Copied to clipboard", caption: "Information", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+				_ = MessageBox.Show(text: @"Copied to clipboard", caption: @"Information", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 			}
 			catch (Exception ex)
 			{
@@ -138,7 +138,7 @@ namespace DaysCounter
 			string date = Clipboard.GetText();
 			if (string.IsNullOrEmpty(value: date))
 			{
-				_ = MessageBox.Show(text: "The clipboard is empty.", caption: "Information", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+				_ = MessageBox.Show(text: @"The clipboard is empty.", caption: @"Information", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 				return;
 			}
 			if (DateTime.TryParse(s: date, result: out DateTime parsedDate))
@@ -147,7 +147,7 @@ namespace DaysCounter
 			}
 			else
 			{
-				_ = MessageBox.Show(text: "The clipboard does not contain a valid date.", caption: "Warning", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
+				_ = MessageBox.Show(text: @"The clipboard does not contain a valid date.", caption: @"Warning", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
 			}
 		}
 
@@ -161,16 +161,16 @@ namespace DaysCounter
 		public MainForm()
 		{
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(MainForm_KeyDown);
-			this.KeyPreview = true; // Ensures the form receives key events before the controls
-			ClearStatusbar_Leave(sender: null, e: null);
+			KeyDown += MainForm_KeyDown;
+			KeyPreview = true; // Ensures the form receives key events before the controls
+			ClearStatusBar_Leave(sender: null, e: null);
 			CountDaysFromDateToDate();
 			CountDaysFromDaySpan();
 			CountDaysOfLife();
 			CountDaysOfYear();
-			labelTitle.Text = $"{AssemblyInfo.AssemblyProduct} {AssemblyInfo.AssemblyVersion}";
+			labelTitle.Text = $@"{AssemblyInfo.AssemblyProduct} {AssemblyInfo.AssemblyVersion}";
 			labelDescription.Text = AssemblyInfo.AssemblyDescription;
-			labelCopyright.Text = $"{AssemblyInfo.AssemblyCopyright}";
+			labelCopyright.Text = $@"{AssemblyInfo.AssemblyCopyright}";
 		}
 
 		#endregion
@@ -245,14 +245,14 @@ namespace DaysCounter
 		/// </summary>
 		/// <param name="sender">The source of the event</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
-		private void ButtonDaysOfLifeClopyToClipboard_Click(object sender, EventArgs e) => CopyToClipboard(text: labelDaysOld.Text);
+		private void ButtonDaysOfLifeCopyToClipboard_Click(object sender, EventArgs e) => CopyToClipboard(text: labelDaysOld.Text);
 
 		/// <summary>
 		/// Copies the calculated days of the year to the clipboard
 		/// </summary>
 		/// <param name="sender">The source of the event</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
-		private void ButtonDaysOfYearClopyToClipboard_Click(object sender, EventArgs e) => CopyToClipboard(text: labelDaysOfYearPassed.Text);
+		private void ButtonDaysOfYearCopyToClipboard_Click(object sender, EventArgs e) => CopyToClipboard(text: labelDaysOfYearPassed.Text);
 
 		/// <summary>
 		/// Copies a date from the clipboard to the beginning date DateTimePicker
@@ -358,38 +358,19 @@ namespace DaysCounter
 		/// </summary>
 		/// <param name="sender">The event source</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
-			try
+			// Set the status bar text based on the sender's accessible description
+			switch (sender)
 			{
-				if (sender is Control { AccessibleDescription: { } } control)
-				{
-					SetStatusbarText(text: control.AccessibleDescription);
-				}
-				else if (sender is ToolStripMenuItem { AccessibleDescription: { } } control2)
-				{
-					SetStatusbarText(text: control2.AccessibleDescription);
-				}
-				else if (sender is ToolStripStatusLabel { AccessibleDescription: { } } control3)
-				{
-					SetStatusbarText(text: control3.AccessibleDescription);
-				}
-				else if (sender is ToolStripButton { AccessibleDescription: { } } control4)
-				{
-					SetStatusbarText(text: control4.AccessibleDescription);
-				}
-				else if (sender is ToolStripDropDownButton { AccessibleDescription: { } } control5)
-				{
-					SetStatusbarText(text: control5.AccessibleDescription);
-				}
-				else if (sender is ToolStripSplitButton { AccessibleDescription: { } } control6)
-				{
-					SetStatusbarText(text: control6.AccessibleDescription);
-				}
-			}
-			catch (Exception ex)
-			{
-				HandleException(ex: ex, message: "An error occurred while setting the status bar text.", sender: sender, e: e);
+				// If the sender is a control with an accessible description, set the status bar text
+				// If the sender is a ToolStripItem with an accessible description, set the status bar text
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBarText(text: control.AccessibleDescription);
+					break;
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBarText(text: item.AccessibleDescription);
+					break;
 			}
 		}
 
@@ -402,7 +383,7 @@ namespace DaysCounter
 		/// </summary>
 		/// <param name="sender">The source of the event</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data</param>
-		private void ClearStatusbar_Leave(object? sender, EventArgs? e) => SetStatusbarText(text: string.Empty);
+		private void ClearStatusBar_Leave(object? sender, EventArgs? e) => SetStatusBarText(text: string.Empty);
 
 		#endregion
 
@@ -418,7 +399,7 @@ namespace DaysCounter
 		{
 			if (e.KeyCode == Keys.Escape)
 			{
-				this.Close();
+				Close();
 			}
 		}
 
