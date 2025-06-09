@@ -56,7 +56,7 @@ namespace DaysCounter
 		private static void LogError(Exception ex)
 		{
 			// Implement logging logic here (e.g., log to a file or monitoring system)
-			Console.WriteLine(value: $"Error: {ex.Message}\n{ex.StackTrace}");
+			Console.WriteLine(value: $@"Error: {ex.Message} {ex.StackTrace}");
 		}
 
 		/// <summary>
@@ -65,7 +65,7 @@ namespace DaysCounter
 		/// <param name="message">The error message to display.</param>
 		private static void ShowErrorMessage(string message)
 		{
-			_ = MessageBox.Show(text: message, caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			_ = MessageBox.Show(text: message, caption: @"Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 	}
 }
